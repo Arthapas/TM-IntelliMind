@@ -13,9 +13,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from django.core.management.utils import get_random_secret_key
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env files
+# Priority: .env.development > .env
+if os.path.exists(BASE_DIR / '.env.development'):
+    load_dotenv(BASE_DIR / '.env.development')
+elif os.path.exists(BASE_DIR / '.env'):
+    load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +33,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+# Default to True for development if .env.development exists
+DEBUG = os.environ.get('DEBUG', 'true' if os.path.exists(BASE_DIR / '.env.development') else 'false').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else ['localhost', '127.0.0.1']
 
@@ -143,6 +152,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 FILE_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024  # 100MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024  # 100MB
 
+# Audio processing settings
+AUDIO_CHUNK_THRESHOLD = int(os.getenv('AUDIO_CHUNK_THRESHOLD', 2 * 1024 * 1024))  # 2MB - files larger than this get chunked (enables progressive transcription)
+AUDIO_CHUNK_DURATION = float(os.getenv('AUDIO_CHUNK_DURATION', 60.0))  # 60 seconds per chunk (optimal for Whisper processing)
+AUDIO_OVERLAP_DURATION = float(os.getenv('AUDIO_OVERLAP_DURATION', 3.0))  # 3 seconds overlap between chunks (minimizes transcription gaps)
+AUDIO_MAX_CHUNK_DURATION = float(os.getenv('AUDIO_MAX_CHUNK_DURATION', 90.0))  # Maximum chunk length
+AUDIO_MIN_CHUNK_DURATION = float(os.getenv('AUDIO_MIN_CHUNK_DURATION', 15.0))  # Minimum chunk length
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -180,6 +196,11 @@ LOGGING = {
             'handlers': ['file', 'console'],
             'level': 'INFO',
             'propagate': True,
+        },
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'WARNING',  # Reduce HTTP request noise
+            'propagate': False,
         },
         'core': {
             'handlers': ['file', 'console'],

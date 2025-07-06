@@ -18,11 +18,45 @@ TM IntelliMind is a centralized intelligence platform that transforms how organi
 - **Responsive Design**: Wide screen CSS with 5 breakpoints (1200px → 1920px+)
 - **Admin Interface**: Fully configured Django admin for all models
 
+## Development Setup
+
+### Quick Start
+
+```bash
+# First-time setup
+pip3 install -r requirements.txt
+cp .env.example .env.development
+
+# Start development server (automatically finds available port)
+./runserver.sh
+
+# Alternative: Manual start
+python3 manage.py runserver 8006
+```
+
+### Environment Configuration
+
+The project uses python-dotenv for environment management:
+
+- **`.env.development`**: Local development settings (auto-loaded, DEBUG=true by default)
+- **`.env`**: Production settings
+- **`.env.example`**: Template for environment variables
+
+Priority: `.env.development` > `.env` > environment variables > defaults
+
 ## Common Commands
 
 ```bash
-# Development server (port 8004 may be occupied, use alternatives)
-python3 manage.py runserver 8005
+# Development server - RECOMMENDED: Use the startup script
+./runserver.sh  # Automatically finds available port, checks LMStudio, validates environment
+
+# Alternative: Manual server start
+python3 manage.py runserver 8006
+
+# Server script features:
+# - Automatic port detection (starts at 8006, increments if busy)
+# - LMStudio connectivity check with warnings
+# - Environment file validation (.env.development)
 
 # Database operations
 python3 manage.py makemigrations
@@ -33,13 +67,14 @@ python3 manage.py createsuperuser
 python3 manage.py check
 
 # Dependency management
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Model pre-loading (recommended on first setup)
 python3 manage.py preload_whisper_models --models medium large-v2 --validate
 
-# Performance testing
+# Performance testing with example audio
 python3 test_enhanced_whisper.py
+# Uses example-audio/Commute-from-home.wav for consistent testing
 
 # Model cache management
 python3 manage.py whisper_cache_info --detailed
@@ -49,7 +84,7 @@ python3 manage.py whisper_cache_info --cleanup
 python3 manage.py test core
 python3 manage.py test
 
-# Environment setup for production
+# Production environment setup (use .env file instead)
 export DEBUG=false
 export SECRET_KEY="your-secret-key-here"
 export DB_NAME="tm_intellimind_db"
@@ -61,17 +96,27 @@ export LLM_API_BASE="http://localhost:1234/v1"
 ### Database Models & Relationships
 
 The application follows a linear workflow: Meeting → Transcript → Insight
+For large files: Meeting → AudioChunk (1:N) → Transcript → Insight
 
 **Meeting** (`core.models.Meeting`):
 - UUID primary key with audio file upload to `media/audio/{meeting_id}/`
 - Optional user association via `created_by` (not `user`)
 - Metadata fields: `title`, `description`, `original_filename`, `file_size`, `duration`
+- Transcription model selection via `transcription_model` field
+
+**AudioChunk** (`core.models.AudioChunk`):
+- ForeignKey relationship with Meeting (1:N for large files)
+- Sequential chunk processing with `chunk_index` ordering
+- Time-based segmentation: `start_time`, `end_time` (usually 30-second chunks)
+- Individual chunk status: pending → processing → completed/failed
+- Transcript text storage and confidence scoring per chunk
 
 **Transcript** (`core.models.Transcript`):
 - OneToOne relationship with Meeting
 - Whisper model selection via `whisper_model` field (not `model`)
 - Status tracking: pending → processing → completed/failed
 - Progress percentage (0-100) and error handling
+- Final assembled transcript from all chunks
 
 **Insight** (`core.models.Insight`):
 - OneToOne relationship with Meeting
@@ -81,12 +126,26 @@ The application follows a linear workflow: Meeting → Transcript → Insight
 
 ### Core Workflow & API Design
 
+**Standard Flow** (Small Files <100MB):
 1. **File Upload** (`POST /upload-audio/`): Multi-format validation with security checks
 2. **Transcription** (`POST /start-transcription/`): Background processing with real-time progress
 3. **Progress Polling** (`GET /transcription-progress/`): Non-blocking status updates
+
+**Enhanced Flow** (Large Files >100MB):
+1. **File Upload** (`POST /upload-audio/`): Automatic progressive transcription initialization
+2. **Chunking Progress** (`GET /chunking-progress/`): Unified progress tracking for chunking + transcription
+3. **Real-time Updates**: Progressive transcript building as chunks complete
+
+**Common Endpoints**:
 4. **Insight Generation** (`POST /generate-insights/`): LLM-powered analysis
 5. **Final Storage** (`POST /save-analysis/`): Persist complete workflow results
 6. **Meeting Management** (`DELETE /meeting/<uuid>/delete/`): Complete deletion with file cleanup
+
+**Enhanced Progress API** (`GET /chunking-progress/`):
+- Detailed chunk-level status information
+- Quality metrics with confidence scores
+- Dynamic time estimation with phase breakdown
+- Processing rate tracking and optimization
 
 All endpoints return standardized JSON with `success` boolean and error handling.
 
@@ -101,6 +160,18 @@ headers: {
 ```
 
 ### Enhanced Audio Processing
+
+**Progressive Transcription System** (`core/progressive_transcription.py`):
+- Real-time transcription of large files through chunking (>100MB files)
+- Queue-based processing with up to 3 concurrent transcriptions
+- Sequential chunk reassembly with overlap removal
+- Status tracking: pending → processing → completed/failed per chunk
+
+**Audio Chunking Engine** (`core/audio_chunking.py`):
+- Automatic file segmentation based on size thresholds (default: 30-second chunks)
+- VAD-aware chunking to preserve speech boundaries
+- Format-aware duration estimation for different audio codecs
+- Concurrent chunk creation with progress tracking
 
 **VAD Batching with M4 Optimization**:
 - 12.5x performance improvement through BatchedInferencePipeline
@@ -139,11 +210,18 @@ The frontend uses defensive programming patterns:
 
 ### Progress Tracking System
 
-Real-time updates for long-running operations:
-- WebSocket-like polling with exponential backoff
-- Visual progress indicators with status messages
-- Background task cancellation support
+**Enhanced Progress Display**:
+- **Chunk Status Grid**: Visual grid showing individual chunk states (pending/processing/completed/failed)
+- **Quality Indicators**: Confidence scores with color-coded progress bars
+- **Detailed Timing**: Phase-specific time estimates with processing rates
+- **Real-time Updates**: Progressive transcript building as chunks complete
+
+**Polling Architecture**:
+- WebSocket-like polling with exponential backoff (every 2 seconds)
+- Dual progress tracking: chunking progress + transcription progress
+- Tab visibility detection to reduce server load
 - Session state persistence across browser refreshes
+- Background task cancellation support
 
 ### Wide Screen Responsive Architecture
 
@@ -194,6 +272,10 @@ Real-time updates for long-running operations:
 - Version compatibility checking
 
 ## Testing & Validation
+
+### Test Audio Files
+
+**Example Audio**: Use `example-audio/Commute-from-home.wav` for consistent testing across all audio processing features. This file is specifically referenced in CLAUDE.md instructions for standardized testing.
 
 ### System Health Checks
 
@@ -270,6 +352,8 @@ git push
 
 ### Code Organization
 
+**Core Modules**:
+
 **Utils Module** (`core/utils.py`):
 - Centralized transcription logic with error handling
 - LMStudio integration with health checks
@@ -279,9 +363,27 @@ git push
 **Views Module** (`core/views.py`):
 - API endpoints with standardized JSON responses
 - Background task management via threading
+- Enhanced progress tracking with detailed chunk information
 - File upload handling with security validation
-- Progress tracking for long-running operations
 - Meeting deletion with file system cleanup
+
+**Progressive Transcription** (`core/progressive_transcription.py`):
+- `ProgressiveTranscriber` class for managing concurrent chunk processing
+- Queue-based transcription with resource limits (max 3 concurrent)
+- Sequential chunk reassembly with overlap removal
+- Real-time transcript building and status updates
+
+**Audio Processing** (`core/audio_chunking.py`):
+- `AudioChunker` class for intelligent file segmentation
+- VAD-aware chunking with configurable duration (default: 30 seconds)
+- Format-aware duration estimation and validation
+- Concurrent chunk creation with progress tracking
+
+**Chunk Transcription** (`core/chunk_transcription.py`):
+- `ChunkTranscriber` for individual chunk processing
+- Whisper model integration with confidence scoring
+- Error handling and retry mechanisms
+- Overlap detection and removal algorithms
 
 **Deletion Pattern**:
 ```python
@@ -327,7 +429,16 @@ All financial components use Thai Baht (฿) as the default currency, as the sys
 
 ## Known Issues & Solutions
 
-**Port Conflicts**: Port 8004 may be occupied; use port 8005 or check with `lsof -i :8004`
+**Port Conflicts**: 
+- **Problem**: Ports 8004-8005 often occupied by other services
+- **Solution**: Use `./runserver.sh` which automatically finds available ports
+- **Manual Check**: `lsof -i :8004` to see what's using a port
+- **Default**: Development now uses port 8006 by default
+
+**Development Server Setup**:
+- **Problem**: Django requires `DEBUG=true` environment variable for development
+- **Solution**: `.env.development` file automatically sets DEBUG=true
+- **Quick Fix**: Run `./runserver.sh` instead of manual commands
 
 **SSL Warnings**: urllib3 LibreSSL warnings are cosmetic and don't affect functionality
 
@@ -338,3 +449,14 @@ All financial components use Thai Baht (฿) as the default currency, as the sys
 **CSRF Token Capitalization**: Django strictly requires `X-CSRFToken` header format; `X-Csrftoken` will fail with 403 Forbidden
 
 **Wide Screen Implementation**: Only apply layout optimizations, avoid adding dashboard features unless specifically requested
+
+**Progressive Transcription Display**:
+- **Problem**: Users need real-time feedback on chunk-level transcription progress
+- **Solution**: Enhanced sidebar with chunk status grid, quality indicators, and timing details
+- **Components**: Chunk grid (16x16px colored squares), confidence score averaging, phase-specific time estimates
+- **Visual States**: Pending (gray), Processing (animated yellow), Completed (green), Failed (red)
+
+**Session Management**:
+- **Problem**: Old transcripts persist across browser sessions causing confusion
+- **Solution**: Smart session restoration with user confirmation dialogs
+- **Features**: Time-based auto-restore (10 minutes), UI reset functionality, localStorage cleanup

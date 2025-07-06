@@ -29,14 +29,22 @@ class AudioChunker:
     """
     
     def __init__(self, 
-                 chunk_duration: float = 30.0,  # 30 seconds optimal for Whisper
-                 overlap_duration: float = 5.0,  # 5 seconds overlap
-                 max_chunk_duration: float = 60.0,  # Maximum chunk length
-                 min_chunk_duration: float = 10.0):  # Minimum chunk length
-        self.chunk_duration = chunk_duration
-        self.overlap_duration = overlap_duration
-        self.max_chunk_duration = max_chunk_duration
-        self.min_chunk_duration = min_chunk_duration
+                 chunk_duration: float = None,  # Will use settings or default
+                 overlap_duration: float = None,  # Will use settings or default
+                 max_chunk_duration: float = None,  # Will use settings or default
+                 min_chunk_duration: float = None):  # Will use settings or default
+        
+        # Load from Django settings with fallbacks
+        from django.conf import settings
+        
+        self.chunk_duration = chunk_duration or getattr(settings, 'AUDIO_CHUNK_DURATION', 30.0)
+        self.overlap_duration = overlap_duration or getattr(settings, 'AUDIO_OVERLAP_DURATION', 5.0)
+        self.max_chunk_duration = max_chunk_duration or getattr(settings, 'AUDIO_MAX_CHUNK_DURATION', 60.0)
+        self.min_chunk_duration = min_chunk_duration or getattr(settings, 'AUDIO_MIN_CHUNK_DURATION', 10.0)
+        
+        logger.debug(f"AudioChunker configured - Duration: {self.chunk_duration}s, "
+                    f"Overlap: {self.overlap_duration}s, "
+                    f"Range: {self.min_chunk_duration}s-{self.max_chunk_duration}s")
     
     def should_chunk_file(self, file_size: int) -> bool:
         """
@@ -48,13 +56,13 @@ class AudioChunker:
         Returns:
             True if file should be chunked
         """
-        # Chunk files larger than 100MB
-        chunk_threshold = getattr(settings, 'AUDIO_CHUNK_THRESHOLD', 100 * 1024 * 1024)
+        # Chunk files larger than the configured threshold (default: 2MB)
+        chunk_threshold = getattr(settings, 'AUDIO_CHUNK_THRESHOLD', 2 * 1024 * 1024)
         return file_size > chunk_threshold
     
     def get_audio_duration(self, audio_path: str) -> float:
         """
-        Get audio duration in seconds
+        Get audio duration in seconds with enhanced reliability
         
         Args:
             audio_path: Path to audio file
@@ -62,18 +70,117 @@ class AudioChunker:
         Returns:
             Duration in seconds
         """
-        try:
-            # Try with torchaudio first (more reliable for various formats)
-            info = torchaudio.info(audio_path)
-            return info.num_frames / info.sample_rate
-        except Exception:
+        # Try multiple methods for maximum reliability
+        methods = [
+            ("torchaudio", self._get_duration_torchaudio),
+            ("pydub", self._get_duration_pydub),
+            ("ffprobe", self._get_duration_ffprobe)
+        ]
+        
+        for method_name, method_func in methods:
             try:
-                # Fallback to pydub
-                audio = AudioSegment.from_file(audio_path)
-                return len(audio) / 1000.0  # Convert ms to seconds
+                duration = method_func(audio_path)
+                if duration > 0:
+                    logger.info(f"Audio duration detected via {method_name}: {duration:.2f} seconds")
+                    return duration
             except Exception as e:
-                logger.error(f"Failed to get audio duration: {e}")
-                return 0.0
+                logger.warning(f"Duration detection failed with {method_name}: {e}")
+                continue
+        
+        logger.error(f"All duration detection methods failed for: {audio_path}")
+        return 0.0
+    
+    def _get_duration_torchaudio(self, audio_path: str) -> float:
+        """Get duration using torchaudio (most reliable for various formats)"""
+        info = torchaudio.info(audio_path)
+        return info.num_frames / info.sample_rate
+    
+    def _get_duration_pydub(self, audio_path: str) -> float:
+        """Get duration using pydub (good fallback)"""
+        audio = AudioSegment.from_file(audio_path)
+        return len(audio) / 1000.0  # Convert ms to seconds
+    
+    def _get_duration_ffprobe(self, audio_path: str) -> float:
+        """Get duration using ffprobe command (most comprehensive)"""
+        import subprocess
+        import json
+        
+        cmd = [
+            'ffprobe', '-v', 'quiet', '-print_format', 'json',
+            '-show_format', audio_path
+        ]
+        
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            raise Exception(f"ffprobe failed: {result.stderr}")
+        
+        data = json.loads(result.stdout)
+        duration_str = data.get('format', {}).get('duration')
+        if duration_str:
+            return float(duration_str)
+        
+        raise Exception("Duration not found in ffprobe output")
+    
+    def estimate_duration_from_file_size(self, file_size: int, file_extension: str) -> float:
+        """
+        Estimate audio duration from file size using format-aware compression ratios
+        
+        Args:
+            file_size: File size in bytes
+            file_extension: File extension (e.g., '.mp3', '.wav', '.m4a')
+            
+        Returns:
+            Estimated duration in seconds
+        """
+        # Format-specific compression ratios (MB per minute)
+        # Adjusted to more conservative estimates for typical user uploads
+        compression_ratios = {
+            '.mp3': 1.0,    # ~1MB per minute (more conservative for typical MP3s)
+            '.wav': 10.0,   # Uncompressed WAV
+            '.m4a': 0.5,    # ~0.5MB per minute (conservative M4A/AAC)
+            '.mp4': 0.8,    # ~0.8MB per minute (MP4 audio)
+            '.flac': 5.0,   # Lossless compression
+            '.ogg': 0.8,    # ~0.8MB per minute OGG Vorbis
+            '.aac': 0.5,    # ~0.5MB per minute AAC
+        }
+        
+        # Default to MP3 ratio if format unknown
+        mb_per_minute = compression_ratios.get(file_extension.lower(), 1.0)
+        
+        # Calculate estimated duration
+        file_size_mb = file_size / (1024 * 1024)
+        estimated_minutes = file_size_mb / mb_per_minute
+        estimated_seconds = estimated_minutes * 60
+        
+        logger.debug(f"Format-aware estimation for {file_extension}: "
+                    f"{file_size_mb:.2f}MB → {estimated_minutes:.2f}min → {estimated_seconds:.2f}s "
+                    f"(ratio: {mb_per_minute}MB/min)")
+        
+        return estimated_seconds
+    
+    def get_audio_duration_with_fallback(self, audio_path: str, file_size: int) -> float:
+        """
+        Get audio duration with intelligent fallback to format-aware estimation
+        
+        Args:
+            audio_path: Path to audio file
+            file_size: File size in bytes
+            
+        Returns:
+            Duration in seconds
+        """
+        # First try to get actual duration
+        actual_duration = self.get_audio_duration(audio_path)
+        
+        if actual_duration > 0:
+            return actual_duration
+        
+        # Fallback to format-aware estimation
+        file_extension = os.path.splitext(audio_path)[1]
+        estimated_duration = self.estimate_duration_from_file_size(file_size, file_extension)
+        
+        logger.warning(f"Using format-aware estimation for {audio_path}: {estimated_duration:.2f}s")
+        return estimated_duration
     
     def create_vad_aware_chunks(self, audio_path: str, meeting: Meeting) -> List[Tuple[float, float]]:
         """
@@ -258,7 +365,7 @@ class AudioChunker:
                 chunk_size = os.path.getsize(chunk_path) if os.path.exists(chunk_path) else 0
                 
                 # Create AudioChunk record
-                AudioChunk.objects.create(
+                chunk = AudioChunk.objects.create(
                     meeting=meeting,
                     chunk_index=idx,
                     start_time=start_time,
@@ -270,12 +377,34 @@ class AudioChunker:
                 )
                 
                 logger.info(f"Created chunk {idx}: {start_time:.1f}s-{end_time:.1f}s")
+                
+                # Add chunk to progressive transcription queue immediately
+                try:
+                    from .progressive_transcription import add_chunk_to_transcription_queue
+                    add_chunk_to_transcription_queue(chunk)
+                    logger.info(f"Added chunk {idx} to transcription queue")
+                except Exception as e:
+                    logger.error(f"Failed to add chunk {idx} to transcription queue: {e}")
             
             logger.info(f"Successfully created {len(chunk_segments)} chunks for meeting {meeting.id}")
+            
+            # Mark chunking as complete for progressive transcription
+            try:
+                from .progressive_transcription import mark_chunking_complete
+                mark_chunking_complete(meeting, len(chunk_segments))
+            except Exception as e:
+                logger.error(f"Failed to mark chunking complete: {e}")
+            
             return True
             
         except Exception as e:
             logger.error(f"Audio chunking failed: {e}")
+            # Also mark chunking complete on failure (with no expected count)
+            try:
+                from .progressive_transcription import mark_chunking_complete
+                mark_chunking_complete(meeting, 0)
+            except Exception:
+                pass
             return False
 
 

@@ -293,11 +293,19 @@ def get_or_create_batched_model(model_size='base'):
             chunk_length = 30
         
         try:
-            # Create enhanced batched inference pipeline with v1.1.1 features
-            # Note: BatchedInferencePipeline in v1.1.1 only takes model parameter
-            _batched_model_cache[model_size] = BatchedInferencePipeline(model=base_model)
-            
-            logger.info(f"Enhanced batched model created: batch_size={batch_size}, chunk_length={chunk_length}, VAD enabled")
+            # Create enhanced batched inference pipeline
+            # Check BatchedInferencePipeline constructor signature for parameter support
+            try:
+                # Try with additional parameters if supported in this version
+                _batched_model_cache[model_size] = BatchedInferencePipeline(
+                    model=base_model,
+                    batch_size=batch_size
+                )
+                logger.info(f"Enhanced batched model created with batch_size={batch_size}")
+            except TypeError:
+                # Fallback: BatchedInferencePipeline only accepts model parameter
+                _batched_model_cache[model_size] = BatchedInferencePipeline(model=base_model)
+                logger.info(f"Basic batched model created (batch_size configuration not supported)")
             
         except Exception as e:
             logger.error(f"Failed to create batched model {model_size}: {str(e)}")
@@ -670,12 +678,10 @@ def transcribe_audio(audio_path, model_size='base', transcript_obj=None, languag
             transcription_params['no_speech_threshold'] = 0.6
             
         # Enhanced batched-specific parameters
+        # Note: batch_size, chunk_length, vad_filter are BatchedInferencePipeline configuration,
+        # not transcribe() parameters - they should be set during pipeline creation
         if use_batched_model and BATCHED_INFERENCE_AVAILABLE:
-            memory_info = get_memory_info()
-            transcription_params['vad_filter'] = True
-            transcription_params['batch_size'] = 16 if memory_info['available'] > 8*(1024**3) else 8
-            transcription_params['chunk_length'] = 30
-            logger.info(f"VAD filtering enabled with batch_size={transcription_params['batch_size']}")
+            logger.info("Using batched inference pipeline with pre-configured VAD and batching")
         
         logger.info(f"Enhanced transcription parameters ({len(transcription_params)}): {list(transcription_params.keys())}")
         

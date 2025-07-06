@@ -651,3 +651,35 @@ INFO "GET /create-insight/ HTTP/1.1" 200 74850
 INFO "GET /create-insight/ HTTP/1.1" 200 74850
 INFO "GET / HTTP/1.1" 200 26890
 INFO "GET /create-insight/ HTTP/1.1" 200 74850
+INFO "GET /create-insight/ HTTP/1.1" 200 75807
+INFO Starting chunking for meeting 6e7e263f-704d-4294-8ce9-192930bce488
+INFO "POST /upload-audio/ HTTP/1.1" 200 162
+INFO Attempting VAD-aware chunking
+INFO VAD detection failed or found single segment, falling back to time-based
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/torchaudio/_backend/soundfile_backend.py:71: UserWarning: The MPEG_LAYER_III subtype is unknown to TorchAudio. As a result, the bits_per_sample attribute will be set to 0. If you are seeing this warning, please report by opening an issue on github (after checking for existing/closed ones). You may otherwise ignore this warning.
+  warnings.warn(
+INFO Time-based chunking created 293 chunks
+INFO Saved chunk: 0.0s-30.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/6e7e263f-704d-4294-8ce9-192930bce488/chunks/chunk_000_0.0s-30.0s.wav
+ERROR Audio chunking failed: no such table: core_audiochunk
+ERROR Failed to create chunks for meeting 6e7e263f-704d-4294-8ce9-192930bce488
+INFO "POST /start-transcription/ HTTP/1.1" 200 53
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "POST /start-transcription/ HTTP/1.1" 200 53
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+INFO "GET /transcription-progress/?meeting_id=6e7e263f-704d-4294-8ce9-192930bce488 HTTP/1.1" 200 61
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): core.
+Run 'python manage.py migrate' to apply them.
+July 06, 2025 - 16:39:38
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+

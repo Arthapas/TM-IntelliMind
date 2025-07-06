@@ -9,13 +9,24 @@ def upload_audio_path(instance, filename):
 
 
 class Meeting(models.Model):
+    WHISPER_MODEL_CHOICES = [
+        ('tiny', 'Tiny'),
+        ('base', 'Base'),
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+        ('large-v2', 'Large V2'),
+        ('large-v3', 'Large V3'),
+    ]
+    
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     audio_file = models.FileField(upload_to=upload_audio_path, blank=True, null=True)
     original_filename = models.CharField(max_length=255, blank=True)
     file_size = models.BigIntegerField(blank=True, null=True)
-    duration = models.DurationField(blank=True, null=True)
+    duration = models.FloatField(blank=True, null=True, help_text="Duration in seconds")
+    transcription_model = models.CharField(max_length=20, choices=WHISPER_MODEL_CHOICES, default='medium')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)

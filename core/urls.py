@@ -11,6 +11,7 @@ urlpatterns = [
     path('upload-audio/', views.upload_audio, name='upload_audio'),
     path('start-transcription/', views.start_transcription, name='start_transcription'),
     path('transcription-progress/', views.transcription_progress, name='transcription_progress'),
+    path('chunking-progress/', views.chunking_progress, name='chunking_progress'),
     path('generate-insights/', views.generate_insights, name='generate_insights'),
     path('insights-progress/', views.insights_progress, name='insights_progress'),
     path('save-analysis/', views.save_analysis, name='save_analysis'),

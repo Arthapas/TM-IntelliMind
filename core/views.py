@@ -85,6 +85,16 @@ def upload_audio(request):
         
         audio_file = request.FILES['audio_file']
         
+        # Get transcription model from form data
+        transcription_model = request.POST.get('transcription_model', 'medium')
+        
+        # Validate transcription model
+        valid_models = ['tiny', 'base', 'small', 'medium', 'large', 'large-v2', 'large-v3']
+        if transcription_model not in valid_models:
+            return JsonResponse({'success': False, 'error': 'Invalid transcription model'})
+        
+        logger.info(f"Upload request: file={audio_file.name}, size={audio_file.size}, model={transcription_model}")
+        
         # Validate file type
         allowed_extensions = ['.mp3', '.wav', '.m4a', '.mp4']
         file_extension = os.path.splitext(audio_file.name)[1].lower()
@@ -101,6 +111,7 @@ def upload_audio(request):
             title=f"Meeting {timezone.now().strftime('%Y-%m-%d %H:%M')}",
             original_filename=audio_file.name,
             file_size=audio_file.size,
+            transcription_model=transcription_model,
             created_by=request.user if request.user.is_authenticated else None
         )
         
@@ -109,35 +120,105 @@ def upload_audio(request):
         meeting.audio_file = file_path
         meeting.save()
         
-        # Create transcript record
-        Transcript.objects.create(meeting=meeting)
+        # Create transcript record with model from meeting
+        Transcript.objects.create(meeting=meeting, whisper_model=transcription_model)
         
         # Check if file needs chunking and create chunks if necessary
-        chunk_threshold = 100 * 1024 * 1024  # 100MB
+        from django.conf import settings
+        chunk_threshold = getattr(settings, 'AUDIO_CHUNK_THRESHOLD', 2 * 1024 * 1024)  # Use settings, fallback to 2MB
         is_large_file = audio_file.size > chunk_threshold
         
-        if is_large_file:
-            # Start chunking in background thread
-            def create_chunks():
-                try:
-                    success = chunk_meeting_audio(meeting)
-                    if success:
-                        logger.info(f"Successfully created chunks for meeting {meeting.id}")
-                    else:
-                        logger.error(f"Failed to create chunks for meeting {meeting.id}")
-                except Exception as e:
-                    logger.error(f"Chunking error for meeting {meeting.id}: {e}")
-            
-            thread = threading.Thread(target=create_chunks)
-            thread.start()
-        
-        return JsonResponse({
+        # Prepare response data
+        response_data = {
             'success': True,
             'meeting_id': str(meeting.id),
             'message': 'File uploaded successfully',
             'is_large_file': is_large_file,
             'requires_chunking': is_large_file
-        })
+        }
+        
+        if is_large_file:
+            # Calculate chunk estimates using format-aware duration detection
+            from .audio_chunking import AudioChunker
+            chunker = AudioChunker()
+            
+            chunk_duration = 30.0  # 30 seconds per chunk
+            file_size_mb = audio_file.size / (1024 * 1024)
+            
+            # Use format-aware estimation for more accurate chunk count
+            file_extension = os.path.splitext(audio_file.name)[1]
+            estimated_duration_seconds = chunker.estimate_duration_from_file_size(
+                audio_file.size, file_extension
+            )
+            estimated_chunks = max(1, int(estimated_duration_seconds / chunk_duration))
+            
+            logger.info(f"Upload estimates - File: {file_size_mb:.2f}MB {file_extension}, "
+                       f"Duration: {estimated_duration_seconds/60:.2f}min, "
+                       f"Chunks: {estimated_chunks}")
+            
+            # Estimate chunking time (2 seconds per chunk + overhead)
+            estimated_chunking_time = estimated_chunks * 2 + 5
+            
+            response_data['chunking_info'] = {
+                'estimated_chunks': estimated_chunks,
+                'estimated_time_seconds': estimated_chunking_time,
+                'chunk_duration_seconds': chunk_duration,
+                'file_size_mb': round(file_size_mb, 2)
+            }
+            
+            response_data['progressive_transcription'] = {
+                'enabled': True,
+                'model': transcription_model,
+                'auto_start': True,
+                'message': 'Progressive transcription will start automatically as chunks are created'
+            }
+            
+            # Start chunking and progressive transcription in background thread
+            def create_chunks():
+                try:
+                    # Initialize progressive transcription system
+                    from .progressive_transcription import start_progressive_transcription
+                    transcriber = start_progressive_transcription(meeting)
+                    logger.info(f"Started progressive transcription for meeting {meeting.id}")
+                    
+                    # Try to get actual duration with enhanced fallback
+                    if meeting.audio_file:
+                        try:
+                            from .audio_chunking import AudioChunker
+                            chunker = AudioChunker()
+                            # Use the new method with format-aware fallback
+                            actual_duration = chunker.get_audio_duration_with_fallback(
+                                meeting.audio_file.path, meeting.file_size or 0
+                            )
+                            if actual_duration > 0:
+                                meeting.duration = actual_duration
+                                meeting.save()
+                                logger.info(f"Set meeting duration: {actual_duration:.2f}s")
+                        except Exception as e:
+                            logger.warning(f"Could not get audio duration: {e}")
+                    
+                    # Start chunking (this will automatically queue chunks for transcription)
+                    success = chunk_meeting_audio(meeting)
+                    if success:
+                        logger.info(f"Successfully created chunks for meeting {meeting.id}, transcription started")
+                    else:
+                        logger.error(f"Failed to create chunks for meeting {meeting.id}")
+                        # Stop transcription if chunking failed
+                        from .progressive_transcription import stop_progressive_transcription
+                        stop_progressive_transcription(meeting)
+                except Exception as e:
+                    logger.error(f"Chunking/transcription error for meeting {meeting.id}: {e}")
+                    # Stop transcription on error
+                    try:
+                        from .progressive_transcription import stop_progressive_transcription
+                        stop_progressive_transcription(meeting)
+                    except:
+                        pass
+            
+            thread = threading.Thread(target=create_chunks)
+            thread.start()
+        
+        return JsonResponse(response_data)
         
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
@@ -234,6 +315,389 @@ def transcription_progress(request):
                 'error': transcript.error_message,
                 'is_chunked': False
             })
+        
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+
+@require_http_methods(["GET"])
+def chunking_progress(request):
+    """
+    Get chunking and transcription progress for a meeting with large audio file
+    """
+    try:
+        meeting_id = request.GET.get('meeting_id')
+        meeting = get_object_or_404(Meeting, id=meeting_id)
+        
+        # Quick check for completed meetings to reduce unnecessary processing
+        if hasattr(meeting, 'transcript') and meeting.transcript and meeting.transcript.status == 'completed':
+            # For completed meetings, return a lightweight response with detailed chunk info
+            chunks = meeting.chunks.all()
+            total_chunks = chunks.count()
+            
+            # Collect chunk details for completed meetings too
+            chunk_details = []
+            try:
+                all_chunks = chunks.order_by('chunk_index')
+                for chunk in all_chunks:
+                    chunk_info = {
+                        'index': chunk.chunk_index,
+                        'status': chunk.status,
+                        'start_time': chunk.start_time,
+                        'end_time': chunk.end_time,
+                        'has_transcript': bool(chunk.transcript_text),
+                        'transcript_length': len(chunk.transcript_text) if chunk.transcript_text else 0
+                    }
+                    if hasattr(chunk, 'confidence_score') and chunk.confidence_score is not None:
+                        chunk_info['confidence_score'] = chunk.confidence_score
+                    chunk_details.append(chunk_info)
+            except Exception as e:
+                logger.warning(f"Could not collect chunk details for completed meeting {meeting.id}: {e}")
+            
+            return JsonResponse({
+                'success': True,
+                'status': 'completed',
+                'progress': 100,
+                'status_message': f'Transcription complete: {total_chunks} chunks processed',
+                'chunks_info': {
+                    'total': total_chunks,
+                    'estimated_total': total_chunks,
+                    'completed': chunks.filter(status='completed').count(),
+                    'failed': chunks.filter(status='failed').count(),
+                    'processing': 0,
+                    'chunk_duration': 30.0,
+                    'details': chunk_details  # Enhanced: include details in fast path too
+                },
+                'transcription_info': {
+                    'transcribed_chunks': total_chunks,
+                    'transcription_progress': 100,
+                    'active_transcriptions': 0,
+                    'progressive_transcript': meeting.transcript.text if meeting.transcript.text else ''
+                },
+                'file_info': {
+                    'size_mb': round(meeting.file_size / (1024 * 1024), 2) if meeting.file_size else 0,
+                    'duration_minutes': round(meeting.duration / 60, 2) if meeting.duration else None
+                }
+            })
+        
+        # Check if meeting has chunks or needs chunking
+        chunks = meeting.chunks.all()
+        
+        # Estimate total chunks using improved duration detection
+        from .audio_chunking import AudioChunker
+        chunker = AudioChunker()
+        chunk_duration = 30.0  # 30 seconds per chunk (from AudioChunker default)
+        
+        # Get audio duration if available, otherwise use format-aware estimation
+        if meeting.duration:
+            estimated_total_chunks = max(1, int(meeting.duration / chunk_duration))
+            logger.debug(f"Using actual duration for chunk estimation: {meeting.duration:.2f}s → {estimated_total_chunks} chunks")
+        else:
+            # Use format-aware estimation instead of the old 1MB=1minute assumption
+            file_extension = os.path.splitext(meeting.original_filename or '')[1] or '.mp3'
+            estimated_duration = chunker.estimate_duration_from_file_size(
+                meeting.file_size or 0, file_extension
+            )
+            estimated_total_chunks = max(1, int(estimated_duration / chunk_duration))
+            logger.debug(f"Using format-aware estimation: {file_extension}, "
+                        f"{estimated_duration:.2f}s → {estimated_total_chunks} chunks")
+        
+        # Get actual chunk count and status
+        total_chunks = chunks.count()
+        completed_chunks = chunks.filter(status='completed').count()
+        failed_chunks = chunks.filter(status='failed').count()
+        
+        # Get transcription progress and chunking completion status from progressive transcription system
+        transcription_data = {
+            'transcribed_chunks': 0,
+            'transcription_progress': 0,
+            'active_transcriptions': 0,
+            'progressive_transcript': None
+        }
+        
+        # Check if chunking is actually complete (regardless of estimates)
+        chunking_actually_complete = False
+        
+        try:
+            from .progressive_transcription import ProgressiveTranscriber
+            meeting_id_str = str(meeting.id)
+            if meeting_id_str in ProgressiveTranscriber._active_transcribers:
+                transcriber = ProgressiveTranscriber._active_transcribers[meeting_id_str]
+                progress_info = transcriber.get_progress_info()
+                
+                # Check actual chunking completion status
+                chunking_actually_complete = transcriber.chunking_complete
+                
+                transcription_data.update({
+                    'transcribed_chunks': progress_info['completed_chunks'],
+                    'transcription_progress': progress_info['progress_percentage'],
+                    'active_transcriptions': progress_info['active_transcriptions'],
+                    'failed_transcriptions': progress_info['failed_chunks']
+                })
+                
+                # Get current progressive transcript
+                if hasattr(meeting, 'transcript') and meeting.transcript:
+                    transcript_text = meeting.transcript.text
+                    if transcript_text:
+                        transcription_data['progressive_transcript'] = transcript_text
+                        logger.debug(f"Retrieved transcript for meeting {meeting.id}: {len(transcript_text)} chars")
+                    else:
+                        logger.warning(f"Meeting {meeting.id} has transcript record but no text content")
+        except Exception as e:
+            logger.warning(f"Could not get transcription progress: {e}")
+            # Fallback: assume chunking is complete if we have chunks and no active transcriber
+            if total_chunks > 0:
+                chunking_actually_complete = True
+        
+        # Additional fallback: try to get transcript directly from meeting if not found above
+        if not transcription_data.get('progressive_transcript'):
+            try:
+                if hasattr(meeting, 'transcript') and meeting.transcript and meeting.transcript.text:
+                    transcription_data['progressive_transcript'] = meeting.transcript.text
+                    logger.debug(f"Retrieved transcript via fallback for meeting {meeting.id}: {len(meeting.transcript.text)} chars")
+            except Exception as e:
+                logger.warning(f"Fallback transcript retrieval failed for meeting {meeting.id}: {e}")
+        
+        # Check if transcription is actually completed by checking transcript status
+        transcript_completed = False
+        if hasattr(meeting, 'transcript') and meeting.transcript:
+            transcript_completed = meeting.transcript.status == 'completed'
+            
+        # For completed transcriptions, avoid repeated processing by returning cached response
+        if transcript_completed and transcription_data.get('progressive_transcript'):
+            logger.debug(f"Returning cached response for completed meeting {meeting.id}")
+            return JsonResponse({
+                'success': True,
+                'status': 'completed',
+                'progress': 100,
+                'status_message': f'Transcription complete: {total_chunks} chunks processed',
+                'chunks_info': {
+                    'total': total_chunks,
+                    'estimated_total': estimated_total_chunks,
+                    'completed': completed_chunks,
+                    'failed': failed_chunks,
+                    'chunk_duration': chunk_duration
+                },
+                'transcription_info': transcription_data,
+                'file_info': {
+                    'size_mb': round(meeting.file_size / (1024 * 1024), 2) if meeting.file_size else 0,
+                    'duration_minutes': round(meeting.duration / 60, 2) if meeting.duration else None
+                }
+            })
+        
+        # Determine overall status based on actual completion status
+        if total_chunks == 0:
+            # Chunking hasn't started yet
+            status = 'pending'
+            progress = 0
+            status_message = 'Preparing to create chunks...'
+        elif transcript_completed and total_chunks > 0:
+            # Transcription is marked as completed in database - this is the definitive check
+            status = 'completed'
+            progress = 100
+            status_message = f'Transcription complete: {total_chunks} chunks processed'
+            # Only log once - don't spam logs when frontend polls repeatedly
+            logger.debug(f"Meeting {meeting.id} transcription completed (verified by transcript status)")
+        elif not chunking_actually_complete and total_chunks < estimated_total_chunks:
+            # Still creating chunks (only if backend confirms chunking is not complete)
+            status = 'chunking'
+            progress = int((total_chunks / estimated_total_chunks) * 40)  # 0-40% for chunk creation
+            status_message = f'Creating chunks: {total_chunks}/{estimated_total_chunks}'
+        elif not chunking_actually_complete:
+            # Chunking not complete but estimates might be wrong - show actual progress
+            status = 'chunking'
+            progress = 35  # Assume near completion
+            status_message = f'Finalizing chunks: {total_chunks} chunks created'
+        elif transcription_data['transcribed_chunks'] == 0:
+            # Chunks created, transcription starting
+            status = 'transcription_starting'
+            progress = 45
+            status_message = 'Chunks ready, starting transcription...'
+            # Log the estimate vs actual for debugging
+            if total_chunks != estimated_total_chunks:
+                logger.info(f"Meeting {meeting.id}: Created {total_chunks} chunks (estimated {estimated_total_chunks})")
+        elif transcription_data['transcribed_chunks'] < total_chunks and total_chunks > 0:
+            # Progressive transcription in progress
+            status = 'transcribing'
+            # Progress: 40% (chunking) + 55% (transcription) = 95% max
+            transcription_percentage = (transcription_data['transcribed_chunks'] / total_chunks) * 55
+            progress = min(95, 40 + int(transcription_percentage))
+            status_message = f'Progressive transcription: {transcription_data["transcribed_chunks"]}/{total_chunks} chunks completed'
+        elif total_chunks > 0 and transcription_data['transcribed_chunks'] >= total_chunks:
+            # All chunks transcribed - mark as completed
+            status = 'completed'
+            progress = 100
+            status_message = f'Transcription complete: {total_chunks} chunks processed'
+            logger.info(f"Meeting {meeting.id} transcription completed: {transcription_data['transcribed_chunks']}/{total_chunks} chunks")
+        else:
+            # Fallback for edge cases
+            status = 'transcribing'
+            progress = 50
+            status_message = 'Processing transcription...'
+        
+        # BUGFIX: Ensure progressive_transcript is always populated when completed
+        # This fixes the issue where transcript text doesn't show during normal completion
+        # but shows after refresh+restore (which has cached response fallback logic)
+        if status == 'completed' and not transcription_data.get('progressive_transcript'):
+            try:
+                if hasattr(meeting, 'transcript') and meeting.transcript and meeting.transcript.text:
+                    transcription_data['progressive_transcript'] = meeting.transcript.text
+                    logger.info(f"BUGFIX: Added missing progressive_transcript for completed meeting {meeting.id}: {len(meeting.transcript.text)} chars")
+                else:
+                    logger.warning(f"BUGFIX: Meeting {meeting.id} marked completed but no transcript text available")
+            except Exception as e:
+                logger.error(f"BUGFIX: Failed to populate progressive_transcript for meeting {meeting.id}: {e}")
+        
+        # Collect detailed chunk-level information for enhanced progress display
+        chunk_details = []
+        processing_chunks = 0
+        
+        try:
+            # Get all chunks ordered by index for detailed status
+            all_chunks = chunks.order_by('chunk_index')
+            for chunk in all_chunks:
+                chunk_info = {
+                    'index': chunk.chunk_index,
+                    'status': chunk.status,
+                    'start_time': chunk.start_time,
+                    'end_time': chunk.end_time,
+                    'file_size': chunk.file_size if hasattr(chunk, 'file_size') else None,
+                    'has_transcript': bool(chunk.transcript_text),
+                    'transcript_length': len(chunk.transcript_text) if chunk.transcript_text else 0,
+                    'created_at': chunk.created_at.isoformat() if chunk.created_at else None,
+                    'updated_at': chunk.updated_at.isoformat() if chunk.updated_at else None
+                }
+                
+                # Add confidence score if available (for quality indicators)
+                if hasattr(chunk, 'confidence_score') and chunk.confidence_score is not None:
+                    chunk_info['confidence_score'] = chunk.confidence_score
+                
+                # Add error information for failed chunks
+                if chunk.status == 'failed' and hasattr(chunk, 'error_message') and chunk.error_message:
+                    chunk_info['error_message'] = chunk.error_message
+                
+                # Count processing chunks for better status tracking
+                if chunk.status == 'processing':
+                    processing_chunks += 1
+                
+                chunk_details.append(chunk_info)
+                
+        except Exception as e:
+            logger.warning(f"Could not collect detailed chunk information for meeting {meeting.id}: {e}")
+        
+        response_data = {
+            'success': True,
+            'status': status,
+            'progress': progress,
+            'status_message': status_message,
+            'chunks_info': {
+                'total': total_chunks,
+                'estimated_total': estimated_total_chunks,
+                'completed': completed_chunks,
+                'failed': failed_chunks,
+                'processing': processing_chunks,
+                'chunk_duration': chunk_duration,
+                'details': chunk_details  # Enhanced: detailed chunk-level information
+            },
+            'transcription_info': transcription_data,
+            'file_info': {
+                'size_mb': round(meeting.file_size / (1024 * 1024), 2) if meeting.file_size else 0,
+                'duration_minutes': round(meeting.duration / 60, 2) if meeting.duration else None
+            }
+        }
+        
+        # Enhanced time estimation with detailed phase breakdown
+        timing_info = {
+            'total_estimated_time': 0,
+            'phase_estimates': {},
+            'time_remaining': 0
+        }
+        
+        if status == 'chunking':
+            # Chunking phase: ~2 seconds per chunk creation
+            remaining_chunks = max(0, estimated_total_chunks - total_chunks)
+            chunking_time = remaining_chunks * 2
+            
+            # Estimate future transcription time for all chunks
+            transcription_time = estimated_total_chunks * 30  # Base estimate
+            # Factor in concurrent processing (max 3 simultaneous)
+            transcription_time = transcription_time / 3
+            
+            timing_info.update({
+                'total_estimated_time': chunking_time + transcription_time,
+                'time_remaining': chunking_time,
+                'phase_estimates': {
+                    'chunking_remaining': chunking_time,
+                    'transcription_upcoming': transcription_time,
+                    'chunks_per_second': 0.5,  # 2 seconds per chunk
+                    'transcription_rate': 30   # seconds per chunk
+                }
+            })
+            
+        elif status == 'transcription_starting':
+            # About to start transcription
+            transcription_time = total_chunks * 30 / 3  # Factor in concurrency
+            timing_info.update({
+                'total_estimated_time': transcription_time,
+                'time_remaining': transcription_time,
+                'phase_estimates': {
+                    'transcription_remaining': transcription_time,
+                    'chunks_to_process': total_chunks,
+                    'concurrent_limit': 3
+                }
+            })
+            
+        elif status == 'transcribing':
+            # Active transcription phase with dynamic estimates
+            completed_transcriptions = transcription_data.get('transcribed_chunks', 0)
+            remaining_transcriptions = total_chunks - completed_transcriptions
+            active_transcriptions = transcription_data.get('active_transcriptions', 0)
+            
+            # Base rate: 30 seconds per chunk, but adjust based on actual performance
+            base_rate = 30
+            
+            # Calculate actual rate if we have enough data
+            if completed_transcriptions >= 3:
+                # Use a more conservative estimate based on actual progress
+                # This would need historical timing data for better accuracy
+                adjusted_rate = base_rate * 0.9  # Slightly faster than estimate
+            else:
+                adjusted_rate = base_rate
+            
+            # Factor in concurrent transcriptions (max 3)
+            concurrent_factor = min(3, max(1, active_transcriptions + 1))  # +1 for next chunk
+            estimated_seconds_remaining = (remaining_transcriptions / concurrent_factor) * adjusted_rate
+            
+            timing_info.update({
+                'total_estimated_time': (total_chunks * adjusted_rate) / concurrent_factor,
+                'time_remaining': int(estimated_seconds_remaining),
+                'phase_estimates': {
+                    'transcription_remaining': int(estimated_seconds_remaining),
+                    'chunks_remaining': remaining_transcriptions,
+                    'active_transcriptions': active_transcriptions,
+                    'estimated_rate_per_chunk': adjusted_rate,
+                    'concurrent_factor': concurrent_factor
+                }
+            })
+            
+        elif status == 'completed':
+            # Completed - no time remaining
+            timing_info.update({
+                'total_estimated_time': 0,
+                'time_remaining': 0,
+                'phase_estimates': {
+                    'completion_status': 'All phases completed'
+                }
+            })
+        
+        # Add timing information to response
+        response_data['timing_info'] = timing_info
+        
+        # Maintain backward compatibility
+        if timing_info['time_remaining'] > 0:
+            response_data['estimated_time_remaining'] = timing_info['time_remaining']
+        
+        return JsonResponse(response_data)
         
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
