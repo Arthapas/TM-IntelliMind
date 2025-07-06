@@ -5649,3 +5649,465 @@ INFO 2025-07-06 22:46:51,123 utils 71218 6118682624 BatchedInferencePipeline ava
 INFO 2025-07-06 22:47:02,526 autoreload 71218 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
 INFO 2025-07-06 22:47:02,776 autoreload 71259 8433114880 Watching for file changes with StatReloader
 INFO 2025-07-06 22:47:03,582 utils 71259 6181122048 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:53:08,885 utils 72068 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:53:08,917 audio_chunking 72068 8433114880 Audio duration detected via torchaudio: 7327.30 seconds
+INFO 2025-07-06 22:53:08,917 progressive_transcription 72068 8433114880 Initialized ProgressiveTranscriber for meeting c0d4493b-ee09-4631-9250-b381572696e8 with model medium
+INFO 2025-07-06 22:53:08,917 progressive_transcription 72068 6186938368 Started queue processor for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:08,917 progressive_transcription 72068 8433114880 Started progressive transcription for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:08,919 audio_chunking 72068 6203764736 Starting chunking for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:08,919 audio_chunking 72068 6203764736 Attempting VAD-aware chunking
+INFO 2025-07-06 22:53:08,919 audio_chunking 72068 6203764736 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-06 22:53:08,919 audio_chunking 72068 6203764736 Audio duration detected via torchaudio: 7327.30 seconds
+INFO 2025-07-06 22:53:08,919 audio_chunking 72068 6203764736 Time-based chunking created 129 chunks
+INFO 2025-07-06 22:53:10,799 audio_chunking 72068 6203764736 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:53:10,803 audio_chunking 72068 6203764736 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-06 22:53:10,803 progressive_transcription 72068 6203764736 Added chunk 0 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 1)
+INFO 2025-07-06 22:53:10,803 progressive_transcription 72068 6186938368 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-06 22:53:10,803 audio_chunking 72068 6203764736 Added chunk 0 to transcription queue
+INFO 2025-07-06 22:53:10,804 progressive_transcription 72068 6220591104 Starting transcription for chunk 0 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:10,808 chunk_transcription 72068 6220591104 Starting transcription for chunk 0 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:10,809 utils 72068 6237417472 Processing audio file: 1.8MB
+INFO 2025-07-06 22:53:10,810 utils 72068 6237417472 Creating enhanced batched inference pipeline for model: medium
+INFO 2025-07-06 22:53:10,810 utils 72068 6237417472 Loading Whisper model: medium
+INFO 2025-07-06 22:53:10,815 utils 72068 6237417472 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:53:10,815 utils 72068 6237417472 Available memory: 8.4GB
+INFO 2025-07-06 22:53:10,815 utils 72068 6237417472 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:53:12,702 audio_chunking 72068 6203764736 Saved chunk: 57.0s-117.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_001_57.0s-117.0s.wav
+INFO 2025-07-06 22:53:12,708 audio_chunking 72068 6203764736 Created chunk 1: 57.0s-117.0s
+INFO 2025-07-06 22:53:12,708 progressive_transcription 72068 6203764736 Added chunk 1 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 1)
+INFO 2025-07-06 22:53:12,708 progressive_transcription 72068 6186938368 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-06 22:53:12,708 audio_chunking 72068 6203764736 Added chunk 1 to transcription queue
+INFO 2025-07-06 22:53:12,708 progressive_transcription 72068 6274707456 Starting transcription for chunk 1 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:12,754 chunk_transcription 72068 6274707456 Starting transcription for chunk 1 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:12,755 utils 72068 13360263168 Processing audio file: 1.8MB
+INFO 2025-07-06 22:53:12,756 utils 72068 13360263168 Creating enhanced batched inference pipeline for model: medium
+INFO 2025-07-06 22:53:12,756 utils 72068 13360263168 Loading Whisper model: medium
+INFO 2025-07-06 22:53:12,790 utils 72068 13360263168 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:53:12,790 utils 72068 13360263168 Available memory: 7.3GB
+INFO 2025-07-06 22:53:12,790 utils 72068 13360263168 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:53:13,009 utils 72068 6237417472 Whisper model medium loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:53:13,009 utils 72068 6237417472 M4 optimization: 7.3GB available, batch_size=8
+INFO 2025-07-06 22:53:13,009 utils 72068 6237417472 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:53:13,009 utils 72068 6237417472 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:53:13,009 utils 72068 6237417472 Model load time: 2.20s
+INFO 2025-07-06 22:53:13,010 utils 72068 6237417472 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:53:13,010 utils 72068 6237417472 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:53:13,010 utils 72068 6237417472 Word timestamps enabled
+INFO 2025-07-06 22:53:13,010 utils 72068 6237417472 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:53:13,010 utils 72068 6237417472 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:53:13,010 utils 72068 6237417472 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:53:15,575 utils 72068 13360263168 Whisper model medium loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:53:15,575 utils 72068 13360263168 M4 optimization: 7.2GB available, batch_size=8
+INFO 2025-07-06 22:53:15,575 utils 72068 13360263168 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:53:15,576 utils 72068 13360263168 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:53:15,576 utils 72068 13360263168 Model load time: 2.82s
+INFO 2025-07-06 22:53:15,577 utils 72068 13360263168 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:53:15,591 utils 72068 13360263168 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:53:15,591 utils 72068 13360263168 Word timestamps enabled
+INFO 2025-07-06 22:53:15,591 utils 72068 13360263168 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:53:15,591 utils 72068 13360263168 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:53:15,591 utils 72068 13360263168 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:53:17,670 audio_chunking 72068 6203764736 Saved chunk: 114.0s-174.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_002_114.0s-174.0s.wav
+INFO 2025-07-06 22:53:17,677 audio_chunking 72068 6203764736 Created chunk 2: 114.0s-174.0s
+INFO 2025-07-06 22:53:17,677 progressive_transcription 72068 6203764736 Added chunk 2 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 1)
+INFO 2025-07-06 22:53:17,686 progressive_transcription 72068 6186938368 Processing chunk 2 from queue (queue remaining: 0)
+INFO 2025-07-06 22:53:17,687 progressive_transcription 72068 15544119296 Starting transcription for chunk 2 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:17,686 audio_chunking 72068 6203764736 Added chunk 2 to transcription queue
+INFO 2025-07-06 22:53:17,738 chunk_transcription 72068 15544119296 Starting transcription for chunk 2 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:53:17,740 utils 72068 15560945664 Processing audio file: 1.8MB
+INFO 2025-07-06 22:53:17,741 utils 72068 15560945664 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:53:17,742 utils 72068 15560945664 Model load time: 0.00s
+INFO 2025-07-06 22:53:17,743 utils 72068 15560945664 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:53:17,743 utils 72068 15560945664 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:53:17,743 utils 72068 15560945664 Word timestamps enabled
+INFO 2025-07-06 22:53:17,743 utils 72068 15560945664 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:53:17,744 utils 72068 15560945664 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:53:17,744 utils 72068 15560945664 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:53:24,878 audio_chunking 72068 6203764736 Saved chunk: 171.0s-231.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_003_171.0s-231.0s.wav
+INFO 2025-07-06 22:53:24,888 audio_chunking 72068 6203764736 Created chunk 3: 171.0s-231.0s
+INFO 2025-07-06 22:53:24,888 progressive_transcription 72068 6203764736 Added chunk 3 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 1)
+INFO 2025-07-06 22:53:24,888 audio_chunking 72068 6203764736 Added chunk 3 to transcription queue
+INFO 2025-07-06 22:53:31,584 audio_chunking 72068 6203764736 Saved chunk: 228.0s-288.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_004_228.0s-288.0s.wav
+INFO 2025-07-06 22:53:31,592 audio_chunking 72068 6203764736 Created chunk 4: 228.0s-288.0s
+INFO 2025-07-06 22:53:31,592 progressive_transcription 72068 6203764736 Added chunk 4 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 2)
+INFO 2025-07-06 22:53:31,593 audio_chunking 72068 6203764736 Added chunk 4 to transcription queue
+INFO 2025-07-06 22:53:38,631 audio_chunking 72068 6203764736 Saved chunk: 285.0s-345.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_005_285.0s-345.0s.wav
+INFO 2025-07-06 22:53:38,641 audio_chunking 72068 6203764736 Created chunk 5: 285.0s-345.0s
+INFO 2025-07-06 22:53:38,641 progressive_transcription 72068 6203764736 Added chunk 5 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 3)
+INFO 2025-07-06 22:53:38,641 audio_chunking 72068 6203764736 Added chunk 5 to transcription queue
+INFO 2025-07-06 22:53:45,202 audio_chunking 72068 6203764736 Saved chunk: 342.0s-402.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_006_342.0s-402.0s.wav
+INFO 2025-07-06 22:53:45,207 audio_chunking 72068 6203764736 Created chunk 6: 342.0s-402.0s
+INFO 2025-07-06 22:53:45,207 progressive_transcription 72068 6203764736 Added chunk 6 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 4)
+INFO 2025-07-06 22:53:45,207 audio_chunking 72068 6203764736 Added chunk 6 to transcription queue
+INFO 2025-07-06 22:53:51,441 audio_chunking 72068 6203764736 Saved chunk: 399.0s-459.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_007_399.0s-459.0s.wav
+INFO 2025-07-06 22:53:51,445 audio_chunking 72068 6203764736 Created chunk 7: 399.0s-459.0s
+INFO 2025-07-06 22:53:51,445 progressive_transcription 72068 6203764736 Added chunk 7 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 5)
+INFO 2025-07-06 22:53:51,445 audio_chunking 72068 6203764736 Added chunk 7 to transcription queue
+INFO 2025-07-06 22:53:57,563 audio_chunking 72068 6203764736 Saved chunk: 456.0s-516.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_008_456.0s-516.0s.wav
+INFO 2025-07-06 22:53:57,567 audio_chunking 72068 6203764736 Created chunk 8: 456.0s-516.0s
+INFO 2025-07-06 22:53:57,567 progressive_transcription 72068 6203764736 Added chunk 8 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 6)
+INFO 2025-07-06 22:53:57,567 audio_chunking 72068 6203764736 Added chunk 8 to transcription queue
+INFO 2025-07-06 22:54:02,251 utils 72068 6237417472 Thai text enhancement completed
+INFO 2025-07-06 22:54:02,252 utils 72068 6237417472 Performance: 1.2x real-time (49.24s for 60.0s audio)
+INFO 2025-07-06 22:54:02,252 utils 72068 6237417472 Transcription complete: 2 segments, 81 words
+INFO 2025-07-06 22:54:02,252 utils 72068 6237417472 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:54:02,252 utils 72068 6237417472 Total processing time: 51.44s
+INFO 2025-07-06 22:54:02,281 chunk_transcription 72068 6220591104 Completed transcription for chunk 0
+INFO 2025-07-06 22:54:02,284 progressive_transcription 72068 6220591104 Completed transcription for chunk 0 (1/9 chunks done)
+ERROR 2025-07-06 22:54:02,286 progressive_transcription 72068 6220591104 Error updating progressive transcript for meeting c0d4493b-ee09-4631-9250-b381572696e8: Meeting has no transcript.
+INFO 2025-07-06 22:54:02,582 progressive_transcription 72068 6186938368 Processing chunk 3 from queue (queue remaining: 5)
+INFO 2025-07-06 22:54:02,582 progressive_transcription 72068 6220591104 Starting transcription for chunk 3 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:54:02,584 chunk_transcription 72068 6220591104 Starting transcription for chunk 3 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:54:02,584 utils 72068 6237417472 Processing audio file: 1.8MB
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Model load time: 0.00s
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Word timestamps enabled
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:54:02,586 utils 72068 6237417472 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:54:02,586 utils 72068 6237417472 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:54:03,210 audio_chunking 72068 6203764736 Saved chunk: 513.0s-573.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_009_513.0s-573.0s.wav
+INFO 2025-07-06 22:54:03,213 audio_chunking 72068 6203764736 Created chunk 9: 513.0s-573.0s
+INFO 2025-07-06 22:54:03,213 progressive_transcription 72068 6203764736 Added chunk 9 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 6)
+INFO 2025-07-06 22:54:03,213 audio_chunking 72068 6203764736 Added chunk 9 to transcription queue
+INFO 2025-07-06 22:54:06,992 audio_chunking 72068 6203764736 Saved chunk: 570.0s-630.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_010_570.0s-630.0s.wav
+INFO 2025-07-06 22:54:06,999 audio_chunking 72068 6203764736 Created chunk 10: 570.0s-630.0s
+INFO 2025-07-06 22:54:06,999 progressive_transcription 72068 6203764736 Added chunk 10 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 7)
+INFO 2025-07-06 22:54:06,999 audio_chunking 72068 6203764736 Added chunk 10 to transcription queue
+INFO 2025-07-06 22:54:10,676 audio_chunking 72068 6203764736 Saved chunk: 627.0s-687.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_011_627.0s-687.0s.wav
+INFO 2025-07-06 22:54:10,680 audio_chunking 72068 6203764736 Created chunk 11: 627.0s-687.0s
+INFO 2025-07-06 22:54:10,680 progressive_transcription 72068 6203764736 Added chunk 11 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 8)
+INFO 2025-07-06 22:54:10,680 audio_chunking 72068 6203764736 Added chunk 11 to transcription queue
+INFO 2025-07-06 22:54:14,605 audio_chunking 72068 6203764736 Saved chunk: 684.0s-744.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_012_684.0s-744.0s.wav
+INFO 2025-07-06 22:54:14,610 audio_chunking 72068 6203764736 Created chunk 12: 684.0s-744.0s
+INFO 2025-07-06 22:54:14,610 progressive_transcription 72068 6203764736 Added chunk 12 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 9)
+INFO 2025-07-06 22:54:14,610 audio_chunking 72068 6203764736 Added chunk 12 to transcription queue
+INFO 2025-07-06 22:54:18,447 audio_chunking 72068 6203764736 Saved chunk: 741.0s-801.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_013_741.0s-801.0s.wav
+INFO 2025-07-06 22:54:18,452 audio_chunking 72068 6203764736 Created chunk 13: 741.0s-801.0s
+INFO 2025-07-06 22:54:18,452 progressive_transcription 72068 6203764736 Added chunk 13 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 10)
+INFO 2025-07-06 22:54:18,452 audio_chunking 72068 6203764736 Added chunk 13 to transcription queue
+INFO 2025-07-06 22:54:22,539 audio_chunking 72068 6203764736 Saved chunk: 798.0s-858.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_014_798.0s-858.0s.wav
+INFO 2025-07-06 22:54:22,543 audio_chunking 72068 6203764736 Created chunk 14: 798.0s-858.0s
+INFO 2025-07-06 22:54:22,543 progressive_transcription 72068 6203764736 Added chunk 14 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 11)
+INFO 2025-07-06 22:54:22,543 audio_chunking 72068 6203764736 Added chunk 14 to transcription queue
+INFO 2025-07-06 22:54:26,387 audio_chunking 72068 6203764736 Saved chunk: 855.0s-915.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_015_855.0s-915.0s.wav
+INFO 2025-07-06 22:54:26,391 audio_chunking 72068 6203764736 Created chunk 15: 855.0s-915.0s
+INFO 2025-07-06 22:54:26,391 progressive_transcription 72068 6203764736 Added chunk 15 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 12)
+INFO 2025-07-06 22:54:26,392 audio_chunking 72068 6203764736 Added chunk 15 to transcription queue
+INFO 2025-07-06 22:54:30,225 audio_chunking 72068 6203764736 Saved chunk: 912.0s-972.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_016_912.0s-972.0s.wav
+INFO 2025-07-06 22:54:30,229 audio_chunking 72068 6203764736 Created chunk 16: 912.0s-972.0s
+INFO 2025-07-06 22:54:30,229 progressive_transcription 72068 6203764736 Added chunk 16 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 13)
+INFO 2025-07-06 22:54:30,229 audio_chunking 72068 6203764736 Added chunk 16 to transcription queue
+INFO 2025-07-06 22:54:34,443 audio_chunking 72068 6203764736 Saved chunk: 969.0s-1029.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_017_969.0s-1029.0s.wav
+INFO 2025-07-06 22:54:34,447 audio_chunking 72068 6203764736 Created chunk 17: 969.0s-1029.0s
+INFO 2025-07-06 22:54:34,447 progressive_transcription 72068 6203764736 Added chunk 17 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 14)
+INFO 2025-07-06 22:54:34,447 audio_chunking 72068 6203764736 Added chunk 17 to transcription queue
+INFO 2025-07-06 22:54:38,646 audio_chunking 72068 6203764736 Saved chunk: 1026.0s-1086.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_018_1026.0s-1086.0s.wav
+INFO 2025-07-06 22:54:38,652 audio_chunking 72068 6203764736 Created chunk 18: 1026.0s-1086.0s
+INFO 2025-07-06 22:54:38,652 progressive_transcription 72068 6203764736 Added chunk 18 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 15)
+INFO 2025-07-06 22:54:38,652 audio_chunking 72068 6203764736 Added chunk 18 to transcription queue
+INFO 2025-07-06 22:54:42,949 audio_chunking 72068 6203764736 Saved chunk: 1083.0s-1143.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_019_1083.0s-1143.0s.wav
+INFO 2025-07-06 22:54:42,956 audio_chunking 72068 6203764736 Created chunk 19: 1083.0s-1143.0s
+INFO 2025-07-06 22:54:42,956 progressive_transcription 72068 6203764736 Added chunk 19 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 16)
+INFO 2025-07-06 22:54:42,956 audio_chunking 72068 6203764736 Added chunk 19 to transcription queue
+INFO 2025-07-06 22:54:47,275 audio_chunking 72068 6203764736 Saved chunk: 1140.0s-1200.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_020_1140.0s-1200.0s.wav
+INFO 2025-07-06 22:54:47,281 audio_chunking 72068 6203764736 Created chunk 20: 1140.0s-1200.0s
+INFO 2025-07-06 22:54:47,281 progressive_transcription 72068 6203764736 Added chunk 20 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 17)
+INFO 2025-07-06 22:54:47,281 audio_chunking 72068 6203764736 Added chunk 20 to transcription queue
+INFO 2025-07-06 22:54:51,614 audio_chunking 72068 6203764736 Saved chunk: 1197.0s-1257.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_021_1197.0s-1257.0s.wav
+INFO 2025-07-06 22:54:51,619 audio_chunking 72068 6203764736 Created chunk 21: 1197.0s-1257.0s
+INFO 2025-07-06 22:54:51,619 progressive_transcription 72068 6203764736 Added chunk 21 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 18)
+INFO 2025-07-06 22:54:51,619 audio_chunking 72068 6203764736 Added chunk 21 to transcription queue
+INFO 2025-07-06 22:54:55,854 audio_chunking 72068 6203764736 Saved chunk: 1254.0s-1314.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_022_1254.0s-1314.0s.wav
+INFO 2025-07-06 22:54:55,860 audio_chunking 72068 6203764736 Created chunk 22: 1254.0s-1314.0s
+INFO 2025-07-06 22:54:55,860 progressive_transcription 72068 6203764736 Added chunk 22 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 19)
+INFO 2025-07-06 22:54:55,860 audio_chunking 72068 6203764736 Added chunk 22 to transcription queue
+INFO 2025-07-06 22:55:00,218 audio_chunking 72068 6203764736 Saved chunk: 1311.0s-1371.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_023_1311.0s-1371.0s.wav
+INFO 2025-07-06 22:55:00,223 audio_chunking 72068 6203764736 Created chunk 23: 1311.0s-1371.0s
+INFO 2025-07-06 22:55:00,223 progressive_transcription 72068 6203764736 Added chunk 23 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 20)
+INFO 2025-07-06 22:55:00,223 audio_chunking 72068 6203764736 Added chunk 23 to transcription queue
+INFO 2025-07-06 22:55:04,282 audio_chunking 72068 6203764736 Saved chunk: 1368.0s-1428.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_024_1368.0s-1428.0s.wav
+INFO 2025-07-06 22:55:04,286 audio_chunking 72068 6203764736 Created chunk 24: 1368.0s-1428.0s
+INFO 2025-07-06 22:55:04,286 progressive_transcription 72068 6203764736 Added chunk 24 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 21)
+INFO 2025-07-06 22:55:04,286 audio_chunking 72068 6203764736 Added chunk 24 to transcription queue
+INFO 2025-07-06 22:55:08,622 audio_chunking 72068 6203764736 Saved chunk: 1425.0s-1485.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_025_1425.0s-1485.0s.wav
+INFO 2025-07-06 22:55:08,629 audio_chunking 72068 6203764736 Created chunk 25: 1425.0s-1485.0s
+INFO 2025-07-06 22:55:08,629 progressive_transcription 72068 6203764736 Added chunk 25 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 22)
+INFO 2025-07-06 22:55:08,629 audio_chunking 72068 6203764736 Added chunk 25 to transcription queue
+INFO 2025-07-06 22:55:12,575 audio_chunking 72068 6203764736 Saved chunk: 1482.0s-1542.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_026_1482.0s-1542.0s.wav
+INFO 2025-07-06 22:55:12,579 audio_chunking 72068 6203764736 Created chunk 26: 1482.0s-1542.0s
+INFO 2025-07-06 22:55:12,580 progressive_transcription 72068 6203764736 Added chunk 26 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 23)
+INFO 2025-07-06 22:55:12,580 audio_chunking 72068 6203764736 Added chunk 26 to transcription queue
+INFO 2025-07-06 22:55:16,503 audio_chunking 72068 6203764736 Saved chunk: 1539.0s-1599.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_027_1539.0s-1599.0s.wav
+INFO 2025-07-06 22:55:16,507 audio_chunking 72068 6203764736 Created chunk 27: 1539.0s-1599.0s
+INFO 2025-07-06 22:55:16,507 progressive_transcription 72068 6203764736 Added chunk 27 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 24)
+INFO 2025-07-06 22:55:16,507 audio_chunking 72068 6203764736 Added chunk 27 to transcription queue
+INFO 2025-07-06 22:55:20,576 audio_chunking 72068 6203764736 Saved chunk: 1596.0s-1656.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_028_1596.0s-1656.0s.wav
+INFO 2025-07-06 22:55:20,581 audio_chunking 72068 6203764736 Created chunk 28: 1596.0s-1656.0s
+INFO 2025-07-06 22:55:20,581 progressive_transcription 72068 6203764736 Added chunk 28 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 25)
+INFO 2025-07-06 22:55:20,581 audio_chunking 72068 6203764736 Added chunk 28 to transcription queue
+INFO 2025-07-06 22:55:24,772 audio_chunking 72068 6203764736 Saved chunk: 1653.0s-1713.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_029_1653.0s-1713.0s.wav
+INFO 2025-07-06 22:55:24,776 audio_chunking 72068 6203764736 Created chunk 29: 1653.0s-1713.0s
+INFO 2025-07-06 22:55:24,776 progressive_transcription 72068 6203764736 Added chunk 29 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 26)
+INFO 2025-07-06 22:55:24,776 audio_chunking 72068 6203764736 Added chunk 29 to transcription queue
+INFO 2025-07-06 22:55:28,713 audio_chunking 72068 6203764736 Saved chunk: 1710.0s-1770.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_030_1710.0s-1770.0s.wav
+INFO 2025-07-06 22:55:28,718 audio_chunking 72068 6203764736 Created chunk 30: 1710.0s-1770.0s
+INFO 2025-07-06 22:55:28,718 progressive_transcription 72068 6203764736 Added chunk 30 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 27)
+INFO 2025-07-06 22:55:28,718 audio_chunking 72068 6203764736 Added chunk 30 to transcription queue
+INFO 2025-07-06 22:55:32,885 audio_chunking 72068 6203764736 Saved chunk: 1767.0s-1827.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_031_1767.0s-1827.0s.wav
+INFO 2025-07-06 22:55:32,889 audio_chunking 72068 6203764736 Created chunk 31: 1767.0s-1827.0s
+INFO 2025-07-06 22:55:32,889 progressive_transcription 72068 6203764736 Added chunk 31 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 28)
+INFO 2025-07-06 22:55:32,889 audio_chunking 72068 6203764736 Added chunk 31 to transcription queue
+INFO 2025-07-06 22:55:37,028 audio_chunking 72068 6203764736 Saved chunk: 1824.0s-1884.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_032_1824.0s-1884.0s.wav
+INFO 2025-07-06 22:55:37,032 audio_chunking 72068 6203764736 Created chunk 32: 1824.0s-1884.0s
+INFO 2025-07-06 22:55:37,032 progressive_transcription 72068 6203764736 Added chunk 32 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 29)
+INFO 2025-07-06 22:55:37,032 audio_chunking 72068 6203764736 Added chunk 32 to transcription queue
+INFO 2025-07-06 22:55:41,113 audio_chunking 72068 6203764736 Saved chunk: 1881.0s-1941.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_033_1881.0s-1941.0s.wav
+INFO 2025-07-06 22:55:41,118 audio_chunking 72068 6203764736 Created chunk 33: 1881.0s-1941.0s
+INFO 2025-07-06 22:55:41,118 progressive_transcription 72068 6203764736 Added chunk 33 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 30)
+INFO 2025-07-06 22:55:41,118 audio_chunking 72068 6203764736 Added chunk 33 to transcription queue
+INFO 2025-07-06 22:55:45,231 audio_chunking 72068 6203764736 Saved chunk: 1938.0s-1998.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_034_1938.0s-1998.0s.wav
+INFO 2025-07-06 22:55:45,236 audio_chunking 72068 6203764736 Created chunk 34: 1938.0s-1998.0s
+INFO 2025-07-06 22:55:45,236 progressive_transcription 72068 6203764736 Added chunk 34 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 31)
+INFO 2025-07-06 22:55:45,236 audio_chunking 72068 6203764736 Added chunk 34 to transcription queue
+INFO 2025-07-06 22:55:49,543 audio_chunking 72068 6203764736 Saved chunk: 1995.0s-2055.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_035_1995.0s-2055.0s.wav
+INFO 2025-07-06 22:55:49,547 audio_chunking 72068 6203764736 Created chunk 35: 1995.0s-2055.0s
+INFO 2025-07-06 22:55:49,547 progressive_transcription 72068 6203764736 Added chunk 35 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 32)
+INFO 2025-07-06 22:55:49,547 audio_chunking 72068 6203764736 Added chunk 35 to transcription queue
+INFO 2025-07-06 22:55:53,557 audio_chunking 72068 6203764736 Saved chunk: 2052.0s-2112.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_036_2052.0s-2112.0s.wav
+INFO 2025-07-06 22:55:53,565 audio_chunking 72068 6203764736 Created chunk 36: 2052.0s-2112.0s
+INFO 2025-07-06 22:55:53,565 progressive_transcription 72068 6203764736 Added chunk 36 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 33)
+INFO 2025-07-06 22:55:53,565 audio_chunking 72068 6203764736 Added chunk 36 to transcription queue
+INFO 2025-07-06 22:55:57,560 audio_chunking 72068 6203764736 Saved chunk: 2109.0s-2169.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_037_2109.0s-2169.0s.wav
+INFO 2025-07-06 22:55:57,564 audio_chunking 72068 6203764736 Created chunk 37: 2109.0s-2169.0s
+INFO 2025-07-06 22:55:57,564 progressive_transcription 72068 6203764736 Added chunk 37 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 34)
+INFO 2025-07-06 22:55:57,564 audio_chunking 72068 6203764736 Added chunk 37 to transcription queue
+INFO 2025-07-06 22:55:59,321 progressive_transcription 72068 6186938368 Queue processor finished for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:56:01,771 audio_chunking 72068 6203764736 Saved chunk: 2166.0s-2226.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/chunks/chunk_038_2166.0s-2226.0s.wav
+INFO 2025-07-06 22:56:01,776 audio_chunking 72068 6203764736 Created chunk 38: 2166.0s-2226.0s
+INFO 2025-07-06 22:56:04,122 utils 72068 13360263168 Thai text enhancement completed
+INFO 2025-07-06 22:56:04,123 utils 72068 13360263168 Performance: 0.4x real-time (168.53s for 60.0s audio)
+INFO 2025-07-06 22:56:04,124 utils 72068 13360263168 Transcription complete: 2 segments, 427 words
+INFO 2025-07-06 22:56:04,124 utils 72068 13360263168 Detected language: th (confidence: 0.97)
+INFO 2025-07-06 22:56:04,124 utils 72068 13360263168 Total processing time: 171.37s
+INFO 2025-07-06 22:56:04,124 chunk_transcription 72068 6274707456 Completed transcription for chunk 1
+INFO 2025-07-06 22:56:04,125 progressive_transcription 72068 6274707456 Completed transcription for chunk 1 (2/39 chunks done)
+ERROR 2025-07-06 22:56:04,127 progressive_transcription 72068 6274707456 Error updating progressive transcript for meeting c0d4493b-ee09-4631-9250-b381572696e8: Meeting has no transcript.
+INFO 2025-07-06 22:56:04,128 progressive_transcription 72068 6203764736 Added chunk 38 to transcription queue for meeting c0d4493b-ee09-4631-9250-b381572696e8 (queue size: 35)
+INFO 2025-07-06 22:56:04,128 progressive_transcription 72068 6186938368 Started queue processor for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:56:04,128 progressive_transcription 72068 6203764736 Started progressive transcription for meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:56:04,128 progressive_transcription 72068 6186938368 Processing chunk 4 from queue (queue remaining: 34)
+INFO 2025-07-06 22:56:04,128 audio_chunking 72068 6203764736 Added chunk 38 to transcription queue
+INFO 2025-07-06 22:56:04,128 progressive_transcription 72068 6274707456 Starting transcription for chunk 4 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+INFO 2025-07-06 22:56:04,130 chunk_transcription 72068 6274707456 Starting transcription for chunk 4 of meeting c0d4493b-ee09-4631-9250-b381572696e8
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 39
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 40
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 41
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 42
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 43
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 44
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 45
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 46
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 47
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 48
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 49
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 50
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 51
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 52
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,131 audio_chunking 72068 6203764736 Failed to save chunk 53
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 54
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 55
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 56
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 57
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 58
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 59
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 60
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 61
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 62
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 63
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 64
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 65
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 66
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 67
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 68
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 69
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 70
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 71
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 72
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 73
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 74
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 75
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 76
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 77
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,132 audio_chunking 72068 6203764736 Failed to save chunk 78
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 79
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 80
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 81
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 82
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 83
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 84
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 85
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 86
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 87
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 88
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 89
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 90
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 91
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 92
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 93
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 94
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 95
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 96
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 97
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 98
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 99
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 100
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 101
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 102
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,133 audio_chunking 72068 6203764736 Failed to save chunk 103
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 104
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 105
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 106
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 107
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 108
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 109
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 110
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 111
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 112
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 113
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 114
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 115
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 116
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 117
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 118
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 119
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 120
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 121
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 122
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,134 audio_chunking 72068 6203764736 Failed to save chunk 123
+INFO 2025-07-06 22:56:04,134 utils 72068 13254029312 Processing audio file: 1.8MB
+ERROR 2025-07-06 22:56:04,135 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,135 audio_chunking 72068 6203764736 Failed to save chunk 124
+ERROR 2025-07-06 22:56:04,139 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,139 audio_chunking 72068 6203764736 Failed to save chunk 125
+INFO 2025-07-06 22:56:04,140 utils 72068 13254029312 Using enhanced batched inference pipeline with VAD
+ERROR 2025-07-06 22:56:04,140 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+INFO 2025-07-06 22:56:04,140 utils 72068 13254029312 Model load time: 0.00s
+ERROR 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Failed to save chunk 126
+ERROR 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Failed to save chunk 127
+ERROR 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Failed to save audio chunk: [Errno 2] No such file or directory: '/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/c0d4493b-ee09-4631-9250-b381572696e8/large-sample-audio.mp3'
+ERROR 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Failed to save chunk 128
+INFO 2025-07-06 22:56:04,149 audio_chunking 72068 6203764736 Successfully created 129 chunks for meeting None
+WARNING 2025-07-06 22:56:04,150 progressive_transcription 72068 6203764736 No active transcriber found for meeting None when marking chunking complete
+ERROR 2025-07-06 22:56:04,152 chunk_transcription 72068 6274707456 Transcription failed for chunk 4: save() prohibited to prevent data loss due to unsaved related object 'meeting'.
+WARNING 2025-07-06 22:56:04,157 chunk_transcription 72068 6274707456 No text generated for chunk 4
+ERROR 2025-07-06 22:56:04,157 progressive_transcription 72068 6274707456 Error transcribing chunk 4: save() prohibited to prevent data loss due to unsaved related object 'meeting'.
+INFO 2025-07-06 22:56:22,376 autoreload 71259 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:56:22,769 autoreload 72663 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:56:23,694 utils 72663 6111293440 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:57:16,952 utils 72793 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:57:32,324 utils 72855 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:57:32,328 progressive_transcription 72855 8433114880 Initialized ProgressiveTranscriber for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 with model large
+INFO 2025-07-06 22:57:32,328 progressive_transcription 72855 6179336192 Started queue processor for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:57:32,328 progressive_transcription 72855 8433114880 Started progressive transcription for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 8433114880 Added chunk 9 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 6179336192 Processing chunk 9 from queue (queue remaining: 0)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 8433114880 Added chunk 10 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 8433114880 Added chunk 11 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 2)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 6196162560 Starting transcription for chunk 9 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 8433114880 Added chunk 12 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 3)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 6179336192 Processing chunk 10 from queue (queue remaining: 2)
+INFO 2025-07-06 22:57:32,329 progressive_transcription 72855 8433114880 Added chunk 13 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 3)
+INFO 2025-07-06 22:57:32,330 progressive_transcription 72855 6212988928 Starting transcription for chunk 10 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:57:32,330 progressive_transcription 72855 6179336192 Processing chunk 11 from queue (queue remaining: 2)
+INFO 2025-07-06 22:57:54,280 utils 72921 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:58:04,076 autoreload 72663 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:58:04,332 autoreload 72940 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:58:05,088 utils 72940 6112292864 BatchedInferencePipeline available - advanced features enabled

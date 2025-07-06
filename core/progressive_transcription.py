@@ -61,7 +61,7 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 600  # 10 minutes max per chunk
+        self.thread_timeout = 300  # 5 minutes max per chunk
         self.max_retries = 2  # Maximum retry attempts per chunk
         self.last_watchdog_check = time.time()
         
@@ -189,8 +189,8 @@ class ProgressiveTranscriber:
         """
         current_time = time.time()
         
-        # Check every 60 seconds
-        if current_time - self.last_watchdog_check < 60:
+        # Check every 30 seconds for faster detection
+        if current_time - self.last_watchdog_check < 30:
             return
         
         self.last_watchdog_check = current_time
