@@ -574,16 +574,34 @@ def detect_language(audio_path, model_size='base'):
     try:
         model = get_or_create_whisper_model(model_size)
         
-        # Use the detect_language method if available
-        if hasattr(model, 'detect_language'):
-            language, probability = model.detect_language(audio_path)
-            return language, probability
-        else:
-            # Fallback: transcribe a small portion to detect language
-            segments, info = model.transcribe(audio_path, language=None, task='transcribe')
-            language = info.language if hasattr(info, 'language') else 'unknown'
-            probability = info.language_probability if hasattr(info, 'language_probability') else 0
-            return language, probability
+        # The detect_language method expects audio data, not a path
+        # For faster-whisper, we need to use the transcribe method with a small portion
+        # to detect language, as detect_language expects preprocessed audio
+        
+        # Transcribe first 30 seconds to detect language
+        # Suppress numpy warnings that can occur with certain audio
+        import warnings
+        with warnings.catch_warnings():
+            warnings.filterwarnings('ignore', category=RuntimeWarning)
+            segments, info = model.transcribe(
+                audio_path, 
+                language=None,  # Auto-detect
+                task='transcribe',
+                beam_size=1,  # Faster for detection
+                best_of=1,
+                temperature=0,
+                without_timestamps=True,
+                max_new_tokens=1  # Just need language detection
+            )
+        
+        language = info.language if hasattr(info, 'language') else 'unknown'
+        probability = info.language_probability if hasattr(info, 'language_probability') else 0
+        
+        # Don't waste the segments, just for language detection
+        for _ in segments:
+            break  # Exit after first segment
+        
+        return language, probability
             
     except Exception as e:
         logger.error(f"Language detection failed: {str(e)}")
@@ -699,7 +717,11 @@ def transcribe_audio(audio_path, model_size='base', transcript_obj=None, languag
         
         # Transcribe audio with enhanced parameters
         transcribe_start = time.time()
-        segments, info = model.transcribe(audio_path, **transcription_params)
+        # Suppress numpy warnings that can occur with certain audio
+        import warnings
+        with warnings.catch_warnings():
+            warnings.filterwarnings('ignore', category=RuntimeWarning)
+            segments, info = model.transcribe(audio_path, **transcription_params)
         
         if transcript_obj:
             transcript_obj.progress = 60

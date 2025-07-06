@@ -153,9 +153,8 @@ class AudioChunker:
         estimated_minutes = file_size_mb / mb_per_minute
         estimated_seconds = estimated_minutes * 60
         
-        logger.debug(f"Format-aware estimation for {file_extension}: "
-                    f"{file_size_mb:.2f}MB → {estimated_minutes:.2f}min → {estimated_seconds:.2f}s "
-                    f"(ratio: {mb_per_minute}MB/min)")
+        logger.info(f"Format-aware estimation for {file_extension}: "
+                   f"{file_size_mb:.2f}MB ÷ {mb_per_minute}MB/min = {estimated_minutes:.2f}min = {estimated_seconds:.2f}s")
         
         return estimated_seconds
     
