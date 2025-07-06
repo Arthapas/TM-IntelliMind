@@ -237,6 +237,17 @@ curl http://localhost:1234/v1/models
 
 **Purpose**: Maintain project continuity across chat sessions and serve as reference for future development work.
 
+**Git Integration**: After writing the working log, ALWAYS commit and push changes to maintain repository synchronization:
+```bash
+git add .
+git commit -m "Add working log: [brief task description]
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+git push
+```
+
 ### TM IntelliMind.md Alignment Check
 
 **MANDATORY**: After completing any development work, always review and update `TM IntelliMind.md` to maintain alignment:

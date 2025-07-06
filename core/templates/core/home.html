@@ -46,7 +46,7 @@
                                 <th>Meeting Name</th>
                                 <th>Summary</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th class="text-center" style="width: 90px;"><i class="fas fa-cog"></i></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,17 +57,17 @@
                                 </td>
                                 <td>{{ meeting.summary }}</td>
                                 <td>{{ meeting.created_at|date:"M d, Y H:i" }}</td>
-                                <td>
-                                    <div class="btn-group btn-group-sm" role="group">
-                                        <a href="{% url 'core:meeting_detail' meeting.id %}" class="btn btn-outline-primary">
-                                            <i class="fas fa-eye me-1"></i>View Detail
-                                        </a>
-                                        <button class="btn btn-outline-danger" 
-                                                onclick="confirmDelete('{{ meeting.id }}', '{{ meeting.title|escapejs }}')"
-                                                title="Delete meeting">
-                                            <i class="fas fa-trash me-1"></i>Delete
-                                        </button>
-                                    </div>
+                                <td class="text-center">
+                                    <a href="{% url 'core:meeting_detail' meeting.id %}" 
+                                       class="btn btn-sm btn-outline-primary me-1"
+                                       title="View meeting details">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn btn-sm btn-outline-danger" 
+                                            onclick="confirmDelete('{{ meeting.id }}', '{{ meeting.title|escapejs }}')"
+                                            title="Delete meeting">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -199,4 +199,58 @@ function showNotification(message, type) {
     }, 4000);
 }
 </script>
+
+<style>
+/* Table column optimizations */
+.meeting-table-wide th:first-child,
+.meeting-table-wide td:first-child {
+    width: 25%;
+}
+
+.meeting-table-wide th:nth-child(2),
+.meeting-table-wide td:nth-child(2) {
+    width: 50%;
+}
+
+.meeting-table-wide th:nth-child(3),
+.meeting-table-wide td:nth-child(3) {
+    width: 15%;
+    white-space: nowrap;
+}
+
+.meeting-table-wide th:last-child,
+.meeting-table-wide td:last-child {
+    width: 10%;
+    white-space: nowrap;
+}
+
+/* Compact icon buttons */
+.meeting-table-wide .btn-sm {
+    padding: 0.25rem 0.375rem;
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .meeting-table-wide th:nth-child(2),
+    .meeting-table-wide td:nth-child(2) {
+        display: none; /* Hide summary on mobile */
+    }
+    
+    .meeting-table-wide th:first-child,
+    .meeting-table-wide td:first-child {
+        width: 50%;
+    }
+    
+    .meeting-table-wide th:nth-child(3),
+    .meeting-table-wide td:nth-child(3) {
+        width: 30%;
+    }
+    
+    .meeting-table-wide th:last-child,
+    .meeting-table-wide td:last-child {
+        width: 20%;
+    }
+}
+</style>
 {% endblock %}

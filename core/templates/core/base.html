@@ -598,8 +598,19 @@
     <script>
         // CSRF token for AJAX requests
         function getCSRFToken() {
+            // First try to get from form field
             const token = document.querySelector('[name=csrfmiddlewaretoken]');
-            return token ? token.value : '';
+            if (token) return token.value;
+            
+            // Otherwise get from cookie
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'csrftoken') {
+                    return value;
+                }
+            }
+            return '';
         }
     </script>
 </body>
