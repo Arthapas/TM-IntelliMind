@@ -940,6 +940,12 @@ function updateSidebarProgress(progressType, percentage, show = true) {
     const progressBar = document.getElementById(`sidebar-${progressType}-bar`);
     const percentageElement = document.getElementById(`sidebar-${progressType}-percentage`);
     
+    // Add null check for progressContainer
+    if (!progressContainer) {
+        console.warn(`Progress container not found for type: ${progressType}`);
+        return;
+    }
+    
     if (show) {
         progressContainer.style.display = 'block';
         progressContainer.classList.add('active');
@@ -1547,7 +1553,7 @@ function pollChunkingProgress() {
             
             // Use the enhanced status message from the backend
             updateSidebarStatus(data.status_message, 'processing');
-            updateSidebarProgress('processing', data.progress, true);
+            updateSidebarProgress('chunking', data.progress, true);
             
             // Enhanced Progress: Update chunk status grid and quality indicators
             updateChunkStatusGrid(chunksInfo);
@@ -1620,7 +1626,7 @@ function pollChunkingProgress() {
                 console.log('Transcription completed, stopping progress polling');
                 clearInterval(chunkingInterval);
                 chunkingInterval = null;
-                updateSidebarProgress('processing', 100, false);
+                updateSidebarProgress('chunking', 100, false);
                 updateSidebarStatus('Transcription complete!', 'success');
                 updateWorkflowStep(2, 'completed');
                 
@@ -1638,7 +1644,7 @@ function pollChunkingProgress() {
                 // Force completion status
                 clearInterval(chunkingInterval);
                 chunkingInterval = null;
-                updateSidebarProgress('processing', 100, false);
+                updateSidebarProgress('chunking', 100, false);
                 updateSidebarStatus('Transcription complete!', 'success');
                 updateWorkflowStep(2, 'completed');
                 

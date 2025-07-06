@@ -4498,3 +4498,108 @@ INFO 2025-07-06 22:10:25,003 progressive_transcription 66470 12918534144 Progres
 INFO 2025-07-06 22:10:25,004 progressive_transcription 66470 12918534144 Updated progressive transcript for meeting 26132423-11a6-471f-b816-2161356b6959, length: 674 chars from 2 chunks, status: completed, progress: 100%
 INFO 2025-07-06 22:10:25,535 progressive_transcription 66470 12901707776 Meeting 26132423-11a6-471f-b816-2161356b6959 ready to finish: pending=0, active=0, processed=2/2
 INFO 2025-07-06 22:10:25,535 progressive_transcription 66470 12901707776 Queue processor finished for meeting 26132423-11a6-471f-b816-2161356b6959
+INFO 2025-07-06 22:22:42,665 autoreload 67970 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:22:43,555 utils 67970 6115815424 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:22:52,024 audio_chunking 67970 6132641792 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/26132423-11a6-471f-b816-2161356b6959/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:22:52,024 audio_chunking 67970 6132641792 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/26132423-11a6-471f-b816-2161356b6959/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:22:52,024 audio_chunking 67970 6132641792 Removed empty chunk directory: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/26132423-11a6-471f-b816-2161356b6959/chunks
+INFO 2025-07-06 22:22:52,025 audio_chunking 67970 6132641792 Cleaned up chunks for meeting 26132423-11a6-471f-b816-2161356b6959
+INFO 2025-07-06 22:22:59,633 views 67970 6132641792 Upload request: file=Commute-from-home.wav, size=3137836, model=tiny
+INFO 2025-07-06 22:22:59,642 views 67970 6132641792 Upload estimates - File: 2.99MB .wav, Duration: 0.30min, Chunks: 1
+INFO 2025-07-06 22:22:59,644 progressive_transcription 67970 6166294528 Initialized ProgressiveTranscriber for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b with model tiny
+INFO 2025-07-06 22:22:59,644 progressive_transcription 67970 12901707776 Started queue processor for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,644 progressive_transcription 67970 6166294528 Started progressive transcription for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,644 views 67970 6166294528 Started progressive transcription for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,645 audio_chunking 67970 6166294528 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:22:59,647 views 67970 6166294528 Set meeting duration: 98.06s
+INFO 2025-07-06 22:22:59,647 audio_chunking 67970 6166294528 Starting chunking for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,648 audio_chunking 67970 6166294528 Attempting VAD-aware chunking
+INFO 2025-07-06 22:22:59,648 audio_chunking 67970 6166294528 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-06 22:22:59,648 audio_chunking 67970 6166294528 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:22:59,648 audio_chunking 67970 6166294528 Time-based chunking created 2 chunks
+INFO 2025-07-06 22:22:59,650 audio_chunking 67970 6166294528 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/41a66b7f-747f-4540-a243-33fa2b1b309b/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:22:59,652 audio_chunking 67970 6166294528 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-06 22:22:59,652 progressive_transcription 67970 6166294528 Added chunk 0 to transcription queue for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b (queue size: 1)
+INFO 2025-07-06 22:22:59,652 progressive_transcription 67970 12901707776 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-06 22:22:59,652 audio_chunking 67970 6166294528 Added chunk 0 to transcription queue
+INFO 2025-07-06 22:22:59,652 progressive_transcription 67970 12918534144 Starting transcription for chunk 0 of meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,654 chunk_transcription 67970 12918534144 Starting transcription for chunk 0 of meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,654 utils 67970 12918534144 Processing audio file: 1.8MB
+INFO 2025-07-06 22:22:59,655 audio_chunking 67970 6166294528 Saved chunk: 57.0s-98.1s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/41a66b7f-747f-4540-a243-33fa2b1b309b/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:22:59,656 utils 67970 12918534144 Creating enhanced batched inference pipeline for model: tiny
+INFO 2025-07-06 22:22:59,656 utils 67970 12918534144 Loading Whisper model: tiny
+INFO 2025-07-06 22:22:59,667 audio_chunking 67970 6166294528 Created chunk 1: 57.0s-98.1s
+INFO 2025-07-06 22:22:59,667 progressive_transcription 67970 6166294528 Added chunk 1 to transcription queue for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b (queue size: 1)
+INFO 2025-07-06 22:22:59,667 progressive_transcription 67970 12901707776 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-06 22:22:59,667 audio_chunking 67970 6166294528 Added chunk 1 to transcription queue
+INFO 2025-07-06 22:22:59,668 progressive_transcription 67970 12935360512 Starting transcription for chunk 1 of meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,668 audio_chunking 67970 6166294528 Successfully created 2 chunks for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,670 utils 67970 12918534144 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:22:59,671 utils 67970 12918534144 Available memory: 7.4GB
+INFO 2025-07-06 22:22:59,671 utils 67970 12918534144 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:22:59,671 progressive_transcription 67970 6166294528 Chunking complete for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: expected=2, actual=2
+INFO 2025-07-06 22:22:59,671 views 67970 6166294528 Successfully created chunks for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b, transcription started
+INFO 2025-07-06 22:22:59,671 chunk_transcription 67970 12935360512 Starting transcription for chunk 1 of meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:22:59,671 utils 67970 12935360512 Processing audio file: 1.3MB
+INFO 2025-07-06 22:22:59,672 utils 67970 12935360512 Creating enhanced batched inference pipeline for model: tiny
+INFO 2025-07-06 22:22:59,672 utils 67970 12935360512 Loading Whisper model: tiny
+INFO 2025-07-06 22:22:59,680 utils 67970 12935360512 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:22:59,681 utils 67970 12935360512 Available memory: 7.4GB
+INFO 2025-07-06 22:22:59,681 utils 67970 12935360512 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+ERROR 2025-07-06 22:23:00,715 utils 67970 12935360512 Failed to load Whisper model tiny: _lock
+WARNING 2025-07-06 22:23:00,715 utils 67970 12935360512 Batched model failed, falling back to regular model: _lock
+INFO 2025-07-06 22:23:00,715 utils 67970 12935360512 Loading Whisper model: tiny
+INFO 2025-07-06 22:23:00,723 utils 67970 12935360512 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:23:00,724 utils 67970 12935360512 Available memory: 7.4GB
+INFO 2025-07-06 22:23:00,724 utils 67970 12935360512 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:23:00,814 utils 67970 12918534144 Whisper model tiny loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:23:00,814 utils 67970 12918534144 M4 optimization: 7.3GB available, batch_size=8
+INFO 2025-07-06 22:23:00,814 utils 67970 12918534144 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:23:00,814 utils 67970 12918534144 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:23:00,814 utils 67970 12918534144 Model load time: 1.16s
+INFO 2025-07-06 22:23:00,815 utils 67970 12918534144 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:23:00,815 utils 67970 12918534144 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:23:00,815 utils 67970 12918534144 Word timestamps enabled
+INFO 2025-07-06 22:23:00,815 utils 67970 12918534144 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:23:00,815 utils 67970 12918534144 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:23:00,815 utils 67970 12918534144 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:23:01,649 utils 67970 12935360512 Whisper model tiny loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:23:01,649 utils 67970 12935360512 Model load time: 1.98s
+INFO 2025-07-06 22:23:01,650 utils 67970 12935360512 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:23:01,650 utils 67970 12935360512 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:23:01,650 utils 67970 12935360512 Word timestamps enabled
+INFO 2025-07-06 22:23:01,650 utils 67970 12935360512 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:23:01,650 utils 67970 12935360512 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:23:01,650 utils 67970 12935360512 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:23:02,654 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:02,654 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:23:04,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:04,654 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:23:06,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:06,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:23:08,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:08,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:23:10,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:10,653 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:23:12,654 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b has transcript record but no text content
+INFO 2025-07-06 22:23:12,654 views 67970 6132641792 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b: Created 2 chunks (estimated 3)
+INFO 2025-07-06 22:23:13,644 utils 67970 12918534144 Thai text enhancement completed
+INFO 2025-07-06 22:23:13,655 utils 67970 12918534144 Performance: 4.7x real-time (12.83s for 60.0s audio)
+INFO 2025-07-06 22:23:13,655 utils 67970 12918534144 Transcription complete: 2 segments, 374 words
+INFO 2025-07-06 22:23:13,655 utils 67970 12918534144 Detected language: th (confidence: 0.97)
+INFO 2025-07-06 22:23:13,655 utils 67970 12918534144 Total processing time: 14.00s
+INFO 2025-07-06 22:23:13,655 chunk_transcription 67970 12918534144 Completed transcription for chunk 0
+INFO 2025-07-06 22:23:13,660 progressive_transcription 67970 12918534144 Completed transcription for chunk 0 (1/2 chunks done)
+INFO 2025-07-06 22:23:13,662 progressive_transcription 67970 12918534144 Updated progressive transcript for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b, length: 430 chars from 1 chunks, status: processing, progress: 50%
+INFO 2025-07-06 22:23:14,710 utils 67970 12935360512 Thai text enhancement completed
+INFO 2025-07-06 22:23:14,711 utils 67970 12935360512 Performance: 3.1x real-time (13.06s for 41.1s audio)
+INFO 2025-07-06 22:23:14,711 utils 67970 12935360512 Transcription complete: 2 segments, 271 words
+INFO 2025-07-06 22:23:14,711 utils 67970 12935360512 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:23:14,711 utils 67970 12935360512 Total processing time: 15.04s
+INFO 2025-07-06 22:23:14,711 chunk_transcription 67970 12935360512 Completed transcription for chunk 1
+INFO 2025-07-06 22:23:14,712 progressive_transcription 67970 12935360512 Completed transcription for chunk 1 (2/2 chunks done)
+INFO 2025-07-06 22:23:14,713 progressive_transcription 67970 12935360512 Progressive transcription completed for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+INFO 2025-07-06 22:23:14,713 progressive_transcription 67970 12935360512 Updated progressive transcript for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b, length: 808 chars from 2 chunks, status: completed, progress: 100%
+INFO 2025-07-06 22:23:14,743 progressive_transcription 67970 12901707776 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b ready to finish: pending=0, active=0, processed=2/2
+INFO 2025-07-06 22:23:14,743 progressive_transcription 67970 12901707776 Queue processor finished for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+WARNING 2025-07-06 22:23:58,096 log 67970 6149468160 Not Found: /.well-known/appspecific/com.chrome.devtools.json
