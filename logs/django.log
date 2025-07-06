@@ -389,3 +389,60 @@ INFO 2025-07-06 10:19:25,744 basehttp 9610 6360805376 "GET /static/css/wide-scre
 INFO 2025-07-06 10:19:27,996 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 29312
 WARNING 2025-07-06 10:19:34,077 log 9610 6360805376 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
 WARNING 2025-07-06 10:19:34,080 basehttp 9610 6360805376 "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO 2025-07-06 11:42:09,408 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 29312
+INFO 2025-07-06 11:42:09,424 basehttp 9610 6377631744 "GET /static/css/wide-screen.css HTTP/1.1" 304 0
+INFO 2025-07-06 11:42:09,425 basehttp 9610 6360805376 "GET /static/images/logos/tokio-marine-globe-logo.jpg HTTP/1.1" 304 0
+INFO 2025-07-06 11:42:18,308 basehttp 9610 6360805376 "GET /create-insight/ HTTP/1.1" 200 74455
+INFO 2025-07-06 11:46:32,062 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 29312
+INFO 2025-07-06 11:46:37,028 basehttp 9610 6360805376 "GET /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/ HTTP/1.1" 200 20253
+INFO 2025-07-06 11:46:38,866 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 29312
+WARNING 2025-07-06 11:46:41,804 log 9610 6360805376 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
+WARNING 2025-07-06 11:46:41,805 basehttp 9610 6360805376 "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO 2025-07-06 16:16:32,824 basehttp 9610 6360805376 "GET /create-insight/ HTTP/1.1" 200 74455
+INFO 2025-07-06 16:16:32,847 basehttp 9610 6360805376 "GET /static/images/logos/tokio-marine-globe-logo.jpg HTTP/1.1" 304 0
+INFO 2025-07-06 16:16:32,847 basehttp 9610 6377631744 "GET /static/css/wide-screen.css HTTP/1.1" 304 0
+INFO 2025-07-06 16:16:36,991 basehttp 9610 6377631744 "GET / HTTP/1.1" 200 29312
+WARNING 2025-07-06 16:16:39,018 log 9610 6377631744 Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
+WARNING 2025-07-06 16:16:39,019 basehttp 9610 6377631744 "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO 2025-07-06 16:18:45,739 autoreload 26963 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:18:46,664 utils 26963 6107000832 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:20:32,812 basehttp 9610 6377631744 "GET / HTTP/1.1" 200 29707
+INFO 2025-07-06 16:20:36,523 basehttp 9610 6377631744 "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 200 89
+INFO 2025-07-06 16:20:40,274 basehttp 9610 6377631744 "DELETE /meeting/46dd51c1-2225-4fd8-8175-33ac796cd5f8/delete/ HTTP/1.1" 200 99
+INFO 2025-07-06 16:20:47,270 basehttp 9610 6377631744 "DELETE /meeting/d8bcc45a-2f8d-4a53-a562-662362409276/delete/ HTTP/1.1" 200 89
+INFO 2025-07-06 16:22:34,518 basehttp 9610 6394458112 "GET / HTTP/1.1" 200 25736
+INFO 2025-07-06 16:26:09,731 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 25736
+INFO 2025-07-06 16:26:29,891 basehttp 9610 6360805376 "GET /meeting/c199c75f-9156-4a39-8ef6-e2eb2743cb69/ HTTP/1.1" 200 19929
+INFO 2025-07-06 16:29:25,330 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 26890
+INFO 2025-07-06 16:29:30,891 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 26890
+INFO 2025-07-06 16:31:00,488 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 26890
+INFO 2025-07-06 16:31:17,041 basehttp 9610 6360805376 "GET /meeting/c199c75f-9156-4a39-8ef6-e2eb2743cb69/ HTTP/1.1" 200 19929
+INFO 2025-07-06 16:31:19,156 basehttp 9610 6360805376 "GET / HTTP/1.1" 200 26890
+INFO 2025-07-06 16:31:21,056 basehttp 9610 6360805376 "GET /create-insight/ HTTP/1.1" 200 74850
+INFO 2025-07-06 16:34:33,270 autoreload 9610 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/models.py changed, reloading.
+INFO 2025-07-06 16:34:33,643 autoreload 28869 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:34:34,526 utils 28869 6139146240 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:34:40,593 utils 28912 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:34:47,208 utils 28935 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:36:01,323 autoreload 28869 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-06 16:36:01,604 autoreload 29073 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:36:02,378 utils 29073 6187134976 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:36:08,595 autoreload 29073 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-06 16:36:08,865 autoreload 29096 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:36:09,661 utils 29096 6181728256 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:38:35,534 autoreload 29096 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/admin.py changed, reloading.
+INFO 2025-07-06 16:38:35,867 autoreload 29408 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:38:36,770 utils 29408 6188101632 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:39:13,725 autoreload 29408 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/admin.py changed, reloading.
+INFO 2025-07-06 16:39:14,000 autoreload 29495 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:39:14,805 utils 29495 6177861632 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:39:22,118 autoreload 29495 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-06 16:39:22,404 autoreload 29516 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:39:23,170 utils 29516 6105264128 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:39:37,609 autoreload 29516 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-06 16:39:37,887 autoreload 29554 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 16:39:38,651 utils 29554 6115454976 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 16:41:17,893 basehttp 29554 6132281344 "GET /create-insight/ HTTP/1.1" 200 74850
+INFO 2025-07-06 16:41:23,892 basehttp 29554 6132281344 "GET /create-insight/ HTTP/1.1" 200 74850
+INFO 2025-07-06 16:41:55,325 basehttp 29554 6132281344 "GET / HTTP/1.1" 200 26890
+INFO 2025-07-06 16:41:56,897 basehttp 29554 6132281344 "GET /create-insight/ HTTP/1.1" 200 74850

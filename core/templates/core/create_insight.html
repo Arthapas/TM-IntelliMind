@@ -45,7 +45,7 @@
                                          aria-describedby="upload-instructions">
                                         <i class="fas fa-cloud-upload-alt fa-2x mb-2" aria-hidden="true"></i>
                                         <p class="mb-1" id="upload-instructions">Drag & drop or click to browse</p>
-                                        <p class="text-muted small mb-0">MP3, WAV, M4A, MP4 (Max: 100MB)</p>
+                                        <p class="text-muted small mb-0">MP3, WAV, M4A, MP4 (Max: 500MB)</p>
                                         <input type="file" id="audio-file" name="audio_file" accept=".mp3,.wav,.m4a,.mp4" 
                                                class="d-none" required aria-label="Choose audio file">
                                     </div>
@@ -442,11 +442,11 @@ const SessionState = {
 // File validation
 function validateFile(file) {
     const errors = [];
-    const maxSize = 100 * 1024 * 1024; // 100MB
+    const maxSize = 500 * 1024 * 1024; // 500MB
     const allowedTypes = ['audio/mp3', 'audio/wav', 'audio/m4a', 'video/mp4', 'audio/mpeg', 'audio/wave'];
     
     if (file.size > maxSize) {
-        errors.push(`File size (${formatFileSize(file.size)}) exceeds the 100MB limit.`);
+        errors.push(`File size (${formatFileSize(file.size)}) exceeds the 500MB limit.`);
     }
     
     // Validate file type - require both MIME type and extension to match
@@ -696,12 +696,21 @@ function uploadFile(file) {
             currentMeetingId = data.meeting_id;
             SessionState.save();
             updateSidebarProgress('upload', 100);
-            updateSidebarStatus('Upload completed successfully!', 'success');
+            
+            // Check if file requires chunking
+            if (data.is_large_file) {
+                updateSidebarStatus('Upload completed! Large file detected - creating chunks in background...', 'processing');
+                // Show additional info for large files
+                document.getElementById('transcription-info').textContent = 'Large file detected. The system is automatically creating optimized chunks for better processing. This may take a few moments before transcription can begin.';
+            } else {
+                updateSidebarStatus('Upload completed successfully!', 'success');
+                document.getElementById('transcription-info').textContent = 'Processing time depends on audio length and selected model. You can edit the transcript after completion.';
+            }
+            
             updateWorkflowStep(1, 'completed');
             
             // Enable transcription button and update UI
             document.getElementById('start-transcription').disabled = false;
-            document.getElementById('transcription-info').textContent = 'Processing time depends on audio length and selected model. You can edit the transcript after completion.';
             document.getElementById('reset-upload').style.display = 'inline-block';
             
             // Hide upload progress after a delay
@@ -803,7 +812,15 @@ function pollTranscriptionProgress(retryCount = 0) {
                 throw new Error(data.error || 'Transcription progress check failed');
             }
             updateSidebarProgress('transcription', data.progress || 0);
-            updateSidebarStatus(data.status || 'Processing...', 'processing');
+            
+            // Enhanced status for chunked files
+            if (data.is_chunked && data.chunks_info) {
+                const chunksInfo = data.chunks_info;
+                const statusText = `Processing chunks: ${chunksInfo.completed}/${chunksInfo.total} completed`;
+                updateSidebarStatus(statusText, 'processing');
+            } else {
+                updateSidebarStatus(data.status || 'Processing...', 'processing');
+            }
             
             if (data.status === 'completed') {
                 document.getElementById('transcript-text').value = data.transcript || data.text || '';

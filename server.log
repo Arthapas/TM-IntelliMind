@@ -467,3 +467,187 @@ INFO "GET /static/css/wide-screen.css HTTP/1.1" 304 0
 INFO "GET / HTTP/1.1" 200 29312
 WARNING Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
 WARNING "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO "GET / HTTP/1.1" 200 29312
+INFO "GET /static/css/wide-screen.css HTTP/1.1" 304 0
+INFO "GET /static/images/logos/tokio-marine-globe-logo.jpg HTTP/1.1" 304 0
+INFO "GET /create-insight/ HTTP/1.1" 200 74455
+INFO "GET / HTTP/1.1" 200 29312
+INFO "GET /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/ HTTP/1.1" 200 20253
+INFO "GET / HTTP/1.1" 200 29312
+WARNING Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
+WARNING "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO "GET /create-insight/ HTTP/1.1" 200 74455
+INFO "GET /static/images/logos/tokio-marine-globe-logo.jpg HTTP/1.1" 304 0
+INFO "GET /static/css/wide-screen.css HTTP/1.1" 304 0
+INFO "GET / HTTP/1.1" 200 29312
+WARNING Forbidden (CSRF token from the 'X-Csrftoken' HTTP header has incorrect length.): /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/
+WARNING "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 403 2564
+INFO "GET / HTTP/1.1" 200 29707
+INFO "DELETE /meeting/656d0049-5ebd-4253-88fc-21184a88ec16/delete/ HTTP/1.1" 200 89
+INFO "DELETE /meeting/46dd51c1-2225-4fd8-8175-33ac796cd5f8/delete/ HTTP/1.1" 200 99
+INFO "DELETE /meeting/d8bcc45a-2f8d-4a53-a562-662362409276/delete/ HTTP/1.1" 200 89
+INFO "GET / HTTP/1.1" 200 25736
+INFO "GET / HTTP/1.1" 200 25736
+INFO "GET /meeting/c199c75f-9156-4a39-8ef6-e2eb2743cb69/ HTTP/1.1" 200 19929
+INFO "GET / HTTP/1.1" 200 26890
+INFO "GET / HTTP/1.1" 200 26890
+INFO "GET / HTTP/1.1" 200 26890
+INFO "GET /meeting/c199c75f-9156-4a39-8ef6-e2eb2743cb69/ HTTP/1.1" 200 19929
+INFO "GET / HTTP/1.1" 200 26890
+INFO "GET /create-insight/ HTTP/1.1" 200 74850
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 06, 2025 - 10:12:18
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 06, 2025 - 16:34:34
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): core.
+Run 'python manage.py migrate' to apply them.
+July 06, 2025 - 16:36:02
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/meetingmind/urls.py", line 24, in <module>
+    path('', include('core.urls')),
+  File "/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/urls.py", line 2, in <module>
+    from . import views
+  File "/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py", line 15, in <module>
+    from .audio_chunking import chunk_meeting_audio
+  File "/Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/audio_chunking.py", line 17, in <module>
+    from pydub import AudioSegment
+ModuleNotFoundError: No module named 'pydub'
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/admin.py changed, reloading.
+Performing system checks...
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): core.
+Run 'python manage.py migrate' to apply them.
+July 06, 2025 - 16:38:36
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): core.
+Run 'python manage.py migrate' to apply them.
+July 06, 2025 - 16:39:14
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): core.
+Run 'python manage.py migrate' to apply them.
+July 06, 2025 - 16:39:23
+Django version 4.2.23, using settings 'meetingmind.settings'
+Starting development server at http://127.0.0.1:8005/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+/Users/artdebmac/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+INFO BatchedInferencePipeline available - advanced features enabled
+INFO "GET /create-insight/ HTTP/1.1" 200 74850
+INFO "GET /create-insight/ HTTP/1.1" 200 74850
+INFO "GET / HTTP/1.1" 200 26890
+INFO "GET /create-insight/ HTTP/1.1" 200 74850

@@ -14,6 +14,7 @@ psutil>=5.9.0
 librosa>=0.10.0  # Advanced audio processing
 scipy>=1.10.0    # Scientific computing for audio
 soundfile>=0.12.0  # Audio file I/O
+pydub>=0.25.0    # Audio manipulation and chunking
 
 # For VAD and audio preprocessing (optional)
 # Note: silero-vad will be loaded dynamically via torch.hub

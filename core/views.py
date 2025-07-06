@@ -10,8 +10,13 @@ import json
 import os
 import threading
 import uuid
-from .models import Meeting, Transcript, Insight
+import logging
+from .models import Meeting, Transcript, Insight, AudioChunk
 from .utils import transcribe_audio, generate_insights_from_text, generate_meeting_name_and_description
+from .audio_chunking import chunk_meeting_audio, cleanup_chunks
+from .chunk_transcription import transcribe_meeting_chunks, ChunkTranscriber
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -86,10 +91,10 @@ def upload_audio(request):
         if file_extension not in allowed_extensions:
             return JsonResponse({'success': False, 'error': 'Invalid file type. Allowed: MP3, WAV, M4A, MP4'})
         
-        # Validate file size (100MB limit)
-        max_size = 100 * 1024 * 1024  # 100MB in bytes
+        # Validate file size (500MB limit for chunking support)
+        max_size = 500 * 1024 * 1024  # 500MB in bytes
         if audio_file.size > max_size:
-            return JsonResponse({'success': False, 'error': 'File too large. Maximum size is 100MB'})
+            return JsonResponse({'success': False, 'error': 'File too large. Maximum size is 500MB'})
         
         # Create meeting record
         meeting = Meeting.objects.create(
@@ -107,10 +112,31 @@ def upload_audio(request):
         # Create transcript record
         Transcript.objects.create(meeting=meeting)
         
+        # Check if file needs chunking and create chunks if necessary
+        chunk_threshold = 100 * 1024 * 1024  # 100MB
+        is_large_file = audio_file.size > chunk_threshold
+        
+        if is_large_file:
+            # Start chunking in background thread
+            def create_chunks():
+                try:
+                    success = chunk_meeting_audio(meeting)
+                    if success:
+                        logger.info(f"Successfully created chunks for meeting {meeting.id}")
+                    else:
+                        logger.error(f"Failed to create chunks for meeting {meeting.id}")
+                except Exception as e:
+                    logger.error(f"Chunking error for meeting {meeting.id}: {e}")
+            
+            thread = threading.Thread(target=create_chunks)
+            thread.start()
+        
         return JsonResponse({
             'success': True,
             'meeting_id': str(meeting.id),
-            'message': 'File uploaded successfully'
+            'message': 'File uploaded successfully',
+            'is_large_file': is_large_file,
+            'requires_chunking': is_large_file
         })
         
     except Exception as e:
@@ -135,13 +161,27 @@ def start_transcription(request):
         # Start transcription in background thread
         def run_transcription():
             try:
-                audio_path = meeting.audio_file.path
-                text = transcribe_audio(audio_path, whisper_model, transcript, language)
+                # Check if meeting has chunks (large file)
+                chunks = meeting.chunks.all()
                 
-                transcript.text = text
-                transcript.status = 'completed'
-                transcript.progress = 100
-                transcript.save()
+                if chunks.exists():
+                    # Process chunks
+                    logger.info(f"Processing {chunks.count()} chunks for meeting {meeting.id}")
+                    success = transcribe_meeting_chunks(meeting, whisper_model, language)
+                    
+                    if not success:
+                        transcript.status = 'failed'
+                        transcript.error_message = "Failed to process audio chunks"
+                        transcript.save()
+                else:
+                    # Process regular file
+                    audio_path = meeting.audio_file.path
+                    text = transcribe_audio(audio_path, whisper_model, transcript, language)
+                    
+                    transcript.text = text
+                    transcript.status = 'completed'
+                    transcript.progress = 100
+                    transcript.save()
                 
             except Exception as e:
                 transcript.status = 'failed'
@@ -164,12 +204,36 @@ def transcription_progress(request):
         meeting = get_object_or_404(Meeting, id=meeting_id)
         transcript = meeting.transcript
         
-        return JsonResponse({
-            'progress': transcript.progress,
-            'status': transcript.status,
-            'transcript': transcript.text,
-            'error': transcript.error_message
-        })
+        # Check if meeting has chunks
+        chunks = meeting.chunks.all()
+        
+        if chunks.exists():
+            # Get chunk-based progress
+            transcriber = ChunkTranscriber()
+            progress_info = transcriber.get_transcription_progress(meeting)
+            
+            return JsonResponse({
+                'progress': progress_info['progress'],
+                'status': progress_info['status'],
+                'transcript': transcript.text,
+                'error': transcript.error_message,
+                'is_chunked': True,
+                'chunks_info': {
+                    'total': progress_info['chunks_total'],
+                    'completed': progress_info['chunks_completed'],
+                    'processing': progress_info['chunks_processing'],
+                    'failed': progress_info['chunks_failed']
+                }
+            })
+        else:
+            # Regular progress
+            return JsonResponse({
+                'progress': transcript.progress,
+                'status': transcript.status,
+                'transcript': transcript.text,
+                'error': transcript.error_message,
+                'is_chunked': False
+            })
         
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
@@ -294,6 +358,12 @@ def delete_meeting(request, meeting_id):
         # Store meeting info before deletion
         meeting_title = meeting.title or f"Meeting {str(meeting.id)[:8]}"
         
+        # Clean up audio chunks if they exist
+        try:
+            cleanup_chunks(meeting)
+        except Exception as chunk_error:
+            logger.warning(f"Could not cleanup chunks for meeting {meeting_id}: {str(chunk_error)}")
+        
         # Clean up audio file if it exists
         if meeting.audio_file:
             try:
@@ -311,9 +381,9 @@ def delete_meeting(request, meeting_id):
                     
             except Exception as file_error:
                 # Log file deletion error but continue with database deletion
-                print(f"Warning: Could not delete audio file for meeting {meeting_id}: {str(file_error)}")
+                logger.warning(f"Could not delete audio file for meeting {meeting_id}: {str(file_error)}")
         
-        # Delete the meeting (CASCADE will handle Transcript and Insight)
+        # Delete the meeting (CASCADE will handle Transcript, Insight, and AudioChunk)
         meeting.delete()
         
         return JsonResponse({

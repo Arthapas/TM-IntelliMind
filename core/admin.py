@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Meeting, Transcript, Insight
+from .models import Meeting, Transcript, Insight, AudioChunk
 
 
 @admin.register(Meeting)
@@ -58,6 +58,41 @@ class InsightAdmin(admin.ModelAdmin):
         }),
         ('Content', {
             'fields': ('situation', 'insights'),
+            'classes': ('wide',)
+        }),
+        ('Errors', {
+            'fields': ('error_message',),
+            'classes': ('collapse',)
+        }),
+        ('Metadata', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+
+@admin.register(AudioChunk)
+class AudioChunkAdmin(admin.ModelAdmin):
+    list_display = ['meeting', 'chunk_index', 'start_time', 'end_time', 'duration', 'status', 'created_at']
+    list_filter = ['status', 'created_at']
+    search_fields = ['meeting__title', 'transcript_text']
+    readonly_fields = ['created_at', 'updated_at']
+    ordering = ['meeting', 'chunk_index']
+    
+    fieldsets = (
+        (None, {
+            'fields': ('meeting', 'chunk_index', 'status', 'progress')
+        }),
+        ('Timing', {
+            'fields': ('start_time', 'end_time', 'duration'),
+            'classes': ('wide',)
+        }),
+        ('File Info', {
+            'fields': ('file_path', 'file_size'),
+            'classes': ('collapse',)
+        }),
+        ('Content', {
+            'fields': ('transcript_text',),
             'classes': ('wide',)
         }),
         ('Errors', {
