@@ -1,0 +1,202 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}TM IntelliMind - Home{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 home-layout-wide">
+        <div class="text-center mb-5">
+            <!-- TM IntelliMind branded logo (using Globe Symbolmark logo) -->
+            <img src="{% static 'images/logos/tokio-marine-globe-logo.jpg' %}" 
+                 alt="TM IntelliMind - AI-Powered Meeting Intelligence Platform" 
+                 class="logo-hero logo-intellimind"
+                 loading="eager">
+            <h1 class="display-4 mb-4">Welcome to TM IntelliMind</h1>
+            <p class="lead">Transform your meetings into actionable intelligence. Upload audio recordings and get AI-powered insights in minutes.</p>
+            <p class="text-muted">Powered by TM Group</p>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h3 class="card-title mb-4">Get Started</h3>
+                <p class="card-text mb-4">Ready to extract valuable insights from your meeting recordings?</p>
+                <a href="{% url 'core:create_insight' %}" class="btn btn-primary btn-lg">
+                    Create New Insight
+                </a>
+            </div>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-warning mt-4">
+            <strong>Notice:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        {% if meetings %}
+        <div class="card shadow mt-5">
+            <div class="card-header">
+                <h4 class="mb-0">Recent Meetings</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover meeting-table-wide">
+                        <thead>
+                            <tr>
+                                <th>Meeting Name</th>
+                                <th>Summary</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for meeting in meetings %}
+                            <tr>
+                                <td>
+                                    <strong>{{ meeting.title }}</strong>
+                                </td>
+                                <td>{{ meeting.summary }}</td>
+                                <td>{{ meeting.created_at|date:"M d, Y H:i" }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <a href="{% url 'core:meeting_detail' meeting.id %}" class="btn btn-outline-primary">
+                                            <i class="fas fa-eye me-1"></i>View Detail
+                                        </a>
+                                        <button class="btn btn-outline-danger" 
+                                                onclick="confirmDelete('{{ meeting.id }}', '{{ meeting.title|escapejs }}')"
+                                                title="Delete meeting">
+                                            <i class="fas fa-trash me-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Upload Audio</h5>
+                        <p class="card-text">Support for MP3, WAV, M4A, and MP4 formats</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">AI Transcription</h5>
+                        <p class="card-text">Powered by faster-whisper technology</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Smart Insights</h5>
+                        <p class="card-text">Extract situation analysis and actionable insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmDelete(meetingId, meetingTitle) {
+    // Show confirmation dialog
+    const message = `Are you sure you want to delete "${meetingTitle}"?\n\nThis action cannot be undone and will permanently remove:\n• Meeting data\n• Audio file\n• Transcript\n• Insights`;
+    
+    if (confirm(message)) {
+        deleteMeeting(meetingId, meetingTitle);
+    }
+}
+
+function deleteMeeting(meetingId, meetingTitle) {
+    // Get CSRF token
+    const csrfToken = getCSRFToken();
+    
+    // Show loading state
+    const deleteButton = document.querySelector(`button[onclick*="${meetingId}"]`);
+    const originalText = deleteButton.innerHTML;
+    deleteButton.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Deleting...';
+    deleteButton.disabled = true;
+    
+    // Make DELETE request
+    fetch(`/meeting/${meetingId}/delete/`, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRFToken': csrfToken,
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the table row with fade effect
+            const row = deleteButton.closest('tr');
+            row.style.transition = 'opacity 0.3s ease';
+            row.style.opacity = '0';
+            
+            setTimeout(() => {
+                row.remove();
+                
+                // Check if table is now empty and reload page if needed
+                const tbody = document.querySelector('table tbody');
+                if (tbody && tbody.children.length === 0) {
+                    location.reload();
+                }
+            }, 300);
+            
+            // Show success message
+            showNotification(data.message, 'success');
+        } else {
+            // Show error message
+            showNotification(data.error || 'Failed to delete meeting', 'error');
+            
+            // Restore button
+            deleteButton.innerHTML = originalText;
+            deleteButton.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error('Delete error:', error);
+        showNotification('Network error occurred while deleting meeting', 'error');
+        
+        // Restore button
+        deleteButton.innerHTML = originalText;
+        deleteButton.disabled = false;
+    });
+}
+
+function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show position-fixed`;
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.zIndex = '1050';
+    notification.style.minWidth = '300px';
+    
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-dismiss after 4 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 4000);
+}
+</script>
+{% endblock %}

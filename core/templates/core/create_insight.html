@@ -1,0 +1,1186 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Create Insight - TM IntelliMind{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12">
+        <h2 class="mb-4">Create New Insight</h2>
+        
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Workflow Content Area -->
+                    <div class="col-lg-8 col-xl-9">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                    
+                    <!-- Steps 1 & 2: Side-by-Side Layout -->
+                    <div class="row g-4 mb-4">
+                        <!-- Step 1: Audio Upload Section -->
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-upload me-2" aria-hidden="true"></i>
+                                        1. Upload Audio File
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Language Selection -->
+                                    <div class="mb-3">
+                                        <label for="language-select" class="form-label">Audio Language</label>
+                                        <select class="form-select" id="language-select" name="language" aria-describedby="language-help">
+                                            <option value="auto">Auto-detect</option>
+                                            <option value="th">Thai (ไทย)</option>
+                                            <option value="en">English</option>
+                                        </select>
+                                        <div id="language-help" class="form-text">
+                                            Select the primary language of your audio.
+                                        </div>
+                                    </div>
+
+                                    <div class="upload-area" id="upload-area" role="button" tabindex="0" 
+                                         aria-label="Upload audio file by clicking or drag and drop"
+                                         aria-describedby="upload-instructions">
+                                        <i class="fas fa-cloud-upload-alt fa-2x mb-2" aria-hidden="true"></i>
+                                        <p class="mb-1" id="upload-instructions">Drag & drop or click to browse</p>
+                                        <p class="text-muted small mb-0">MP3, WAV, M4A, MP4 (Max: 100MB)</p>
+                                        <input type="file" id="audio-file" name="audio_file" accept=".mp3,.wav,.m4a,.mp4" 
+                                               class="d-none" required aria-label="Choose audio file">
+                                    </div>
+                                    
+                                    <!-- File Validation Messages -->
+                                    <div id="file-validation" class="mt-2" style="display: none;">
+                                        <div class="alert alert-danger" role="alert" id="file-error"></div>
+                                    </div>
+                                    
+                                    <div id="file-info" class="mt-2" style="display: none;">
+                                        <div class="alert alert-success" role="alert">
+                                            <strong>Selected:</strong> <span id="file-name"></span>
+                                            <span id="file-size" class="ms-2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Model Selection -->
+                        <div class="col-lg-6">
+                            <div class="card h-100" id="model-selection-card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-cogs me-2" aria-hidden="true"></i>
+                                        2. Select Transcription Model
+                                    </h5>
+                                </div>
+                                <div class="card-body" id="model-selection" role="region" aria-labelledby="model-selection-title">
+                                    <div class="mb-3">
+                                        <label for="whisper-model" class="form-label">Whisper Model</label>
+                                        <select class="form-select" id="whisper-model" name="whisper_model" aria-describedby="model-help">
+                                            <option value="tiny">Tiny - Fastest (1-2 min)</option>
+                                            <option value="base">Base - Good balance (2-3 min)</option>
+                                            <option value="small">Small - Better accuracy (3-5 min)</option>
+                                            <option value="medium" selected>Medium - High accuracy (5-8 min) ⭐ Thai</option>
+                                            <option value="large">Large - Highest accuracy (8-15 min) ⭐ Thai</option>
+                                        </select>
+                                        <div id="model-help" class="form-text">
+                                            <strong>Thai:</strong> Medium or Large recommended<br>
+                                            <strong>English:</strong> Small or Medium sufficient
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2">
+                                        <button type="button" class="btn btn-primary" id="start-transcription" 
+                                                aria-describedby="transcription-info" disabled>
+                                            <i class="fas fa-play me-1" aria-hidden="true"></i>
+                                            Start Transcription
+                                        </button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" id="reset-upload" style="display: none;">
+                                            <i class="fas fa-redo me-1" aria-hidden="true"></i>
+                                            Upload New File
+                                        </button>
+                                    </div>
+                                    <div id="transcription-info" class="form-text mt-2">
+                                        Upload a file first to enable transcription.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Transcript Text -->
+                    <div class="mb-4" id="transcript-section" style="display: none;" role="region" aria-labelledby="transcript-title">
+                        <h5 id="transcript-title">3. Review & Edit Transcript</h5>
+                        <div class="mb-3">
+                            <label for="transcript-text" class="form-label visually-hidden">Transcript text</label>
+                            <textarea class="form-control" id="transcript-text" name="transcript_text" rows="10" 
+                                      placeholder="Transcript will appear here..." aria-describedby="transcript-help"></textarea>
+                            <div id="transcript-help" class="form-text">
+                                Review and edit the transcript for accuracy before generating insights. 
+                                Corrections here will improve the quality of the analysis.
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-success" id="generate-insights" aria-describedby="insights-info">
+                                <i class="fas fa-lightbulb me-1" aria-hidden="true"></i>
+                                Generate Insights
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="retranscribe" style="display: none;">
+                                <i class="fas fa-redo me-1" aria-hidden="true"></i>
+                                Re-transcribe
+                            </button>
+                        </div>
+                        <div id="insights-info" class="form-text mt-2">
+                            AI will analyze your transcript and organize insights into 9 categories for Thailand's insurance sector.
+                        </div>
+                    </div>
+
+
+                    <!-- Insights Display -->
+                    <div class="mb-4" id="insights-section" style="display: none;" role="region" aria-labelledby="insights-title">
+                        <h5 id="insights-title">
+                            <i class="fas fa-chart-line me-2" aria-hidden="true"></i>
+                            4. Generated Insights
+                        </h5>
+                        <div class="row g-3">
+                            <!-- Situation Analysis - Smaller Column -->
+                            <div class="col-lg-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-sitemap me-2" aria-hidden="true"></i>
+                                            Situation Analysis
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <label for="situation-text" class="form-label visually-hidden">Situation analysis</label>
+                                        <textarea class="form-control border-0" id="situation-text" name="situation" 
+                                                  rows="18" placeholder="Situation analysis will appear here..." 
+                                                  aria-describedby="situation-help" style="min-height: 400px; resize: vertical;"></textarea>
+                                        <div id="situation-help" class="form-text mt-2">
+                                            Context and summary of the meeting discussion.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Key Insights - Larger Column -->
+                            <div class="col-lg-8">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-lightbulb me-2" aria-hidden="true"></i>
+                                            Key Insights (9 Categories)
+                                        </h6>
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Insights view options">
+                                            <button type="button" class="btn btn-outline-primary active" id="insights-view-text" title="Text view">
+                                                <i class="fas fa-align-left" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary" id="insights-view-categories" title="Category view">
+                                                <i class="fas fa-list" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Text View -->
+                                        <div id="insights-text-view">
+                                            <label for="insights-text" class="form-label visually-hidden">Key insights</label>
+                                            <textarea class="form-control border-0" id="insights-text" name="insights" 
+                                                      rows="18" placeholder="Key insights will appear here..." 
+                                                      aria-describedby="insights-help" style="min-height: 400px; resize: vertical;"></textarea>
+                                        </div>
+                                        
+                                        <!-- Category View (Hidden by default) -->
+                                        <div id="insights-category-view" style="display: none;">
+                                            <div class="insights-categories">
+                                                <div class="row g-2">
+                                                    <div class="col-md-6">
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-primary mb-1">📋 Tasks & Action Items</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-tasks"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-success mb-1">✅ Decisions Made</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-decisions"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-info mb-1">❓ Questions & Answers</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-qa"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-warning mb-1">💡 Key Insights</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-insights"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-danger mb-1">⏰ Deadlines</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-deadlines"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-secondary mb-1">👥 Meeting Participants</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-participants"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-primary mb-1">🔄 Follow-up Actions</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-followup"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-danger mb-1">⚠️ Risks Identified</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-risks"></div>
+                                                        </div>
+                                                        <div class="category-section mb-3">
+                                                            <h6 class="text-info mb-1">📅 Meeting Agenda</h6>
+                                                            <div class="category-content bg-light p-2 rounded small" id="category-agenda"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="insights-help" class="form-text mt-2">
+                                            <strong>9 Categories:</strong> Tasks, Decisions, Q&A, Key Insights, Deadlines, Participants, Follow-ups, Risks, Agenda
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between flex-wrap gap-2 mt-4">
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-success" id="save-all" aria-describedby="save-info">
+                                    <i class="fas fa-save me-1" aria-hidden="true"></i>
+                                    Save Complete Analysis
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" id="regenerate-insights" style="display: none;">
+                                    <i class="fas fa-redo me-1" aria-hidden="true"></i>
+                                    Regenerate Insights
+                                </button>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary" id="export-word" disabled 
+                                        title="Export feature coming soon">
+                                    <i class="fas fa-file-word me-1" aria-hidden="true"></i>
+                                    Export to Word
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="print-analysis">
+                                    <i class="fas fa-print me-1" aria-hidden="true"></i>
+                                    Print
+                                </button>
+                            </div>
+                        </div>
+                        <div id="save-info" class="form-text mt-2">
+                            Your analysis will be saved and accessible from the home page. You can continue editing after saving.
+                        </div>
+                    </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Status Panel Sidebar -->
+                    <div class="col-lg-4 col-xl-3">
+                        <!-- Mobile Toggle Button -->
+                        <button class="btn btn-primary w-100 mb-2 d-lg-none" type="button" 
+                                data-bs-toggle="collapse" data-bs-target="#status-panel-collapse" 
+                                aria-expanded="false" aria-controls="status-panel-collapse" id="status-panel-toggle">
+                            <i class="fas fa-tasks me-2" aria-hidden="true"></i>
+                            Status Panel
+                            <i class="fas fa-chevron-down ms-2" id="status-panel-icon" aria-hidden="true"></i>
+                        </button>
+                        
+                        <div class="collapse d-lg-block" id="status-panel-collapse">
+                            <div class="status-panel sticky-top" style="top: 1rem;">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="mb-0">
+                        <i class="fas fa-tasks me-2" aria-hidden="true"></i>
+                        Status Panel
+                    </h6>
+                </div>
+                <div class="card-body p-3">
+                    <!-- Workflow Progress Indicator -->
+                    <div class="workflow-progress mb-4">
+                        <h6 class="text-muted mb-3">Workflow Progress</h6>
+                        <div class="step-indicator">
+                            <div class="step" id="step-1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Upload</div>
+                            </div>
+                            <div class="step" id="step-2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Transcribe</div>
+                            </div>
+                            <div class="step" id="step-3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Review</div>
+                            </div>
+                            <div class="step" id="step-4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Insights</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Status -->
+                    <div class="current-status mb-4">
+                        <h6 class="text-muted mb-2">Current Status</h6>
+                        <div class="status-message" id="sidebar-status" role="status" aria-live="polite">
+                            <i class="fas fa-info-circle me-2 text-info"></i>
+                            Ready to begin
+                        </div>
+                    </div>
+                    
+                    <!-- File Information -->
+                    <div class="file-info mb-4" id="sidebar-file-info" style="display: none;">
+                        <h6 class="text-muted mb-2">File Information</h6>
+                        <div class="file-details bg-light p-2 rounded">
+                            <div class="file-name" id="sidebar-file-name"></div>
+                            <div class="file-size text-muted small" id="sidebar-file-size"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bars -->
+                    <div class="progress-section">
+                        <!-- Upload Progress -->
+                        <div class="progress-item mb-3" id="sidebar-upload-progress" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="small text-muted">Upload Progress</span>
+                                <span class="small text-muted" id="sidebar-upload-percentage">0%</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar" id="sidebar-upload-bar" role="progressbar" 
+                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Transcription Progress -->
+                        <div class="progress-item mb-3" id="sidebar-transcription-progress" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="small text-muted">Transcription Progress</span>
+                                <span class="small text-muted" id="sidebar-transcription-percentage">0%</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar" id="sidebar-transcription-bar" role="progressbar" 
+                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Insights Progress -->
+                        <div class="progress-item mb-3" id="sidebar-insights-progress" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="small text-muted">Analysis Progress</span>
+                                <span class="small text-muted" id="sidebar-insights-percentage">0%</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar" id="sidebar-insights-bar" role="progressbar" 
+                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" id="sidebar-actions">
+                        <button type="button" class="btn btn-outline-danger btn-sm w-100" id="sidebar-cancel" 
+                                style="display: none;" aria-label="Cancel current operation">
+                            <i class="fas fa-stop me-1" aria-hidden="true"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentMeetingId = null;
+let transcriptionInterval = null;
+let insightsInterval = null;
+
+// Session state management
+const SessionState = {
+    save() {
+        const state = {
+            currentMeetingId,
+            timestamp: Date.now(),
+            language: document.getElementById('language-select').value,
+            model: document.getElementById('whisper-model').value
+        };
+        localStorage.setItem('tm_intellimind_session', JSON.stringify(state));
+    },
+    
+    load() {
+        const saved = localStorage.getItem('tm_intellimind_session');
+        if (saved) {
+            const state = JSON.parse(saved);
+            // Check if session is less than 1 hour old
+            if (Date.now() - state.timestamp < 3600000) {
+                currentMeetingId = state.currentMeetingId;
+                document.getElementById('language-select').value = state.language || 'auto';
+                document.getElementById('whisper-model').value = state.model || 'medium';
+                return state;
+            }
+        }
+        return null;
+    },
+    
+    clear() {
+        localStorage.removeItem('tm_intellimind_session');
+        currentMeetingId = null;
+    }
+};
+
+// File validation
+function validateFile(file) {
+    const errors = [];
+    const maxSize = 100 * 1024 * 1024; // 100MB
+    const allowedTypes = ['audio/mp3', 'audio/wav', 'audio/m4a', 'video/mp4', 'audio/mpeg', 'audio/wave'];
+    
+    if (file.size > maxSize) {
+        errors.push(`File size (${formatFileSize(file.size)}) exceeds the 100MB limit.`);
+    }
+    
+    // Validate file type - require both MIME type and extension to match
+    const hasValidMimeType = allowedTypes.includes(file.type);
+    const hasValidExtension = file.name.toLowerCase().match(/\.(mp3|wav|m4a|mp4)$/);
+    const isValidType = hasValidMimeType && hasValidExtension;
+    
+    if (!isValidType) {
+        if (!hasValidMimeType && !hasValidExtension) {
+            errors.push(`File type "${file.type || 'unknown'}" with extension "${file.name.split('.').pop()}" is not supported. Please use MP3, WAV, M4A, or MP4.`);
+        } else if (!hasValidMimeType) {
+            errors.push(`File MIME type "${file.type || 'unknown'}" is not supported. Please ensure you're uploading a valid audio file.`);
+        } else if (!hasValidExtension) {
+            errors.push(`File extension "${file.name.split('.').pop()}" is not supported. Please use MP3, WAV, M4A, or MP4.`);
+        }
+    }
+    
+    return errors;
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function showError(message, containerId = 'file-validation') {
+    // Show error in sidebar as well
+    updateSidebarStatus(message, 'error');
+    
+    const container = document.getElementById(containerId);
+    if (container) {
+        const errorDiv = document.getElementById('file-error');
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            container.style.display = 'block';
+        }
+    }
+    
+    // Announce to screen readers
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'assertive');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'visually-hidden';
+    announcement.textContent = `Error: ${message}`;
+    document.body.appendChild(announcement);
+    setTimeout(() => document.body.removeChild(announcement), 1000);
+}
+
+function hideError(containerId = 'file-validation') {
+    document.getElementById(containerId).style.display = 'none';
+}
+
+// File upload handling with keyboard support
+document.getElementById('upload-area').addEventListener('click', function() {
+    document.getElementById('audio-file').click();
+});
+
+document.getElementById('upload-area').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        document.getElementById('audio-file').click();
+    }
+});
+
+document.getElementById('audio-file').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const errors = validateFile(file);
+        if (errors.length > 0) {
+            showError(errors.join(' '));
+            return;
+        }
+        
+        hideError();
+        document.getElementById('file-name').textContent = file.name;
+        document.getElementById('file-size').textContent = `(${formatFileSize(file.size)})`;
+        document.getElementById('file-info').style.display = 'block';
+        uploadFile(file);
+    }
+});
+
+// Drag and drop handling with improved accessibility
+const uploadArea = document.getElementById('upload-area');
+uploadArea.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+    uploadArea.setAttribute('aria-label', 'Drop file here to upload');
+});
+
+uploadArea.addEventListener('dragleave', function(e) {
+    e.preventDefault();
+    if (!uploadArea.contains(e.relatedTarget)) {
+        uploadArea.classList.remove('dragover');
+        uploadArea.setAttribute('aria-label', 'Upload audio file by clicking or drag and drop');
+    }
+});
+
+uploadArea.addEventListener('drop', function(e) {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    uploadArea.setAttribute('aria-label', 'Upload audio file by clicking or drag and drop');
+    
+    const file = e.dataTransfer.files[0];
+    if (file) {
+        const errors = validateFile(file);
+        if (errors.length > 0) {
+            showError(errors.join(' '));
+            return;
+        }
+        
+        hideError();
+        document.getElementById('audio-file').files = e.dataTransfer.files;
+        document.getElementById('file-name').textContent = file.name;
+        document.getElementById('file-size').textContent = `(${formatFileSize(file.size)})`;
+        document.getElementById('file-info').style.display = 'block';
+        uploadFile(file);
+    }
+});
+
+// Sidebar status and progress management
+function updateSidebarStatus(message, type = 'info') {
+    const statusElement = document.getElementById('sidebar-status');
+    let icon = 'fas fa-info-circle text-info';
+    
+    switch(type) {
+        case 'success':
+            icon = 'fas fa-check-circle text-success';
+            break;
+        case 'error':
+            icon = 'fas fa-exclamation-triangle text-danger';
+            break;
+        case 'warning':
+            icon = 'fas fa-exclamation-circle text-warning';
+            break;
+        case 'processing':
+            icon = 'fas fa-spinner fa-spin text-primary';
+            break;
+    }
+    
+    statusElement.innerHTML = `<i class="${icon} me-2"></i>${message}`;
+}
+
+function updateSidebarProgress(progressType, percentage, show = true) {
+    const progressContainer = document.getElementById(`sidebar-${progressType}-progress`);
+    const progressBar = document.getElementById(`sidebar-${progressType}-bar`);
+    const percentageElement = document.getElementById(`sidebar-${progressType}-percentage`);
+    
+    if (show) {
+        progressContainer.style.display = 'block';
+        progressContainer.classList.add('active');
+    } else {
+        progressContainer.style.display = 'none';
+        progressContainer.classList.remove('active');
+    }
+    
+    if (progressBar) {
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', percentage);
+    }
+    
+    if (percentageElement) {
+        percentageElement.textContent = percentage + '%';
+    }
+}
+
+function updateWorkflowStep(stepNumber, status = 'active') {
+    // Remove all statuses from all steps
+    for (let i = 1; i <= 4; i++) {
+        const step = document.getElementById(`step-${i}`);
+        step.classList.remove('active', 'completed');
+    }
+    
+    // Apply status to specific step and mark previous as completed
+    for (let i = 1; i <= stepNumber; i++) {
+        const step = document.getElementById(`step-${i}`);
+        if (i < stepNumber) {
+            step.classList.add('completed');
+        } else if (i === stepNumber) {
+            step.classList.add(status);
+        }
+    }
+}
+
+function showSidebarFileInfo(filename, size) {
+    const fileInfoContainer = document.getElementById('sidebar-file-info');
+    const filenameElement = document.getElementById('sidebar-file-name');
+    const filesizeElement = document.getElementById('sidebar-file-size');
+    
+    filenameElement.textContent = filename;
+    filesizeElement.textContent = size;
+    fileInfoContainer.style.display = 'block';
+}
+
+function showSidebarCancel(show = true, action = null) {
+    const cancelButton = document.getElementById('sidebar-cancel');
+    
+    if (show) {
+        cancelButton.style.display = 'block';
+        if (action) {
+            cancelButton.onclick = action;
+        }
+    } else {
+        cancelButton.style.display = 'none';
+        cancelButton.onclick = null;
+    }
+}
+
+// Upload file function with sidebar integration
+function uploadFile(file) {
+    const formData = new FormData();
+    formData.append('audio_file', file);
+    formData.append('csrfmiddlewaretoken', getCSRFToken());
+
+    // Update sidebar status
+    updateWorkflowStep(1, 'active');
+    updateSidebarStatus('Starting upload...', 'processing');
+    updateSidebarProgress('upload', 0, true);
+    showSidebarFileInfo(file.name, formatFileSize(file.size));
+    
+    // Simulate upload progress
+    let simulatedProgress = 0;
+    const uploadSimulation = setInterval(() => {
+        simulatedProgress += Math.random() * 20;
+        if (simulatedProgress < 90) {
+            updateSidebarProgress('upload', Math.floor(simulatedProgress));
+        }
+    }, 200);
+    
+    fetch('{% url "core:upload_audio" %}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        clearInterval(uploadSimulation);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+    })
+    .then(data => {
+        if (data.success) {
+            currentMeetingId = data.meeting_id;
+            SessionState.save();
+            updateSidebarProgress('upload', 100);
+            updateSidebarStatus('Upload completed successfully!', 'success');
+            updateWorkflowStep(1, 'completed');
+            
+            // Enable transcription button and update UI
+            document.getElementById('start-transcription').disabled = false;
+            document.getElementById('transcription-info').textContent = 'Processing time depends on audio length and selected model. You can edit the transcript after completion.';
+            document.getElementById('reset-upload').style.display = 'inline-block';
+            
+            // Hide upload progress after a delay
+            setTimeout(() => {
+                updateSidebarProgress('upload', 100, false);
+            }, 2000);
+            
+            // Focus management
+            setTimeout(() => {
+                document.getElementById('start-transcription').focus();
+            }, 500);
+        } else {
+            throw new Error(data.error || 'Upload failed');
+        }
+    })
+    .catch(error => {
+        clearInterval(uploadSimulation);
+        updateSidebarProgress('upload', 0, false);
+        updateSidebarStatus(`Upload failed: ${error.message}. Click to retry.`, 'error');
+        showError(`Upload failed: ${error.message}`);
+        
+        // Add retry functionality to sidebar status
+        const statusElement = document.getElementById('sidebar-status');
+        statusElement.style.cursor = 'pointer';
+        statusElement.onclick = () => {
+            statusElement.style.cursor = 'default';
+            statusElement.onclick = null;
+            uploadFile(file);
+        };
+    });
+}
+
+// Start transcription with sidebar integration
+document.getElementById('start-transcription').addEventListener('click', function() {
+    if (!currentMeetingId) return;
+    
+    const model = document.getElementById('whisper-model').value;
+    const language = document.getElementById('language-select').value;
+    
+    // Update sidebar status
+    updateWorkflowStep(2, 'active');
+    updateSidebarStatus('Starting transcription...', 'processing');
+    updateSidebarProgress('transcription', 0, true);
+    showSidebarCancel(true, cancelTranscription);
+    
+    fetch('{% url "core:start_transcription" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({
+            meeting_id: currentMeetingId,
+            whisper_model: model,
+            language: language !== 'auto' ? language : null
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+    })
+    .then(data => {
+        if (data.success) {
+            SessionState.save();
+            pollTranscriptionProgress();
+        } else {
+            throw new Error(data.error || 'Transcription failed to start');
+        }
+    })
+    .catch(error => {
+        updateSidebarProgress('transcription', 0, false);
+        updateSidebarStatus(`Error: ${error.message}`, 'error');
+        showSidebarCancel(false);
+    });
+});
+
+// Enhanced polling with sidebar integration
+function pollTranscriptionProgress(retryCount = 0) {
+    const maxRetries = 3;
+    const baseDelay = 2000;
+    const delay = Math.min(baseDelay * Math.pow(1.5, retryCount), 10000);
+    
+    transcriptionInterval = setTimeout(() => {
+        fetch(`{% url "core:transcription_progress" %}?meeting_id=${currentMeetingId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+        })
+        .then(data => {
+            if (data.success === false) {
+                throw new Error(data.error || 'Transcription progress check failed');
+            }
+            updateSidebarProgress('transcription', data.progress || 0);
+            updateSidebarStatus(data.status || 'Processing...', 'processing');
+            
+            if (data.status === 'completed') {
+                document.getElementById('transcript-text').value = data.transcript || data.text || '';
+                document.getElementById('transcript-section').style.display = 'block';
+                document.getElementById('retranscribe').style.display = 'inline-block';
+                
+                // Update sidebar
+                updateSidebarProgress('transcription', 100, false);
+                updateSidebarStatus('Transcription completed successfully!', 'success');
+                updateWorkflowStep(2, 'completed');
+                updateWorkflowStep(3, 'active');
+                showSidebarCancel(false);
+                
+                // Focus management
+                setTimeout(() => {
+                    document.getElementById('transcript-text').focus();
+                }, 500);
+                
+            } else if (data.status === 'failed') {
+                updateSidebarProgress('transcription', 0, false);
+                updateSidebarStatus(`Transcription failed: ${data.error || 'Unknown error'}`, 'error');
+                showSidebarCancel(false);
+                
+            } else {
+                // Continue polling with reset retry count on success
+                pollTranscriptionProgress(0);
+            }
+        })
+        .catch(error => {
+            if (retryCount < maxRetries) {
+                console.warn(`Polling attempt ${retryCount + 1} failed, retrying...`, error);
+                pollTranscriptionProgress(retryCount + 1);
+            } else {
+                updateSidebarProgress('transcription', 0, false);
+                updateSidebarStatus('Connection error. Please check your internet connection.', 'error');
+                showSidebarCancel(false);
+            }
+        });
+    }, delay);
+}
+
+// Removed - retry functionality now handled via sidebar status messages
+
+// Cancel transcription function
+function cancelTranscription() {
+    if (transcriptionInterval) {
+        clearTimeout(transcriptionInterval);
+        transcriptionInterval = null;
+    }
+    updateSidebarProgress('transcription', 0, false);
+    updateSidebarStatus('Transcription cancelled', 'warning');
+    showSidebarCancel(false);
+}
+
+// Generate insights with sidebar integration
+document.getElementById('generate-insights').addEventListener('click', function() {
+    if (!currentMeetingId) return;
+    
+    const transcriptText = document.getElementById('transcript-text').value.trim();
+    if (!transcriptText) {
+        updateSidebarStatus('Please provide a transcript before generating insights.', 'warning');
+        return;
+    }
+    
+    // Update sidebar status
+    updateWorkflowStep(4, 'active');
+    updateSidebarStatus('Starting AI analysis...', 'processing');
+    updateSidebarProgress('insights', 0, true);
+    
+    fetch('{% url "core:generate_insights" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({
+            meeting_id: currentMeetingId,
+            transcript_text: transcriptText
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+    })
+    .then(data => {
+        if (data.success) {
+            pollInsightsProgress();
+        } else {
+            throw new Error(data.error || 'Insights generation failed');
+        }
+    })
+    .catch(error => {
+        updateSidebarProgress('insights', 0, false);
+        updateSidebarStatus(`Error: ${error.message}`, 'error');
+    });
+});
+
+// Poll insights progress with sidebar integration
+function pollInsightsProgress(retryCount = 0) {
+    const maxRetries = 3;
+    const baseDelay = 2000;
+    const delay = Math.min(baseDelay * Math.pow(1.5, retryCount), 10000);
+    
+    insightsInterval = setTimeout(() => {
+        fetch(`{% url "core:insights_progress" %}?meeting_id=${currentMeetingId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+        })
+        .then(data => {
+            if (data.success === false) {
+                throw new Error(data.error || 'Insights progress check failed');
+            }
+            updateSidebarProgress('insights', data.progress || 0);
+            updateSidebarStatus(data.status || 'Analyzing...', 'processing');
+            
+            if (data.status === 'completed') {
+                document.getElementById('situation-text').value = data.situation || '';
+                document.getElementById('insights-text').value = data.insights || '';
+                document.getElementById('insights-section').style.display = 'block';
+                document.getElementById('regenerate-insights').style.display = 'inline-block';
+                
+                // Parse insights into categories
+                parseInsightsIntoCategories(data.insights || '');
+                
+                // Update sidebar
+                updateSidebarProgress('insights', 100, false);
+                updateSidebarStatus('Analysis completed successfully!', 'success');
+                updateWorkflowStep(4, 'completed');
+                
+                // Focus management
+                setTimeout(() => {
+                    document.getElementById('situation-text').focus();
+                }, 500);
+                
+            } else if (data.status === 'failed') {
+                updateSidebarProgress('insights', 0, false);
+                updateSidebarStatus(`Analysis failed: ${data.error || 'Unknown error'}`, 'error');
+                
+            } else {
+                pollInsightsProgress(0);
+            }
+        })
+        .catch(error => {
+            if (retryCount < maxRetries) {
+                console.warn(`Insights polling attempt ${retryCount + 1} failed, retrying...`, error);
+                pollInsightsProgress(retryCount + 1);
+            } else {
+                updateSidebarProgress('insights', 0, false);
+                updateSidebarStatus('Connection error. Please check your internet connection.', 'error');
+            }
+        });
+    }, delay);
+}
+
+// Removed - retry functionality now handled via sidebar status messages
+
+// Save all data with improved UX
+document.getElementById('save-all').addEventListener('click', function() {
+    if (!currentMeetingId) return;
+    
+    const saveBtn = this;
+    const originalText = saveBtn.innerHTML;
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Saving...';
+    
+    const data = {
+        meeting_id: currentMeetingId,
+        transcript_text: document.getElementById('transcript-text').value,
+        situation: document.getElementById('situation-text').value,
+        insights: document.getElementById('insights-text').value
+    };
+    
+    fetch('{% url "core:save_analysis" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json().catch(error => {
+            throw new Error('Invalid JSON response from server');
+        });
+    })
+    .then(data => {
+        if (data.success) {
+            SessionState.clear();
+            saveBtn.innerHTML = '<i class="fas fa-check me-1"></i>Saved!';
+            setTimeout(() => {
+                window.location.href = '{% url "core:home" %}';
+            }, 1000);
+        } else {
+            throw new Error(data.error || 'Save failed');
+        }
+    })
+    .catch(error => {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = originalText;
+        showError(`Save failed: ${error.message}`);
+    });
+});
+
+// Additional utility functions
+const resetUploadBtn = document.getElementById('reset-upload');
+if (resetUploadBtn) {
+    resetUploadBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to start over? All progress will be lost.')) {
+            SessionState.clear();
+            location.reload();
+        }
+    });
+}
+
+const retranscribeBtn = document.getElementById('retranscribe');
+if (retranscribeBtn) {
+    retranscribeBtn.addEventListener('click', function() {
+        if (confirm('Re-transcribe the audio? This will replace the current transcript.')) {
+            const transcriptSection = document.getElementById('transcript-section');
+            const insightsSection = document.getElementById('insights-section');
+            const startTranscriptionBtn = document.getElementById('start-transcription');
+            
+            if (transcriptSection) transcriptSection.style.display = 'none';
+            if (insightsSection) insightsSection.style.display = 'none';
+            if (startTranscriptionBtn) startTranscriptionBtn.click();
+        }
+    });
+}
+
+const regenerateInsightsBtn = document.getElementById('regenerate-insights');
+if (regenerateInsightsBtn) {
+    regenerateInsightsBtn.addEventListener('click', function() {
+        if (confirm('Regenerate insights? This will replace the current analysis.')) {
+            const insightsSection = document.getElementById('insights-section');
+            const generateInsightsBtn = document.getElementById('generate-insights');
+            
+            if (insightsSection) insightsSection.style.display = 'none';
+            if (generateInsightsBtn) generateInsightsBtn.click();
+        }
+    });
+}
+
+const printAnalysisBtn = document.getElementById('print-analysis');
+if (printAnalysisBtn) {
+    printAnalysisBtn.addEventListener('click', function() {
+        window.print();
+    });
+}
+
+// Insights view toggle functionality
+const insightsViewTextBtn = document.getElementById('insights-view-text');
+if (insightsViewTextBtn) {
+    insightsViewTextBtn.addEventListener('click', function() {
+        const textView = document.getElementById('insights-text-view');
+        const categoryView = document.getElementById('insights-category-view');
+        const categoriesBtn = document.getElementById('insights-view-categories');
+        
+        if (textView) textView.style.display = 'block';
+        if (categoryView) categoryView.style.display = 'none';
+        this.classList.add('active');
+        if (categoriesBtn) categoriesBtn.classList.remove('active');
+    });
+}
+
+const insightsViewCategoriesBtn = document.getElementById('insights-view-categories');
+if (insightsViewCategoriesBtn) {
+    insightsViewCategoriesBtn.addEventListener('click', function() {
+        const textView = document.getElementById('insights-text-view');
+        const categoryView = document.getElementById('insights-category-view');
+        const textBtn = document.getElementById('insights-view-text');
+        
+        if (textView) textView.style.display = 'none';
+        if (categoryView) categoryView.style.display = 'block';
+        this.classList.add('active');
+        if (textBtn) textBtn.classList.remove('active');
+    });
+}
+
+// Parse insights into categories
+function parseInsightsIntoCategories(insightsText) {
+    const categories = {
+        'tasks': /\*\*Tasks & Action Items\*\*:(.*?)(?=\*\*|$)/s,
+        'decisions': /\*\*Decisions Made\*\*:(.*?)(?=\*\*|$)/s,
+        'qa': /\*\*Questions & Answers\*\*:(.*?)(?=\*\*|$)/s,
+        'insights': /\*\*Key Insights\*\*:(.*?)(?=\*\*|$)/s,
+        'deadlines': /\*\*Deadlines\*\*:(.*?)(?=\*\*|$)/s,
+        'participants': /\*\*Meeting Participants\*\*:(.*?)(?=\*\*|$)/s,
+        'followup': /\*\*Follow-up Actions\*\*:(.*?)(?=\*\*|$)/s,
+        'risks': /\*\*Risks Identified\*\*:(.*?)(?=\*\*|$)/s,
+        'agenda': /\*\*Meeting Agenda\*\*:(.*?)(?=\*\*|$)/s
+    };
+
+    for (const [key, regex] of Object.entries(categories)) {
+        const match = insightsText.match(regex);
+        const content = match ? match[1].trim() : 'No information available';
+        const element = document.getElementById(`category-${key}`);
+        if (element) {
+            element.textContent = content || 'No information available';
+        }
+    }
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+    // Load session state if available
+    const savedState = SessionState.load();
+    if (savedState && savedState.currentMeetingId) {
+        console.log('Restored session:', savedState.currentMeetingId);
+        updateSidebarStatus('Session restored', 'info');
+    }
+    
+    // Auto-adjust model based on language selection
+    const languageSelect = document.getElementById('language-select');
+    if (languageSelect) {
+        languageSelect.addEventListener('change', function() {
+            const language = this.value;
+            const modelSelect = document.getElementById('whisper-model');
+            
+            if (modelSelect && language === 'th') {
+                // Recommend larger models for Thai
+                if (modelSelect.value === 'tiny' || modelSelect.value === 'base') {
+                    modelSelect.value = 'medium';
+                    updateSidebarStatus('Model updated to Medium for Thai language', 'info');
+                }
+            }
+            SessionState.save();
+        });
+    }
+    
+    // Save state on model change
+    const whisperModelSelect = document.getElementById('whisper-model');
+    if (whisperModelSelect) {
+        whisperModelSelect.addEventListener('change', function() {
+            SessionState.save();
+        });
+    }
+    
+    // Initialize workflow step
+    updateWorkflowStep(1, 'active');
+    
+    // Mobile status panel toggle icon rotation
+    const statusPanelCollapse = document.getElementById('status-panel-collapse');
+    if (statusPanelCollapse) {
+        statusPanelCollapse.addEventListener('show.bs.collapse', function () {
+            const icon = document.getElementById('status-panel-icon');
+            if (icon) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        });
+        
+        statusPanelCollapse.addEventListener('hide.bs.collapse', function () {
+            const icon = document.getElementById('status-panel-icon');
+            if (icon) {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+    }
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', function() {
+    if (transcriptionInterval) clearTimeout(transcriptionInterval);
+    if (insightsInterval) clearTimeout(insightsInterval);
+});
+</script>
+{% endblock %}

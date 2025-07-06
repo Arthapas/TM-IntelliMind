@@ -1,0 +1,19 @@
+Django==4.2.23
+psycopg2-binary==2.9.10
+faster-whisper==1.1.1
+requests==2.31.0
+python-docx==1.1.0
+
+# M4 and Apple Silicon optimizations
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+psutil>=5.9.0
+
+# Optional dependencies for enhanced functionality
+librosa>=0.10.0  # Advanced audio processing
+scipy>=1.10.0    # Scientific computing for audio
+soundfile>=0.12.0  # Audio file I/O
+
+# For VAD and audio preprocessing (optional)
+# Note: silero-vad will be loaded dynamically via torch.hub

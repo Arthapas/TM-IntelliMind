@@ -1,0 +1,593 @@
+/*
+ * TM IntelliMind Wide Screen Optimizations
+ * Responsive enhancements for screens 1200px and above
+ */
+
+/* ============================================================================
+   WIDE SCREEN RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+/* Large desktops (1200px+) */
+@media (min-width: 1200px) {
+    /* Container optimizations */
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 1140px;
+    }
+    
+    /* Home page layout enhancements */
+    .home-layout-wide {
+        max-width: none !important;
+    }
+    
+    .home-dashboard {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    /* Meeting table optimizations */
+    .meeting-table-wide {
+        display: table;
+    }
+    
+    .meeting-table-wide th,
+    .meeting-table-wide td {
+        padding: 1rem 0.75rem;
+    }
+    
+    /* Additional table columns for wide screens */
+    .wide-screen-column {
+        display: table-cell !important;
+    }
+    
+    /* 2-column insights layout */
+    .insights-grid-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Enhanced workflow layout */
+    .workflow-wide {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 2rem;
+    }
+    
+    .workflow-main-wide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Extra large screens (1400px+) */
+@media (min-width: 1400px) {
+    .container,
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 1320px;
+    }
+    
+    /* 3-column insights layout */
+    .insights-grid-3col {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Advanced workflow layout */
+    .workflow-advanced {
+        display: grid;
+        grid-template-columns: 280px 1fr 1fr 320px;
+        gap: 1.5rem;
+    }
+    
+    /* Split view for transcript and insights */
+    .split-view {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        height: 70vh;
+    }
+    
+    .split-view .transcript-panel,
+    .split-view .insights-panel {
+        overflow-y: auto;
+        padding: 1.5rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+    }
+}
+
+/* Ultra-wide screens (1600px+) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1540px;
+    }
+    
+    /* Dashboard layout */
+    .dashboard-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr 1fr 1fr 300px;
+        gap: 1.5rem;
+    }
+    
+    /* Home dashboard layout (2-column: main content + sidebar) */
+    .home-dashboard-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    /* Maximum density insights grid */
+    .insights-grid-4col {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    
+    /* Ultra-wide workflow */
+    .workflow-ultra {
+        display: grid;
+        grid-template-areas: 
+            "sidebar upload transcribe insights"
+            "sidebar review review actions";
+        grid-template-columns: 280px 1fr 1fr 320px;
+        grid-template-rows: auto 1fr;
+        gap: 1.5rem;
+        min-height: 80vh;
+    }
+}
+
+/* 4K+ displays (1920px+) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    /* Maximum information density */
+    .max-density-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr 1fr 1fr 1fr 300px;
+        gap: 1.5rem;
+    }
+    
+    /* 5-column insights for maximum screens */
+    .insights-grid-5col {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* ============================================================================
+   ENHANCED HOME PAGE COMPONENTS
+   ============================================================================ */
+
+/* Dashboard panels */
+.dashboard-panel {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-panel h6 {
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-bottom: 1rem;
+}
+
+/* Quick stats */
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* Enhanced meeting grid */
+.meeting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.meeting-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    background: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.meeting-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.meeting-card-header {
+    display: flex;
+    justify-content: between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.meeting-title {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.meeting-date {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.meeting-summary {
+    color: #495057;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.meeting-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Meeting metadata and status styling */
+.meeting-metadata {
+    padding: 0.75rem 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.badge-outline {
+    background: transparent;
+    border: 1px solid currentColor;
+    color: #6c757d;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Status-based card borders */
+.meeting-card.border-success {
+    border-left: 4px solid #198754;
+}
+
+.meeting-card.border-info {
+    border-left: 4px solid #0dcaf0;
+}
+
+.meeting-card.border-warning {
+    border-left: 4px solid #ffc107;
+}
+
+.meeting-card.border-primary {
+    border-left: 4px solid #0d6efd;
+}
+
+/* Enhanced typography for wide screens */
+@media (min-width: 1400px) {
+    .home-dashboard-layout .meeting-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    
+    .home-dashboard-layout .meeting-summary {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #495057;
+    }
+    
+    .home-dashboard-layout .meeting-date {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    
+    /* Enhanced spacing for wide screens */
+    .home-dashboard-layout .meeting-card {
+        padding: 1.75rem;
+    }
+    
+    .home-dashboard-layout .meeting-card-header {
+        margin-bottom: 1.25rem;
+    }
+    
+    .home-dashboard-layout .meeting-summary {
+        margin-bottom: 1.25rem;
+        min-height: 4rem; /* Consistent card heights */
+    }
+}
+
+/* Smart content preview on hover */
+.meeting-card {
+    position: relative;
+    overflow: visible;
+}
+
+.meeting-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0.5rem;
+    z-index: -1;
+}
+
+.meeting-card:hover::before {
+    opacity: 1;
+}
+
+.meeting-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.meeting-card:hover .meeting-summary {
+    color: #212529;
+    font-weight: 500;
+}
+
+/* Content preview tooltip */
+.meeting-card:hover::after {
+    content: attr(data-preview);
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(33, 37, 41, 0.95);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.meeting-card[data-preview]:hover::after {
+    opacity: 1;
+}
+
+/* ============================================================================
+   ENHANCED WORKFLOW COMPONENTS
+   ============================================================================ */
+
+/* Compact sidebar for wide screens */
+.sidebar-compact {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+/* Multi-panel workflow */
+.workflow-panel {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.workflow-panel h5 {
+    color: #495057;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Enhanced progress indicators */
+.progress-enhanced {
+    background: #e9ecef;
+    border-radius: 0.25rem;
+    height: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.progress-enhanced .progress-bar {
+    background: linear-gradient(90deg, #0d6efd 0%, #0dcaf0 100%);
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+}
+
+/* Real-time preview panel */
+.preview-panel {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.preview-panel h6 {
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ============================================================================
+   INSIGHTS ENHANCEMENT
+   ============================================================================ */
+
+/* Enhanced insights cards */
+.insight-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    height: fit-content;
+    transition: all 0.2s ease;
+}
+
+.insight-card:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+}
+
+.insight-card h6 {
+    color: #0d6efd;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.insight-card .card-text {
+    color: #495057;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Insights grid layouts */
+.insights-container {
+    margin-top: 2rem;
+}
+
+.insights-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.insights-toggle .btn {
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+}
+
+/* ============================================================================
+   LAYOUT UTILITIES
+   ============================================================================ */
+
+/* Flexible containers */
+.flex-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.flex-grow {
+    flex: 1;
+}
+
+/* Grid utilities */
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Spacing utilities for wide screens */
+.wide-screen-spacing {
+    padding: 2rem 0;
+}
+
+.wide-screen-margin {
+    margin: 2rem 0;
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================================================ */
+
+/* Focus improvements for wide screen layouts */
+@media (min-width: 1200px) {
+    .dashboard-panel:focus-within,
+    .meeting-card:focus-within,
+    .insight-card:focus-within {
+        outline: 2px solid #0d6efd;
+        outline-offset: 2px;
+    }
+    
+    /* Ensure keyboard navigation works well with grid layouts */
+    .meeting-grid .meeting-card,
+    .insights-grid-2col .insight-card,
+    .insights-grid-3col .insight-card {
+        tab-index: 0;
+    }
+}
+
+/* Reduced motion support for wide screen animations */
+@media (prefers-reduced-motion: reduce) {
+    .meeting-card,
+    .insight-card,
+    .dashboard-panel {
+        transition: none;
+    }
+    
+    .meeting-card:hover,
+    .insight-card:hover {
+        transform: none;
+    }
+}
