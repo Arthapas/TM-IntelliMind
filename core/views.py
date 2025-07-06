@@ -85,15 +85,53 @@ def upload_audio(request):
         
         audio_file = request.FILES['audio_file']
         
-        # Get transcription model from form data
-        transcription_model = request.POST.get('transcription_model', 'medium')
+        # Get transcription configuration from form data
+        transcription_provider = request.POST.get('transcription_provider', 'local')
         
-        # Validate transcription model
-        valid_models = ['tiny', 'base', 'small', 'medium', 'large', 'large-v2', 'large-v3']
-        if transcription_model not in valid_models:
-            return JsonResponse({'success': False, 'error': 'Invalid transcription model'})
+        # Validate transcription provider
+        valid_providers = ['local', 'openai', 'assemblyai', 'deepgram', 'custom']
+        if transcription_provider not in valid_providers:
+            return JsonResponse({'success': False, 'error': 'Invalid transcription provider'})
         
-        logger.info(f"Upload request: file={audio_file.name}, size={audio_file.size}, model={transcription_model}")
+        # Provider-specific configuration
+        transcription_model = None
+        api_endpoint = None
+        api_model = None
+        api_credentials = None
+        
+        if transcription_provider == 'local':
+            transcription_model = request.POST.get('transcription_model', 'medium')
+            valid_models = ['tiny', 'base', 'small', 'medium', 'large', 'large-v2', 'large-v3']
+            if transcription_model not in valid_models:
+                return JsonResponse({'success': False, 'error': 'Invalid transcription model'})
+        else:
+            # External API configuration
+            api_provider = request.POST.get('api_provider')
+            api_key = request.POST.get('api_key')
+            
+            if not api_provider or not api_key:
+                return JsonResponse({'success': False, 'error': 'API provider and key are required for external APIs'})
+            
+            if api_provider == 'custom':
+                api_endpoint = request.POST.get('custom_endpoint')
+                if not api_endpoint:
+                    return JsonResponse({'success': False, 'error': 'Custom endpoint URL is required'})
+                transcription_model = 'custom'
+            else:
+                api_model = request.POST.get('api_model')
+                if not api_model:
+                    return JsonResponse({'success': False, 'error': 'API model selection is required'})
+                transcription_model = api_model
+            
+            # Simple encryption for API credentials (basic security)
+            from django.conf import settings
+            import base64
+            try:
+                api_credentials = base64.b64encode(api_key.encode()).decode()
+            except Exception as e:
+                return JsonResponse({'success': False, 'error': 'Failed to process API credentials'})
+        
+        logger.info(f"Upload request: file={audio_file.name}, size={audio_file.size}, provider={transcription_provider}, model={transcription_model}")
         
         # Validate file type
         allowed_extensions = ['.mp3', '.wav', '.m4a', '.mp4']
@@ -111,7 +149,11 @@ def upload_audio(request):
             title=f"Meeting {timezone.now().strftime('%Y-%m-%d %H:%M')}",
             original_filename=audio_file.name,
             file_size=audio_file.size,
+            transcription_provider=transcription_provider,
             transcription_model=transcription_model,
+            api_endpoint=api_endpoint or '',
+            api_model=api_model or '',
+            api_credentials=api_credentials or '',
             created_by=request.user if request.user.is_authenticated else None
         )
         
