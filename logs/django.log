@@ -4603,3 +4603,1049 @@ INFO 2025-07-06 22:23:14,713 progressive_transcription 67970 12935360512 Updated
 INFO 2025-07-06 22:23:14,743 progressive_transcription 67970 12901707776 Meeting 41a66b7f-747f-4540-a243-33fa2b1b309b ready to finish: pending=0, active=0, processed=2/2
 INFO 2025-07-06 22:23:14,743 progressive_transcription 67970 12901707776 Queue processor finished for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
 WARNING 2025-07-06 22:23:58,096 log 67970 6149468160 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-07-06 22:27:32,668 autoreload 68659 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:27:33,412 utils 68659 6187642880 BatchedInferencePipeline available - advanced features enabled
+WARNING 2025-07-06 22:27:40,825 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:27:44,273 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-07-06 22:28:01,370 views 68659 6204469248 Upload request: file=Commute-from-home.wav, size=3137836, model=tiny
+INFO 2025-07-06 22:28:01,378 views 68659 6204469248 Upload estimates - File: 2.99MB .wav, Duration: 0.30min, Chunks: 1
+INFO 2025-07-06 22:28:01,379 progressive_transcription 68659 6238121984 Initialized ProgressiveTranscriber for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f with model tiny
+INFO 2025-07-06 22:28:01,379 progressive_transcription 68659 6254948352 Started queue processor for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,379 progressive_transcription 68659 6238121984 Started progressive transcription for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,380 views 68659 6238121984 Started progressive transcription for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,380 audio_chunking 68659 6238121984 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:28:01,382 views 68659 6238121984 Set meeting duration: 98.06s
+INFO 2025-07-06 22:28:01,382 audio_chunking 68659 6238121984 Starting chunking for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,382 audio_chunking 68659 6238121984 Attempting VAD-aware chunking
+INFO 2025-07-06 22:28:01,382 audio_chunking 68659 6238121984 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-06 22:28:01,382 audio_chunking 68659 6238121984 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:28:01,383 audio_chunking 68659 6238121984 Time-based chunking created 2 chunks
+INFO 2025-07-06 22:28:01,384 audio_chunking 68659 6238121984 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/95778a31-90d8-46f0-9017-e9d8d02ba54f/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:28:01,386 audio_chunking 68659 6238121984 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-06 22:28:01,387 progressive_transcription 68659 6238121984 Added chunk 0 to transcription queue for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f (queue size: 1)
+INFO 2025-07-06 22:28:01,387 progressive_transcription 68659 6254948352 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-06 22:28:01,387 audio_chunking 68659 6238121984 Added chunk 0 to transcription queue
+INFO 2025-07-06 22:28:01,387 progressive_transcription 68659 6271774720 Starting transcription for chunk 0 of meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,389 audio_chunking 68659 6238121984 Saved chunk: 57.0s-98.1s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/95778a31-90d8-46f0-9017-e9d8d02ba54f/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:28:01,389 chunk_transcription 68659 6271774720 Starting transcription for chunk 0 of meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,390 utils 68659 6271774720 Processing audio file: 1.8MB
+INFO 2025-07-06 22:28:01,390 audio_chunking 68659 6238121984 Created chunk 1: 57.0s-98.1s
+INFO 2025-07-06 22:28:01,390 progressive_transcription 68659 6238121984 Added chunk 1 to transcription queue for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f (queue size: 1)
+INFO 2025-07-06 22:28:01,390 audio_chunking 68659 6238121984 Added chunk 1 to transcription queue
+INFO 2025-07-06 22:28:01,390 progressive_transcription 68659 6254948352 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-06 22:28:01,390 audio_chunking 68659 6238121984 Successfully created 2 chunks for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,391 progressive_transcription 68659 6288601088 Starting transcription for chunk 1 of meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,391 utils 68659 6271774720 Creating enhanced batched inference pipeline for model: tiny
+INFO 2025-07-06 22:28:01,392 progressive_transcription 68659 6238121984 Chunking complete for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f: expected=2, actual=2
+INFO 2025-07-06 22:28:01,392 utils 68659 6271774720 Loading Whisper model: tiny
+INFO 2025-07-06 22:28:01,392 views 68659 6238121984 Successfully created chunks for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f, transcription started
+INFO 2025-07-06 22:28:01,408 utils 68659 6271774720 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:28:01,408 utils 68659 6271774720 Available memory: 7.1GB
+INFO 2025-07-06 22:28:01,408 utils 68659 6271774720 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:28:01,409 chunk_transcription 68659 6288601088 Starting transcription for chunk 1 of meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:01,409 utils 68659 6288601088 Processing audio file: 1.3MB
+INFO 2025-07-06 22:28:01,411 utils 68659 6288601088 Creating enhanced batched inference pipeline for model: tiny
+INFO 2025-07-06 22:28:01,411 utils 68659 6288601088 Loading Whisper model: tiny
+INFO 2025-07-06 22:28:01,420 utils 68659 6288601088 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:28:01,420 utils 68659 6288601088 Available memory: 7.1GB
+INFO 2025-07-06 22:28:01,420 utils 68659 6288601088 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:28:02,005 utils 68659 6271774720 Whisper model tiny loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:28:02,005 utils 68659 6271774720 M4 optimization: 6.8GB available, batch_size=8
+INFO 2025-07-06 22:28:02,005 utils 68659 6271774720 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:28:02,005 utils 68659 6271774720 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:28:02,005 utils 68659 6271774720 Model load time: 0.61s
+INFO 2025-07-06 22:28:02,007 utils 68659 6271774720 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:28:02,007 utils 68659 6271774720 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:28:02,007 utils 68659 6271774720 Word timestamps enabled
+INFO 2025-07-06 22:28:02,007 utils 68659 6271774720 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:28:02,007 utils 68659 6271774720 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:28:02,007 utils 68659 6271774720 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:28:02,928 utils 68659 6288601088 Whisper model tiny loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:28:02,929 utils 68659 6288601088 M4 optimization: 6.6GB available, batch_size=8
+INFO 2025-07-06 22:28:02,933 utils 68659 6288601088 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:28:02,933 utils 68659 6288601088 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:28:02,934 utils 68659 6288601088 Model load time: 1.52s
+INFO 2025-07-06 22:28:02,938 utils 68659 6288601088 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:28:02,938 utils 68659 6288601088 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:28:02,938 utils 68659 6288601088 Word timestamps enabled
+INFO 2025-07-06 22:28:02,938 utils 68659 6288601088 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:28:02,938 utils 68659 6288601088 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:28:02,938 utils 68659 6288601088 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:28:04,388 views 68659 6204469248 Meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f has transcript record but no text content
+INFO 2025-07-06 22:28:04,388 views 68659 6204469248 Meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:28:06,386 views 68659 6204469248 Meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f has transcript record but no text content
+INFO 2025-07-06 22:28:06,386 views 68659 6204469248 Meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f: Created 2 chunks (estimated 3)
+INFO 2025-07-06 22:28:08,363 utils 68659 6288601088 Thai text enhancement completed
+INFO 2025-07-06 22:28:08,364 utils 68659 6288601088 Performance: 7.6x real-time (5.42s for 41.1s audio)
+INFO 2025-07-06 22:28:08,364 utils 68659 6288601088 Transcription complete: 2 segments, 130 words
+INFO 2025-07-06 22:28:08,364 utils 68659 6288601088 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:28:08,364 utils 68659 6288601088 Total processing time: 6.95s
+INFO 2025-07-06 22:28:08,364 chunk_transcription 68659 6288601088 Completed transcription for chunk 1
+INFO 2025-07-06 22:28:08,365 progressive_transcription 68659 6288601088 Completed transcription for chunk 1 (1/2 chunks done)
+INFO 2025-07-06 22:28:08,366 progressive_transcription 68659 6288601088 Updated progressive transcript for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f, length: 166 chars from 1 chunks, status: processing, progress: 50%
+INFO 2025-07-06 22:28:11,875 utils 68659 6271774720 Thai text enhancement completed
+INFO 2025-07-06 22:28:11,877 utils 68659 6271774720 Performance: 6.1x real-time (9.87s for 60.0s audio)
+INFO 2025-07-06 22:28:11,877 utils 68659 6271774720 Transcription complete: 2 segments, 374 words
+INFO 2025-07-06 22:28:11,877 utils 68659 6271774720 Detected language: th (confidence: 0.97)
+INFO 2025-07-06 22:28:11,877 utils 68659 6271774720 Total processing time: 10.49s
+INFO 2025-07-06 22:28:11,885 chunk_transcription 68659 6271774720 Completed transcription for chunk 0
+INFO 2025-07-06 22:28:11,886 progressive_transcription 68659 6271774720 Completed transcription for chunk 0 (2/2 chunks done)
+INFO 2025-07-06 22:28:11,887 progressive_transcription 68659 6271774720 Progressive transcription completed for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:28:11,888 progressive_transcription 68659 6271774720 Updated progressive transcript for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f, length: 597 chars from 2 chunks, status: completed, progress: 100%
+INFO 2025-07-06 22:28:12,456 progressive_transcription 68659 6254948352 Meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f ready to finish: pending=0, active=0, processed=2/2
+INFO 2025-07-06 22:28:12,457 progressive_transcription 68659 6254948352 Queue processor finished for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+WARNING 2025-07-06 22:28:39,231 log 68659 6221295616 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-07-06 22:28:49,774 views 68659 6221295616 Upload request: file=Commute-from-home.wav, size=3137836, model=large
+INFO 2025-07-06 22:28:49,781 views 68659 6221295616 Upload estimates - File: 2.99MB .wav, Duration: 0.30min, Chunks: 1
+INFO 2025-07-06 22:28:49,781 progressive_transcription 68659 6239842304 Initialized ProgressiveTranscriber for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc with model large
+INFO 2025-07-06 22:28:49,782 progressive_transcription 68659 6256668672 Started queue processor for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,782 progressive_transcription 68659 6239842304 Started progressive transcription for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,783 views 68659 6239842304 Started progressive transcription for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,784 audio_chunking 68659 6239842304 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:28:49,786 views 68659 6239842304 Set meeting duration: 98.06s
+INFO 2025-07-06 22:28:49,786 audio_chunking 68659 6239842304 Starting chunking for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,786 audio_chunking 68659 6239842304 Attempting VAD-aware chunking
+INFO 2025-07-06 22:28:49,786 audio_chunking 68659 6239842304 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-06 22:28:49,787 audio_chunking 68659 6239842304 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-06 22:28:49,787 audio_chunking 68659 6239842304 Time-based chunking created 2 chunks
+INFO 2025-07-06 22:28:49,790 audio_chunking 68659 6239842304 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:28:49,791 audio_chunking 68659 6239842304 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-06 22:28:49,791 progressive_transcription 68659 6239842304 Added chunk 0 to transcription queue for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc (queue size: 1)
+INFO 2025-07-06 22:28:49,791 audio_chunking 68659 6239842304 Added chunk 0 to transcription queue
+INFO 2025-07-06 22:28:49,791 progressive_transcription 68659 6256668672 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-06 22:28:49,792 progressive_transcription 68659 6273495040 Starting transcription for chunk 0 of meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,794 audio_chunking 68659 6239842304 Saved chunk: 57.0s-98.1s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:28:49,794 chunk_transcription 68659 6273495040 Starting transcription for chunk 0 of meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,794 utils 68659 6273495040 Processing audio file: 1.8MB
+INFO 2025-07-06 22:28:49,795 audio_chunking 68659 6239842304 Created chunk 1: 57.0s-98.1s
+INFO 2025-07-06 22:28:49,795 progressive_transcription 68659 6239842304 Added chunk 1 to transcription queue for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc (queue size: 1)
+INFO 2025-07-06 22:28:49,795 progressive_transcription 68659 6256668672 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-06 22:28:49,795 audio_chunking 68659 6239842304 Added chunk 1 to transcription queue
+INFO 2025-07-06 22:28:49,795 progressive_transcription 68659 6290321408 Starting transcription for chunk 1 of meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,795 audio_chunking 68659 6239842304 Successfully created 2 chunks for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,797 progressive_transcription 68659 6239842304 Chunking complete for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: expected=2, actual=2
+INFO 2025-07-06 22:28:49,797 views 68659 6239842304 Successfully created chunks for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc, transcription started
+INFO 2025-07-06 22:28:49,799 utils 68659 6273495040 Creating enhanced batched inference pipeline for model: large
+INFO 2025-07-06 22:28:49,799 utils 68659 6273495040 Loading Whisper model: large
+INFO 2025-07-06 22:28:49,822 utils 68659 6273495040 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:28:49,822 utils 68659 6273495040 Available memory: 6.7GB
+INFO 2025-07-06 22:28:49,822 utils 68659 6273495040 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-06 22:28:49,824 chunk_transcription 68659 6290321408 Starting transcription for chunk 1 of meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:28:49,824 utils 68659 6290321408 Processing audio file: 1.3MB
+INFO 2025-07-06 22:28:49,825 utils 68659 6290321408 Creating enhanced batched inference pipeline for model: large
+INFO 2025-07-06 22:28:49,825 utils 68659 6290321408 Loading Whisper model: large
+INFO 2025-07-06 22:28:49,844 utils 68659 6290321408 Apple Silicon detected: Apple M4
+INFO 2025-07-06 22:28:49,844 utils 68659 6290321408 Available memory: 6.7GB
+INFO 2025-07-06 22:28:49,845 utils 68659 6290321408 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+WARNING 2025-07-06 22:28:52,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:28:52,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:28:54,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:28:54,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:28:56,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:28:56,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:28:58,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:28:58,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+INFO 2025-07-06 22:28:59,664 utils 68659 6290321408 Whisper model large loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:28:59,664 utils 68659 6290321408 M4 optimization: 8.1GB available, batch_size=16
+INFO 2025-07-06 22:28:59,664 utils 68659 6273495040 Whisper model large loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-06 22:28:59,664 utils 68659 6290321408 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:28:59,664 utils 68659 6273495040 M4 optimization: 8.1GB available, batch_size=16
+INFO 2025-07-06 22:28:59,664 utils 68659 6290321408 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:28:59,664 utils 68659 6273495040 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-06 22:28:59,664 utils 68659 6290321408 Model load time: 9.84s
+INFO 2025-07-06 22:28:59,664 utils 68659 6273495040 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:28:59,665 utils 68659 6273495040 Model load time: 9.87s
+INFO 2025-07-06 22:28:59,665 utils 68659 6290321408 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:28:59,665 utils 68659 6290321408 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:28:59,665 utils 68659 6290321408 Word timestamps enabled
+INFO 2025-07-06 22:28:59,665 utils 68659 6290321408 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:28:59,666 utils 68659 6290321408 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:28:59,666 utils 68659 6290321408 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:28:59,667 utils 68659 6273495040 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:28:59,667 utils 68659 6273495040 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:28:59,667 utils 68659 6273495040 Word timestamps enabled
+INFO 2025-07-06 22:28:59,667 utils 68659 6273495040 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:28:59,667 utils 68659 6273495040 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:28:59,667 utils 68659 6273495040 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:29:00,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:00,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:02,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:02,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:04,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:04,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:06,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:06,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:08,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:08,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:10,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:10,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:12,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:12,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:14,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:14,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:16,797 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:16,797 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:18,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:18,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:20,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:20,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:22,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:22,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:24,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:24,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:26,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:26,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:28,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:28,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:30,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:30,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:32,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:32,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:34,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:34,789 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:36,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:36,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:38,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:38,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:40,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:40,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:42,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:42,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:44,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:44,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:46,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:46,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:48,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:48,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:50,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:50,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:52,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:52,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:54,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:54,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:56,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:56,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:29:58,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:29:58,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:00,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:00,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:02,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:02,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:04,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:04,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:06,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:06,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:08,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:08,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:10,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:10,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:12,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:12,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:14,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:14,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:16,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:16,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:18,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:18,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:20,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:20,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:22,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:22,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:24,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:24,790 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:26,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:26,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:28,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:28,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:30,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:30,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:32,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:32,794 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:34,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:34,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:36,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:36,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:38,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:38,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:40,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:40,793 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:42,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:42,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:44,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:44,792 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:46,796 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:46,796 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+WARNING 2025-07-06 22:30:48,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc has transcript record but no text content
+INFO 2025-07-06 22:30:48,791 views 68659 6221295616 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc: Created 2 chunks (estimated 3)
+INFO 2025-07-06 22:30:49,512 utils 68659 6290321408 Thai text enhancement completed
+INFO 2025-07-06 22:30:49,513 utils 68659 6290321408 Performance: 0.4x real-time (109.85s for 41.1s audio)
+INFO 2025-07-06 22:30:49,513 utils 68659 6290321408 Transcription complete: 2 segments, 231 words
+INFO 2025-07-06 22:30:49,513 utils 68659 6290321408 Detected language: th (confidence: 0.97)
+INFO 2025-07-06 22:30:49,513 utils 68659 6290321408 Total processing time: 119.69s
+INFO 2025-07-06 22:30:49,559 chunk_transcription 68659 6290321408 Completed transcription for chunk 1
+INFO 2025-07-06 22:30:49,560 progressive_transcription 68659 6290321408 Completed transcription for chunk 1 (1/2 chunks done)
+INFO 2025-07-06 22:30:49,562 progressive_transcription 68659 6290321408 Updated progressive transcript for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc, length: 293 chars from 1 chunks, status: processing, progress: 50%
+INFO 2025-07-06 22:30:49,848 utils 68659 6273495040 Thai text enhancement completed
+INFO 2025-07-06 22:30:49,849 utils 68659 6273495040 Performance: 0.5x real-time (110.18s for 60.0s audio)
+INFO 2025-07-06 22:30:49,849 utils 68659 6273495040 Transcription complete: 2 segments, 295 words
+INFO 2025-07-06 22:30:49,849 utils 68659 6273495040 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:30:49,849 utils 68659 6273495040 Total processing time: 120.05s
+INFO 2025-07-06 22:30:49,849 chunk_transcription 68659 6273495040 Completed transcription for chunk 0
+INFO 2025-07-06 22:30:49,850 progressive_transcription 68659 6273495040 Completed transcription for chunk 0 (2/2 chunks done)
+INFO 2025-07-06 22:30:49,851 progressive_transcription 68659 6273495040 Progressive transcription completed for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+INFO 2025-07-06 22:30:49,852 progressive_transcription 68659 6273495040 Updated progressive transcript for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc, length: 676 chars from 2 chunks, status: completed, progress: 100%
+INFO 2025-07-06 22:30:50,479 progressive_transcription 68659 6256668672 Meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc ready to finish: pending=0, active=0, processed=2/2
+INFO 2025-07-06 22:30:50,480 progressive_transcription 68659 6256668672 Queue processor finished for meeting 9eac5b82-d5bd-4e9b-a19c-b0ca84ddc7bc
+WARNING 2025-07-06 22:31:25,923 log 68659 6221295616 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:28,102 log 68659 6221295616 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:31,506 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:35,039 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:44,119 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:46,921 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:50,554 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:31:51,840 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:33:38,496 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-07-06 22:33:43,469 audio_chunking 68659 6204469248 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/95778a31-90d8-46f0-9017-e9d8d02ba54f/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:33:43,469 audio_chunking 68659 6204469248 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/95778a31-90d8-46f0-9017-e9d8d02ba54f/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:33:43,470 audio_chunking 68659 6204469248 Removed empty chunk directory: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/95778a31-90d8-46f0-9017-e9d8d02ba54f/chunks
+INFO 2025-07-06 22:33:43,472 audio_chunking 68659 6204469248 Cleaned up chunks for meeting 95778a31-90d8-46f0-9017-e9d8d02ba54f
+INFO 2025-07-06 22:33:46,707 audio_chunking 68659 6204469248 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/41a66b7f-747f-4540-a243-33fa2b1b309b/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:33:46,707 audio_chunking 68659 6204469248 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/41a66b7f-747f-4540-a243-33fa2b1b309b/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-06 22:33:46,708 audio_chunking 68659 6204469248 Removed empty chunk directory: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/41a66b7f-747f-4540-a243-33fa2b1b309b/chunks
+INFO 2025-07-06 22:33:46,709 audio_chunking 68659 6204469248 Cleaned up chunks for meeting 41a66b7f-747f-4540-a243-33fa2b1b309b
+WARNING 2025-07-06 22:34:08,845 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:34:21,112 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-06 22:34:22,520 log 68659 6204469248 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-07-06 22:34:42,219 views 68659 6221295616 Upload request: file=output_audio.mp3, size=146548220, model=large
+INFO 2025-07-06 22:34:42,222 views 68659 6221295616 Upload estimates - File: 139.76MB .mp3, Duration: 139.76min, Chunks: 279
+INFO 2025-07-06 22:34:42,223 progressive_transcription 68659 6252457984 Initialized ProgressiveTranscriber for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 with model large
+INFO 2025-07-06 22:34:42,223 progressive_transcription 68659 6269284352 Started queue processor for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:42,223 progressive_transcription 68659 6252457984 Started progressive transcription for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:42,223 views 68659 6252457984 Started progressive transcription for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:42,232 audio_chunking 68659 6252457984 Audio duration detected via torchaudio: 7327.30 seconds
+INFO 2025-07-06 22:34:42,233 views 68659 6252457984 Set meeting duration: 7327.30s
+INFO 2025-07-06 22:34:42,233 audio_chunking 68659 6252457984 Starting chunking for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:42,233 audio_chunking 68659 6252457984 Attempting VAD-aware chunking
+INFO 2025-07-06 22:34:42,233 audio_chunking 68659 6252457984 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-06 22:34:42,233 audio_chunking 68659 6252457984 Audio duration detected via torchaudio: 7327.30 seconds
+INFO 2025-07-06 22:34:42,233 audio_chunking 68659 6252457984 Time-based chunking created 129 chunks
+INFO 2025-07-06 22:34:44,652 audio_chunking 68659 6252457984 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-06 22:34:44,655 audio_chunking 68659 6252457984 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-06 22:34:44,655 progressive_transcription 68659 6252457984 Added chunk 0 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:34:44,655 progressive_transcription 68659 6269284352 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-06 22:34:44,655 audio_chunking 68659 6252457984 Added chunk 0 to transcription queue
+INFO 2025-07-06 22:34:44,656 progressive_transcription 68659 6286110720 Starting transcription for chunk 0 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:44,723 chunk_transcription 68659 6286110720 Starting transcription for chunk 0 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:44,723 utils 68659 6286110720 Processing audio file: 1.8MB
+INFO 2025-07-06 22:34:44,724 utils 68659 6286110720 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:34:44,724 utils 68659 6286110720 Model load time: 0.00s
+INFO 2025-07-06 22:34:44,725 utils 68659 6286110720 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:34:44,725 utils 68659 6286110720 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:34:44,725 utils 68659 6286110720 Word timestamps enabled
+INFO 2025-07-06 22:34:44,725 utils 68659 6286110720 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:34:44,725 utils 68659 6286110720 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:34:44,725 utils 68659 6286110720 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:34:45,231 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:34:47,234 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:34:48,985 audio_chunking 68659 6252457984 Saved chunk: 57.0s-117.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_001_57.0s-117.0s.wav
+INFO 2025-07-06 22:34:48,989 audio_chunking 68659 6252457984 Created chunk 1: 57.0s-117.0s
+INFO 2025-07-06 22:34:48,989 progressive_transcription 68659 6252457984 Added chunk 1 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:34:48,989 audio_chunking 68659 6252457984 Added chunk 1 to transcription queue
+INFO 2025-07-06 22:34:48,989 progressive_transcription 68659 6269284352 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-06 22:34:48,989 progressive_transcription 68659 13522464768 Starting transcription for chunk 1 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:49,070 chunk_transcription 68659 13522464768 Starting transcription for chunk 1 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:49,070 utils 68659 13522464768 Processing audio file: 1.8MB
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Model load time: 0.00s
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Word timestamps enabled
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:34:49,072 utils 68659 13522464768 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:34:49,072 utils 68659 13522464768 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:34:49,235 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:34:51,235 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:34:52,936 audio_chunking 68659 6252457984 Saved chunk: 114.0s-174.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_002_114.0s-174.0s.wav
+INFO 2025-07-06 22:34:52,940 audio_chunking 68659 6252457984 Created chunk 2: 114.0s-174.0s
+INFO 2025-07-06 22:34:52,940 progressive_transcription 68659 6252457984 Added chunk 2 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:34:52,940 audio_chunking 68659 6252457984 Added chunk 2 to transcription queue
+INFO 2025-07-06 22:34:52,940 progressive_transcription 68659 6269284352 Processing chunk 2 from queue (queue remaining: 0)
+INFO 2025-07-06 22:34:52,941 progressive_transcription 68659 13655158784 Starting transcription for chunk 2 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:53,029 chunk_transcription 68659 13655158784 Starting transcription for chunk 2 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:34:53,029 utils 68659 13655158784 Processing audio file: 1.8MB
+INFO 2025-07-06 22:34:53,031 utils 68659 13655158784 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:34:53,031 utils 68659 13655158784 Model load time: 0.00s
+INFO 2025-07-06 22:34:53,031 utils 68659 13655158784 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:34:53,031 utils 68659 13655158784 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:34:53,031 utils 68659 13655158784 Word timestamps enabled
+INFO 2025-07-06 22:34:53,032 utils 68659 13655158784 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:34:53,032 utils 68659 13655158784 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:34:53,032 utils 68659 13655158784 Language detection failed: 'str' object has no attribute 'dtype'
+WARNING 2025-07-06 22:34:53,237 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:34:55,235 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:34:57,007 audio_chunking 68659 6252457984 Saved chunk: 171.0s-231.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_003_171.0s-231.0s.wav
+INFO 2025-07-06 22:34:57,015 audio_chunking 68659 6252457984 Created chunk 3: 171.0s-231.0s
+INFO 2025-07-06 22:34:57,015 progressive_transcription 68659 6252457984 Added chunk 3 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 1)
+INFO 2025-07-06 22:34:57,015 audio_chunking 68659 6252457984 Added chunk 3 to transcription queue
+WARNING 2025-07-06 22:34:57,237 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:34:59,233 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:01,036 audio_chunking 68659 6252457984 Saved chunk: 228.0s-288.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_004_228.0s-288.0s.wav
+INFO 2025-07-06 22:35:01,040 audio_chunking 68659 6252457984 Created chunk 4: 228.0s-288.0s
+INFO 2025-07-06 22:35:01,041 progressive_transcription 68659 6252457984 Added chunk 4 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 2)
+INFO 2025-07-06 22:35:01,041 audio_chunking 68659 6252457984 Added chunk 4 to transcription queue
+WARNING 2025-07-06 22:35:01,257 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:03,231 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:05,147 audio_chunking 68659 6252457984 Saved chunk: 285.0s-345.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_005_285.0s-345.0s.wav
+INFO 2025-07-06 22:35:05,151 audio_chunking 68659 6252457984 Created chunk 5: 285.0s-345.0s
+INFO 2025-07-06 22:35:05,151 progressive_transcription 68659 6252457984 Added chunk 5 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 3)
+INFO 2025-07-06 22:35:05,151 audio_chunking 68659 6252457984 Added chunk 5 to transcription queue
+WARNING 2025-07-06 22:35:05,236 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:07,237 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:09,329 audio_chunking 68659 6252457984 Saved chunk: 342.0s-402.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_006_342.0s-402.0s.wav
+INFO 2025-07-06 22:35:09,335 audio_chunking 68659 6252457984 Created chunk 6: 342.0s-402.0s
+INFO 2025-07-06 22:35:09,335 progressive_transcription 68659 6252457984 Added chunk 6 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 4)
+INFO 2025-07-06 22:35:09,335 audio_chunking 68659 6252457984 Added chunk 6 to transcription queue
+WARNING 2025-07-06 22:35:09,336 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:11,234 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:13,233 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:13,793 audio_chunking 68659 6252457984 Saved chunk: 399.0s-459.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_007_399.0s-459.0s.wav
+INFO 2025-07-06 22:35:13,801 audio_chunking 68659 6252457984 Created chunk 7: 399.0s-459.0s
+INFO 2025-07-06 22:35:13,801 progressive_transcription 68659 6252457984 Added chunk 7 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 5)
+INFO 2025-07-06 22:35:13,801 audio_chunking 68659 6252457984 Added chunk 7 to transcription queue
+WARNING 2025-07-06 22:35:15,233 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:17,240 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:17,810 audio_chunking 68659 6252457984 Saved chunk: 456.0s-516.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_008_456.0s-516.0s.wav
+INFO 2025-07-06 22:35:17,814 audio_chunking 68659 6252457984 Created chunk 8: 456.0s-516.0s
+INFO 2025-07-06 22:35:17,815 progressive_transcription 68659 6252457984 Added chunk 8 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 6)
+INFO 2025-07-06 22:35:17,815 audio_chunking 68659 6252457984 Added chunk 8 to transcription queue
+WARNING 2025-07-06 22:35:19,232 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:21,231 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:21,819 audio_chunking 68659 6252457984 Saved chunk: 513.0s-573.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_009_513.0s-573.0s.wav
+INFO 2025-07-06 22:35:21,823 audio_chunking 68659 6252457984 Created chunk 9: 513.0s-573.0s
+INFO 2025-07-06 22:35:21,824 progressive_transcription 68659 6252457984 Added chunk 9 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 7)
+INFO 2025-07-06 22:35:21,824 audio_chunking 68659 6252457984 Added chunk 9 to transcription queue
+WARNING 2025-07-06 22:35:23,233 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:25,233 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:25,599 audio_chunking 68659 6252457984 Saved chunk: 570.0s-630.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_010_570.0s-630.0s.wav
+INFO 2025-07-06 22:35:25,603 audio_chunking 68659 6252457984 Created chunk 10: 570.0s-630.0s
+INFO 2025-07-06 22:35:25,603 progressive_transcription 68659 6252457984 Added chunk 10 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 8)
+INFO 2025-07-06 22:35:25,603 audio_chunking 68659 6252457984 Added chunk 10 to transcription queue
+WARNING 2025-07-06 22:35:27,234 views 68659 6221295616 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:29,233 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:29,469 audio_chunking 68659 6252457984 Saved chunk: 627.0s-687.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_011_627.0s-687.0s.wav
+INFO 2025-07-06 22:35:29,472 audio_chunking 68659 6252457984 Created chunk 11: 627.0s-687.0s
+INFO 2025-07-06 22:35:29,473 progressive_transcription 68659 6252457984 Added chunk 11 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 9)
+INFO 2025-07-06 22:35:29,473 audio_chunking 68659 6252457984 Added chunk 11 to transcription queue
+WARNING 2025-07-06 22:35:31,233 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:33,232 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:33,445 audio_chunking 68659 6252457984 Saved chunk: 684.0s-744.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_012_684.0s-744.0s.wav
+INFO 2025-07-06 22:35:33,453 audio_chunking 68659 6252457984 Created chunk 12: 684.0s-744.0s
+INFO 2025-07-06 22:35:33,453 progressive_transcription 68659 6252457984 Added chunk 12 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 10)
+INFO 2025-07-06 22:35:33,454 audio_chunking 68659 6252457984 Added chunk 12 to transcription queue
+WARNING 2025-07-06 22:35:35,233 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:37,234 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:37,688 audio_chunking 68659 6252457984 Saved chunk: 741.0s-801.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_013_741.0s-801.0s.wav
+INFO 2025-07-06 22:35:37,697 audio_chunking 68659 6252457984 Created chunk 13: 741.0s-801.0s
+INFO 2025-07-06 22:35:37,697 progressive_transcription 68659 6252457984 Added chunk 13 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 11)
+INFO 2025-07-06 22:35:37,697 audio_chunking 68659 6252457984 Added chunk 13 to transcription queue
+WARNING 2025-07-06 22:35:39,234 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:41,232 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:41,630 audio_chunking 68659 6252457984 Saved chunk: 798.0s-858.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_014_798.0s-858.0s.wav
+INFO 2025-07-06 22:35:41,633 audio_chunking 68659 6252457984 Created chunk 14: 798.0s-858.0s
+INFO 2025-07-06 22:35:41,633 progressive_transcription 68659 6252457984 Added chunk 14 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 12)
+INFO 2025-07-06 22:35:41,633 audio_chunking 68659 6252457984 Added chunk 14 to transcription queue
+WARNING 2025-07-06 22:35:43,236 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:45,233 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:45,747 audio_chunking 68659 6252457984 Saved chunk: 855.0s-915.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_015_855.0s-915.0s.wav
+INFO 2025-07-06 22:35:45,752 audio_chunking 68659 6252457984 Created chunk 15: 855.0s-915.0s
+INFO 2025-07-06 22:35:45,752 progressive_transcription 68659 6252457984 Added chunk 15 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 13)
+INFO 2025-07-06 22:35:45,752 audio_chunking 68659 6252457984 Added chunk 15 to transcription queue
+WARNING 2025-07-06 22:35:47,236 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:49,235 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:50,188 audio_chunking 68659 6252457984 Saved chunk: 912.0s-972.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_016_912.0s-972.0s.wav
+INFO 2025-07-06 22:35:50,192 audio_chunking 68659 6252457984 Created chunk 16: 912.0s-972.0s
+INFO 2025-07-06 22:35:50,192 progressive_transcription 68659 6252457984 Added chunk 16 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 14)
+INFO 2025-07-06 22:35:50,192 audio_chunking 68659 6252457984 Added chunk 16 to transcription queue
+WARNING 2025-07-06 22:35:51,236 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+WARNING 2025-07-06 22:35:53,233 views 68659 6204469248 Meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 has transcript record but no text content
+INFO 2025-07-06 22:35:54,569 utils 68659 6286110720 Thai text enhancement completed
+INFO 2025-07-06 22:35:54,570 audio_chunking 68659 6252457984 Saved chunk: 969.0s-1029.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_017_969.0s-1029.0s.wav
+INFO 2025-07-06 22:35:54,574 utils 68659 6286110720 Performance: 0.9x real-time (69.84s for 60.0s audio)
+INFO 2025-07-06 22:35:54,574 utils 68659 6286110720 Transcription complete: 2 segments, 102 words
+INFO 2025-07-06 22:35:54,574 utils 68659 6286110720 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:35:54,574 utils 68659 6286110720 Total processing time: 69.85s
+INFO 2025-07-06 22:35:54,574 chunk_transcription 68659 6286110720 Completed transcription for chunk 0
+INFO 2025-07-06 22:35:54,575 audio_chunking 68659 6252457984 Created chunk 17: 969.0s-1029.0s
+INFO 2025-07-06 22:35:54,575 progressive_transcription 68659 6252457984 Added chunk 17 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 15)
+INFO 2025-07-06 22:35:54,575 audio_chunking 68659 6252457984 Added chunk 17 to transcription queue
+INFO 2025-07-06 22:35:54,664 progressive_transcription 68659 6286110720 Completed transcription for chunk 0 (1/18 chunks done)
+INFO 2025-07-06 22:35:54,667 progressive_transcription 68659 6286110720 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 143 chars from 1 chunks, status: processing, progress: 5%
+INFO 2025-07-06 22:35:55,074 progressive_transcription 68659 6269284352 Processing chunk 3 from queue (queue remaining: 14)
+INFO 2025-07-06 22:35:55,075 progressive_transcription 68659 6286110720 Starting transcription for chunk 3 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:35:55,079 chunk_transcription 68659 6286110720 Starting transcription for chunk 3 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:35:55,079 utils 68659 6286110720 Processing audio file: 1.8MB
+INFO 2025-07-06 22:35:55,081 utils 68659 6286110720 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:35:55,081 utils 68659 6286110720 Model load time: 0.00s
+INFO 2025-07-06 22:35:55,082 utils 68659 6286110720 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:35:55,082 utils 68659 6286110720 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:35:55,082 utils 68659 6286110720 Word timestamps enabled
+INFO 2025-07-06 22:35:55,082 utils 68659 6286110720 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:35:55,082 utils 68659 6286110720 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:35:55,082 utils 68659 6286110720 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:35:59,105 audio_chunking 68659 6252457984 Saved chunk: 1026.0s-1086.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_018_1026.0s-1086.0s.wav
+INFO 2025-07-06 22:35:59,110 audio_chunking 68659 6252457984 Created chunk 18: 1026.0s-1086.0s
+INFO 2025-07-06 22:35:59,110 progressive_transcription 68659 6252457984 Added chunk 18 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 15)
+INFO 2025-07-06 22:35:59,110 audio_chunking 68659 6252457984 Added chunk 18 to transcription queue
+INFO 2025-07-06 22:36:03,770 audio_chunking 68659 6252457984 Saved chunk: 1083.0s-1143.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_019_1083.0s-1143.0s.wav
+INFO 2025-07-06 22:36:03,777 audio_chunking 68659 6252457984 Created chunk 19: 1083.0s-1143.0s
+INFO 2025-07-06 22:36:03,777 progressive_transcription 68659 6252457984 Added chunk 19 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 16)
+INFO 2025-07-06 22:36:03,777 audio_chunking 68659 6252457984 Added chunk 19 to transcription queue
+INFO 2025-07-06 22:36:08,067 audio_chunking 68659 6252457984 Saved chunk: 1140.0s-1200.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_020_1140.0s-1200.0s.wav
+INFO 2025-07-06 22:36:08,072 audio_chunking 68659 6252457984 Created chunk 20: 1140.0s-1200.0s
+INFO 2025-07-06 22:36:08,073 progressive_transcription 68659 6252457984 Added chunk 20 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 17)
+INFO 2025-07-06 22:36:08,073 audio_chunking 68659 6252457984 Added chunk 20 to transcription queue
+INFO 2025-07-06 22:36:12,571 audio_chunking 68659 6252457984 Saved chunk: 1197.0s-1257.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_021_1197.0s-1257.0s.wav
+INFO 2025-07-06 22:36:12,577 audio_chunking 68659 6252457984 Created chunk 21: 1197.0s-1257.0s
+INFO 2025-07-06 22:36:12,577 progressive_transcription 68659 6252457984 Added chunk 21 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 18)
+INFO 2025-07-06 22:36:12,577 audio_chunking 68659 6252457984 Added chunk 21 to transcription queue
+INFO 2025-07-06 22:36:16,800 audio_chunking 68659 6252457984 Saved chunk: 1254.0s-1314.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_022_1254.0s-1314.0s.wav
+INFO 2025-07-06 22:36:16,805 audio_chunking 68659 6252457984 Created chunk 22: 1254.0s-1314.0s
+INFO 2025-07-06 22:36:16,805 progressive_transcription 68659 6252457984 Added chunk 22 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 19)
+INFO 2025-07-06 22:36:16,805 audio_chunking 68659 6252457984 Added chunk 22 to transcription queue
+INFO 2025-07-06 22:36:21,041 audio_chunking 68659 6252457984 Saved chunk: 1311.0s-1371.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_023_1311.0s-1371.0s.wav
+INFO 2025-07-06 22:36:21,049 audio_chunking 68659 6252457984 Created chunk 23: 1311.0s-1371.0s
+INFO 2025-07-06 22:36:21,049 progressive_transcription 68659 6252457984 Added chunk 23 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 20)
+INFO 2025-07-06 22:36:21,050 audio_chunking 68659 6252457984 Added chunk 23 to transcription queue
+INFO 2025-07-06 22:36:25,626 audio_chunking 68659 6252457984 Saved chunk: 1368.0s-1428.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_024_1368.0s-1428.0s.wav
+INFO 2025-07-06 22:36:25,631 audio_chunking 68659 6252457984 Created chunk 24: 1368.0s-1428.0s
+INFO 2025-07-06 22:36:25,631 progressive_transcription 68659 6252457984 Added chunk 24 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 21)
+INFO 2025-07-06 22:36:25,631 audio_chunking 68659 6252457984 Added chunk 24 to transcription queue
+INFO 2025-07-06 22:36:30,005 audio_chunking 68659 6252457984 Saved chunk: 1425.0s-1485.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_025_1425.0s-1485.0s.wav
+INFO 2025-07-06 22:36:30,011 audio_chunking 68659 6252457984 Created chunk 25: 1425.0s-1485.0s
+INFO 2025-07-06 22:36:30,011 progressive_transcription 68659 6252457984 Added chunk 25 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 22)
+INFO 2025-07-06 22:36:30,011 audio_chunking 68659 6252457984 Added chunk 25 to transcription queue
+INFO 2025-07-06 22:36:34,507 audio_chunking 68659 6252457984 Saved chunk: 1482.0s-1542.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_026_1482.0s-1542.0s.wav
+INFO 2025-07-06 22:36:34,515 audio_chunking 68659 6252457984 Created chunk 26: 1482.0s-1542.0s
+INFO 2025-07-06 22:36:34,517 progressive_transcription 68659 6252457984 Added chunk 26 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 23)
+INFO 2025-07-06 22:36:34,518 audio_chunking 68659 6252457984 Added chunk 26 to transcription queue
+INFO 2025-07-06 22:36:39,300 audio_chunking 68659 6252457984 Saved chunk: 1539.0s-1599.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_027_1539.0s-1599.0s.wav
+INFO 2025-07-06 22:36:39,305 audio_chunking 68659 6252457984 Created chunk 27: 1539.0s-1599.0s
+INFO 2025-07-06 22:36:39,306 progressive_transcription 68659 6252457984 Added chunk 27 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 24)
+INFO 2025-07-06 22:36:39,306 audio_chunking 68659 6252457984 Added chunk 27 to transcription queue
+INFO 2025-07-06 22:36:43,719 audio_chunking 68659 6252457984 Saved chunk: 1596.0s-1656.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_028_1596.0s-1656.0s.wav
+INFO 2025-07-06 22:36:43,726 audio_chunking 68659 6252457984 Created chunk 28: 1596.0s-1656.0s
+INFO 2025-07-06 22:36:43,727 progressive_transcription 68659 6252457984 Added chunk 28 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 25)
+INFO 2025-07-06 22:36:43,727 audio_chunking 68659 6252457984 Added chunk 28 to transcription queue
+INFO 2025-07-06 22:36:48,673 audio_chunking 68659 6252457984 Saved chunk: 1653.0s-1713.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_029_1653.0s-1713.0s.wav
+INFO 2025-07-06 22:36:48,679 audio_chunking 68659 6252457984 Created chunk 29: 1653.0s-1713.0s
+INFO 2025-07-06 22:36:48,679 progressive_transcription 68659 6252457984 Added chunk 29 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 26)
+INFO 2025-07-06 22:36:48,679 audio_chunking 68659 6252457984 Added chunk 29 to transcription queue
+INFO 2025-07-06 22:36:53,691 audio_chunking 68659 6252457984 Saved chunk: 1710.0s-1770.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_030_1710.0s-1770.0s.wav
+INFO 2025-07-06 22:36:53,697 audio_chunking 68659 6252457984 Created chunk 30: 1710.0s-1770.0s
+INFO 2025-07-06 22:36:53,697 progressive_transcription 68659 6252457984 Added chunk 30 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 27)
+INFO 2025-07-06 22:36:53,697 audio_chunking 68659 6252457984 Added chunk 30 to transcription queue
+INFO 2025-07-06 22:36:58,517 audio_chunking 68659 6252457984 Saved chunk: 1767.0s-1827.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_031_1767.0s-1827.0s.wav
+INFO 2025-07-06 22:36:58,527 audio_chunking 68659 6252457984 Created chunk 31: 1767.0s-1827.0s
+INFO 2025-07-06 22:36:58,527 progressive_transcription 68659 6252457984 Added chunk 31 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 28)
+INFO 2025-07-06 22:36:58,528 audio_chunking 68659 6252457984 Added chunk 31 to transcription queue
+INFO 2025-07-06 22:37:03,324 audio_chunking 68659 6252457984 Saved chunk: 1824.0s-1884.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_032_1824.0s-1884.0s.wav
+INFO 2025-07-06 22:37:03,333 audio_chunking 68659 6252457984 Created chunk 32: 1824.0s-1884.0s
+INFO 2025-07-06 22:37:03,334 progressive_transcription 68659 6252457984 Added chunk 32 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 29)
+INFO 2025-07-06 22:37:03,334 audio_chunking 68659 6252457984 Added chunk 32 to transcription queue
+INFO 2025-07-06 22:37:08,224 audio_chunking 68659 6252457984 Saved chunk: 1881.0s-1941.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_033_1881.0s-1941.0s.wav
+INFO 2025-07-06 22:37:08,228 audio_chunking 68659 6252457984 Created chunk 33: 1881.0s-1941.0s
+INFO 2025-07-06 22:37:08,228 progressive_transcription 68659 6252457984 Added chunk 33 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 30)
+INFO 2025-07-06 22:37:08,228 audio_chunking 68659 6252457984 Added chunk 33 to transcription queue
+INFO 2025-07-06 22:37:13,030 audio_chunking 68659 6252457984 Saved chunk: 1938.0s-1998.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_034_1938.0s-1998.0s.wav
+INFO 2025-07-06 22:37:13,043 audio_chunking 68659 6252457984 Created chunk 34: 1938.0s-1998.0s
+INFO 2025-07-06 22:37:13,043 progressive_transcription 68659 6252457984 Added chunk 34 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 31)
+INFO 2025-07-06 22:37:13,043 audio_chunking 68659 6252457984 Added chunk 34 to transcription queue
+INFO 2025-07-06 22:37:18,116 audio_chunking 68659 6252457984 Saved chunk: 1995.0s-2055.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_035_1995.0s-2055.0s.wav
+INFO 2025-07-06 22:37:18,122 audio_chunking 68659 6252457984 Created chunk 35: 1995.0s-2055.0s
+INFO 2025-07-06 22:37:18,122 progressive_transcription 68659 6252457984 Added chunk 35 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 32)
+INFO 2025-07-06 22:37:18,122 audio_chunking 68659 6252457984 Added chunk 35 to transcription queue
+INFO 2025-07-06 22:37:23,199 audio_chunking 68659 6252457984 Saved chunk: 2052.0s-2112.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_036_2052.0s-2112.0s.wav
+INFO 2025-07-06 22:37:23,204 audio_chunking 68659 6252457984 Created chunk 36: 2052.0s-2112.0s
+INFO 2025-07-06 22:37:23,205 progressive_transcription 68659 6252457984 Added chunk 36 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 33)
+INFO 2025-07-06 22:37:23,205 audio_chunking 68659 6252457984 Added chunk 36 to transcription queue
+INFO 2025-07-06 22:37:28,539 audio_chunking 68659 6252457984 Saved chunk: 2109.0s-2169.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_037_2109.0s-2169.0s.wav
+INFO 2025-07-06 22:37:28,553 audio_chunking 68659 6252457984 Created chunk 37: 2109.0s-2169.0s
+INFO 2025-07-06 22:37:28,553 progressive_transcription 68659 6252457984 Added chunk 37 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 34)
+INFO 2025-07-06 22:37:28,553 audio_chunking 68659 6252457984 Added chunk 37 to transcription queue
+INFO 2025-07-06 22:37:34,014 audio_chunking 68659 6252457984 Saved chunk: 2166.0s-2226.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_038_2166.0s-2226.0s.wav
+INFO 2025-07-06 22:37:34,024 audio_chunking 68659 6252457984 Created chunk 38: 2166.0s-2226.0s
+INFO 2025-07-06 22:37:34,024 progressive_transcription 68659 6252457984 Added chunk 38 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 35)
+INFO 2025-07-06 22:37:34,024 audio_chunking 68659 6252457984 Added chunk 38 to transcription queue
+INFO 2025-07-06 22:37:39,536 audio_chunking 68659 6252457984 Saved chunk: 2223.0s-2283.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_039_2223.0s-2283.0s.wav
+INFO 2025-07-06 22:37:39,544 audio_chunking 68659 6252457984 Created chunk 39: 2223.0s-2283.0s
+INFO 2025-07-06 22:37:39,544 progressive_transcription 68659 6252457984 Added chunk 39 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 36)
+INFO 2025-07-06 22:37:39,544 audio_chunking 68659 6252457984 Added chunk 39 to transcription queue
+INFO 2025-07-06 22:37:45,581 audio_chunking 68659 6252457984 Saved chunk: 2280.0s-2340.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_040_2280.0s-2340.0s.wav
+INFO 2025-07-06 22:37:45,589 audio_chunking 68659 6252457984 Created chunk 40: 2280.0s-2340.0s
+INFO 2025-07-06 22:37:45,590 progressive_transcription 68659 6252457984 Added chunk 40 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 37)
+INFO 2025-07-06 22:37:45,590 audio_chunking 68659 6252457984 Added chunk 40 to transcription queue
+INFO 2025-07-06 22:37:51,908 audio_chunking 68659 6252457984 Saved chunk: 2337.0s-2397.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_041_2337.0s-2397.0s.wav
+INFO 2025-07-06 22:37:51,917 audio_chunking 68659 6252457984 Created chunk 41: 2337.0s-2397.0s
+INFO 2025-07-06 22:37:51,917 progressive_transcription 68659 6252457984 Added chunk 41 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 38)
+INFO 2025-07-06 22:37:51,917 audio_chunking 68659 6252457984 Added chunk 41 to transcription queue
+INFO 2025-07-06 22:37:56,971 audio_chunking 68659 6252457984 Saved chunk: 2394.0s-2454.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_042_2394.0s-2454.0s.wav
+INFO 2025-07-06 22:37:56,977 audio_chunking 68659 6252457984 Created chunk 42: 2394.0s-2454.0s
+INFO 2025-07-06 22:37:56,977 progressive_transcription 68659 6252457984 Added chunk 42 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 39)
+INFO 2025-07-06 22:37:56,977 audio_chunking 68659 6252457984 Added chunk 42 to transcription queue
+INFO 2025-07-06 22:38:01,712 audio_chunking 68659 6252457984 Saved chunk: 2451.0s-2511.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_043_2451.0s-2511.0s.wav
+INFO 2025-07-06 22:38:01,717 audio_chunking 68659 6252457984 Created chunk 43: 2451.0s-2511.0s
+INFO 2025-07-06 22:38:01,717 progressive_transcription 68659 6252457984 Added chunk 43 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 40)
+INFO 2025-07-06 22:38:01,718 audio_chunking 68659 6252457984 Added chunk 43 to transcription queue
+INFO 2025-07-06 22:38:07,009 audio_chunking 68659 6252457984 Saved chunk: 2508.0s-2568.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_044_2508.0s-2568.0s.wav
+INFO 2025-07-06 22:38:07,016 audio_chunking 68659 6252457984 Created chunk 44: 2508.0s-2568.0s
+INFO 2025-07-06 22:38:07,016 progressive_transcription 68659 6252457984 Added chunk 44 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 41)
+INFO 2025-07-06 22:38:07,016 audio_chunking 68659 6252457984 Added chunk 44 to transcription queue
+INFO 2025-07-06 22:38:12,374 audio_chunking 68659 6252457984 Saved chunk: 2565.0s-2625.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_045_2565.0s-2625.0s.wav
+INFO 2025-07-06 22:38:12,380 audio_chunking 68659 6252457984 Created chunk 45: 2565.0s-2625.0s
+INFO 2025-07-06 22:38:12,381 progressive_transcription 68659 6252457984 Added chunk 45 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 42)
+INFO 2025-07-06 22:38:12,381 audio_chunking 68659 6252457984 Added chunk 45 to transcription queue
+INFO 2025-07-06 22:38:16,933 audio_chunking 68659 6252457984 Saved chunk: 2622.0s-2682.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_046_2622.0s-2682.0s.wav
+INFO 2025-07-06 22:38:16,944 audio_chunking 68659 6252457984 Created chunk 46: 2622.0s-2682.0s
+INFO 2025-07-06 22:38:16,945 progressive_transcription 68659 6252457984 Added chunk 46 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 43)
+INFO 2025-07-06 22:38:16,945 audio_chunking 68659 6252457984 Added chunk 46 to transcription queue
+INFO 2025-07-06 22:38:21,680 audio_chunking 68659 6252457984 Saved chunk: 2679.0s-2739.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_047_2679.0s-2739.0s.wav
+INFO 2025-07-06 22:38:21,686 audio_chunking 68659 6252457984 Created chunk 47: 2679.0s-2739.0s
+INFO 2025-07-06 22:38:21,686 progressive_transcription 68659 6252457984 Added chunk 47 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 44)
+INFO 2025-07-06 22:38:21,686 audio_chunking 68659 6252457984 Added chunk 47 to transcription queue
+INFO 2025-07-06 22:38:26,943 audio_chunking 68659 6252457984 Saved chunk: 2736.0s-2796.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_048_2736.0s-2796.0s.wav
+INFO 2025-07-06 22:38:26,953 audio_chunking 68659 6252457984 Created chunk 48: 2736.0s-2796.0s
+INFO 2025-07-06 22:38:26,954 progressive_transcription 68659 6252457984 Added chunk 48 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 45)
+INFO 2025-07-06 22:38:26,954 audio_chunking 68659 6252457984 Added chunk 48 to transcription queue
+INFO 2025-07-06 22:38:32,074 audio_chunking 68659 6252457984 Saved chunk: 2793.0s-2853.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_049_2793.0s-2853.0s.wav
+INFO 2025-07-06 22:38:32,080 audio_chunking 68659 6252457984 Created chunk 49: 2793.0s-2853.0s
+INFO 2025-07-06 22:38:32,080 progressive_transcription 68659 6252457984 Added chunk 49 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 46)
+INFO 2025-07-06 22:38:32,080 audio_chunking 68659 6252457984 Added chunk 49 to transcription queue
+INFO 2025-07-06 22:38:37,961 audio_chunking 68659 6252457984 Saved chunk: 2850.0s-2910.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_050_2850.0s-2910.0s.wav
+INFO 2025-07-06 22:38:37,968 audio_chunking 68659 6252457984 Created chunk 50: 2850.0s-2910.0s
+INFO 2025-07-06 22:38:37,968 progressive_transcription 68659 6252457984 Added chunk 50 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 47)
+INFO 2025-07-06 22:38:37,968 audio_chunking 68659 6252457984 Added chunk 50 to transcription queue
+INFO 2025-07-06 22:38:42,771 audio_chunking 68659 6252457984 Saved chunk: 2907.0s-2967.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_051_2907.0s-2967.0s.wav
+INFO 2025-07-06 22:38:42,782 audio_chunking 68659 6252457984 Created chunk 51: 2907.0s-2967.0s
+INFO 2025-07-06 22:38:42,782 progressive_transcription 68659 6252457984 Added chunk 51 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 48)
+INFO 2025-07-06 22:38:42,782 audio_chunking 68659 6252457984 Added chunk 51 to transcription queue
+INFO 2025-07-06 22:38:47,531 audio_chunking 68659 6252457984 Saved chunk: 2964.0s-3024.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_052_2964.0s-3024.0s.wav
+INFO 2025-07-06 22:38:47,538 audio_chunking 68659 6252457984 Created chunk 52: 2964.0s-3024.0s
+INFO 2025-07-06 22:38:47,538 progressive_transcription 68659 6252457984 Added chunk 52 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 49)
+INFO 2025-07-06 22:38:47,538 audio_chunking 68659 6252457984 Added chunk 52 to transcription queue
+INFO 2025-07-06 22:38:52,334 audio_chunking 68659 6252457984 Saved chunk: 3021.0s-3081.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_053_3021.0s-3081.0s.wav
+INFO 2025-07-06 22:38:52,340 audio_chunking 68659 6252457984 Created chunk 53: 3021.0s-3081.0s
+INFO 2025-07-06 22:38:52,340 progressive_transcription 68659 6252457984 Added chunk 53 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 50)
+INFO 2025-07-06 22:38:52,340 audio_chunking 68659 6252457984 Added chunk 53 to transcription queue
+INFO 2025-07-06 22:38:57,005 audio_chunking 68659 6252457984 Saved chunk: 3078.0s-3138.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_054_3078.0s-3138.0s.wav
+INFO 2025-07-06 22:38:57,011 audio_chunking 68659 6252457984 Created chunk 54: 3078.0s-3138.0s
+INFO 2025-07-06 22:38:57,011 progressive_transcription 68659 6252457984 Added chunk 54 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 51)
+INFO 2025-07-06 22:38:57,011 audio_chunking 68659 6252457984 Added chunk 54 to transcription queue
+INFO 2025-07-06 22:39:02,086 audio_chunking 68659 6252457984 Saved chunk: 3135.0s-3195.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_055_3135.0s-3195.0s.wav
+INFO 2025-07-06 22:39:02,098 audio_chunking 68659 6252457984 Created chunk 55: 3135.0s-3195.0s
+INFO 2025-07-06 22:39:02,098 progressive_transcription 68659 6252457984 Added chunk 55 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 52)
+INFO 2025-07-06 22:39:02,098 audio_chunking 68659 6252457984 Added chunk 55 to transcription queue
+INFO 2025-07-06 22:39:07,119 audio_chunking 68659 6252457984 Saved chunk: 3192.0s-3252.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_056_3192.0s-3252.0s.wav
+INFO 2025-07-06 22:39:07,128 audio_chunking 68659 6252457984 Created chunk 56: 3192.0s-3252.0s
+INFO 2025-07-06 22:39:07,128 progressive_transcription 68659 6252457984 Added chunk 56 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 53)
+INFO 2025-07-06 22:39:07,128 audio_chunking 68659 6252457984 Added chunk 56 to transcription queue
+INFO 2025-07-06 22:39:12,296 audio_chunking 68659 6252457984 Saved chunk: 3249.0s-3309.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_057_3249.0s-3309.0s.wav
+INFO 2025-07-06 22:39:12,301 audio_chunking 68659 6252457984 Created chunk 57: 3249.0s-3309.0s
+INFO 2025-07-06 22:39:12,301 progressive_transcription 68659 6252457984 Added chunk 57 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 54)
+INFO 2025-07-06 22:39:12,301 audio_chunking 68659 6252457984 Added chunk 57 to transcription queue
+INFO 2025-07-06 22:39:17,525 audio_chunking 68659 6252457984 Saved chunk: 3306.0s-3366.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_058_3306.0s-3366.0s.wav
+INFO 2025-07-06 22:39:17,531 audio_chunking 68659 6252457984 Created chunk 58: 3306.0s-3366.0s
+INFO 2025-07-06 22:39:17,531 progressive_transcription 68659 6252457984 Added chunk 58 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 55)
+INFO 2025-07-06 22:39:17,531 audio_chunking 68659 6252457984 Added chunk 58 to transcription queue
+INFO 2025-07-06 22:39:22,922 audio_chunking 68659 6252457984 Saved chunk: 3363.0s-3423.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_059_3363.0s-3423.0s.wav
+INFO 2025-07-06 22:39:22,928 audio_chunking 68659 6252457984 Created chunk 59: 3363.0s-3423.0s
+INFO 2025-07-06 22:39:22,928 progressive_transcription 68659 6252457984 Added chunk 59 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 56)
+INFO 2025-07-06 22:39:22,928 audio_chunking 68659 6252457984 Added chunk 59 to transcription queue
+INFO 2025-07-06 22:39:28,069 audio_chunking 68659 6252457984 Saved chunk: 3420.0s-3480.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_060_3420.0s-3480.0s.wav
+INFO 2025-07-06 22:39:28,076 audio_chunking 68659 6252457984 Created chunk 60: 3420.0s-3480.0s
+INFO 2025-07-06 22:39:28,076 progressive_transcription 68659 6252457984 Added chunk 60 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 57)
+INFO 2025-07-06 22:39:28,076 audio_chunking 68659 6252457984 Added chunk 60 to transcription queue
+INFO 2025-07-06 22:39:33,449 audio_chunking 68659 6252457984 Saved chunk: 3477.0s-3537.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_061_3477.0s-3537.0s.wav
+INFO 2025-07-06 22:39:33,454 audio_chunking 68659 6252457984 Created chunk 61: 3477.0s-3537.0s
+INFO 2025-07-06 22:39:33,454 progressive_transcription 68659 6252457984 Added chunk 61 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 58)
+INFO 2025-07-06 22:39:33,454 audio_chunking 68659 6252457984 Added chunk 61 to transcription queue
+INFO 2025-07-06 22:39:38,382 audio_chunking 68659 6252457984 Saved chunk: 3534.0s-3594.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_062_3534.0s-3594.0s.wav
+INFO 2025-07-06 22:39:38,389 audio_chunking 68659 6252457984 Created chunk 62: 3534.0s-3594.0s
+INFO 2025-07-06 22:39:38,389 progressive_transcription 68659 6252457984 Added chunk 62 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 59)
+INFO 2025-07-06 22:39:38,389 audio_chunking 68659 6252457984 Added chunk 62 to transcription queue
+INFO 2025-07-06 22:39:39,146 utils 68659 13522464768 Thai text enhancement completed
+INFO 2025-07-06 22:39:39,149 utils 68659 13522464768 Performance: 0.2x real-time (290.07s for 60.0s audio)
+INFO 2025-07-06 22:39:39,149 utils 68659 13522464768 Transcription complete: 2 segments, 429 words
+INFO 2025-07-06 22:39:39,149 utils 68659 13522464768 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:39:39,149 utils 68659 13522464768 Total processing time: 290.08s
+INFO 2025-07-06 22:39:39,149 chunk_transcription 68659 13522464768 Completed transcription for chunk 1
+INFO 2025-07-06 22:39:39,151 progressive_transcription 68659 13522464768 Completed transcription for chunk 1 (2/63 chunks done)
+INFO 2025-07-06 22:39:39,156 progressive_transcription 68659 13522464768 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 730 chars from 2 chunks, status: processing, progress: 3%
+INFO 2025-07-06 22:39:39,317 progressive_transcription 68659 6269284352 Processing chunk 4 from queue (queue remaining: 58)
+INFO 2025-07-06 22:39:39,318 progressive_transcription 68659 13522464768 Starting transcription for chunk 4 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:39:39,320 chunk_transcription 68659 13522464768 Starting transcription for chunk 4 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:39:39,321 utils 68659 13522464768 Processing audio file: 1.8MB
+INFO 2025-07-06 22:39:39,322 utils 68659 13522464768 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:39:39,322 utils 68659 13522464768 Model load time: 0.00s
+INFO 2025-07-06 22:39:39,323 utils 68659 13522464768 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:39:39,323 utils 68659 13522464768 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:39:39,324 utils 68659 13522464768 Word timestamps enabled
+INFO 2025-07-06 22:39:39,324 utils 68659 13522464768 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:39:39,324 utils 68659 13522464768 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:39:39,324 utils 68659 13522464768 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:39:43,503 audio_chunking 68659 6252457984 Saved chunk: 3591.0s-3651.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_063_3591.0s-3651.0s.wav
+INFO 2025-07-06 22:39:43,509 audio_chunking 68659 6252457984 Created chunk 63: 3591.0s-3651.0s
+INFO 2025-07-06 22:39:43,509 progressive_transcription 68659 6252457984 Added chunk 63 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 59)
+INFO 2025-07-06 22:39:43,509 audio_chunking 68659 6252457984 Added chunk 63 to transcription queue
+INFO 2025-07-06 22:39:44,898 utils 68659 13655158784 Thai text enhancement completed
+INFO 2025-07-06 22:39:44,900 utils 68659 13655158784 Performance: 0.2x real-time (291.87s for 60.0s audio)
+INFO 2025-07-06 22:39:44,900 utils 68659 13655158784 Transcription complete: 3 segments, 448 words
+INFO 2025-07-06 22:39:44,900 utils 68659 13655158784 Detected language: th (confidence: 0.98)
+INFO 2025-07-06 22:39:44,900 utils 68659 13655158784 Total processing time: 291.87s
+INFO 2025-07-06 22:39:44,900 chunk_transcription 68659 13655158784 Completed transcription for chunk 2
+INFO 2025-07-06 22:39:44,903 progressive_transcription 68659 13655158784 Completed transcription for chunk 2 (3/64 chunks done)
+INFO 2025-07-06 22:39:44,906 progressive_transcription 68659 13655158784 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 1344 chars from 3 chunks, status: processing, progress: 4%
+INFO 2025-07-06 22:39:45,366 progressive_transcription 68659 6269284352 Processing chunk 5 from queue (queue remaining: 58)
+INFO 2025-07-06 22:39:45,366 progressive_transcription 68659 13638610944 Starting transcription for chunk 5 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:39:45,369 chunk_transcription 68659 13638610944 Starting transcription for chunk 5 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:39:45,369 utils 68659 13638610944 Processing audio file: 1.8MB
+INFO 2025-07-06 22:39:45,370 utils 68659 13638610944 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:39:45,370 utils 68659 13638610944 Model load time: 0.00s
+INFO 2025-07-06 22:39:45,371 utils 68659 13638610944 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:39:45,371 utils 68659 13638610944 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:39:45,371 utils 68659 13638610944 Word timestamps enabled
+INFO 2025-07-06 22:39:45,371 utils 68659 13638610944 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:39:45,371 utils 68659 13638610944 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:39:45,371 utils 68659 13638610944 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:39:50,001 audio_chunking 68659 6252457984 Saved chunk: 3648.0s-3708.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_064_3648.0s-3708.0s.wav
+INFO 2025-07-06 22:39:50,009 audio_chunking 68659 6252457984 Created chunk 64: 3648.0s-3708.0s
+INFO 2025-07-06 22:39:50,009 progressive_transcription 68659 6252457984 Added chunk 64 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 59)
+INFO 2025-07-06 22:39:50,009 audio_chunking 68659 6252457984 Added chunk 64 to transcription queue
+INFO 2025-07-06 22:39:55,403 audio_chunking 68659 6252457984 Saved chunk: 3705.0s-3765.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_065_3705.0s-3765.0s.wav
+INFO 2025-07-06 22:39:55,408 audio_chunking 68659 6252457984 Created chunk 65: 3705.0s-3765.0s
+INFO 2025-07-06 22:39:55,408 progressive_transcription 68659 6252457984 Added chunk 65 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 60)
+INFO 2025-07-06 22:39:55,408 audio_chunking 68659 6252457984 Added chunk 65 to transcription queue
+INFO 2025-07-06 22:40:01,254 audio_chunking 68659 6252457984 Saved chunk: 3762.0s-3822.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_066_3762.0s-3822.0s.wav
+INFO 2025-07-06 22:40:01,259 audio_chunking 68659 6252457984 Created chunk 66: 3762.0s-3822.0s
+INFO 2025-07-06 22:40:01,259 progressive_transcription 68659 6252457984 Added chunk 66 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 61)
+INFO 2025-07-06 22:40:01,259 audio_chunking 68659 6252457984 Added chunk 66 to transcription queue
+INFO 2025-07-06 22:40:06,922 audio_chunking 68659 6252457984 Saved chunk: 3819.0s-3879.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_067_3819.0s-3879.0s.wav
+INFO 2025-07-06 22:40:06,928 audio_chunking 68659 6252457984 Created chunk 67: 3819.0s-3879.0s
+INFO 2025-07-06 22:40:06,928 progressive_transcription 68659 6252457984 Added chunk 67 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 62)
+INFO 2025-07-06 22:40:06,928 audio_chunking 68659 6252457984 Added chunk 67 to transcription queue
+INFO 2025-07-06 22:40:12,175 audio_chunking 68659 6252457984 Saved chunk: 3876.0s-3936.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_068_3876.0s-3936.0s.wav
+INFO 2025-07-06 22:40:12,186 audio_chunking 68659 6252457984 Created chunk 68: 3876.0s-3936.0s
+INFO 2025-07-06 22:40:12,186 progressive_transcription 68659 6252457984 Added chunk 68 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 63)
+INFO 2025-07-06 22:40:12,186 audio_chunking 68659 6252457984 Added chunk 68 to transcription queue
+INFO 2025-07-06 22:40:17,538 audio_chunking 68659 6252457984 Saved chunk: 3933.0s-3993.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_069_3933.0s-3993.0s.wav
+INFO 2025-07-06 22:40:17,546 audio_chunking 68659 6252457984 Created chunk 69: 3933.0s-3993.0s
+INFO 2025-07-06 22:40:17,546 progressive_transcription 68659 6252457984 Added chunk 69 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 64)
+INFO 2025-07-06 22:40:17,546 audio_chunking 68659 6252457984 Added chunk 69 to transcription queue
+INFO 2025-07-06 22:40:22,738 audio_chunking 68659 6252457984 Saved chunk: 3990.0s-4050.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_070_3990.0s-4050.0s.wav
+INFO 2025-07-06 22:40:22,744 audio_chunking 68659 6252457984 Created chunk 70: 3990.0s-4050.0s
+INFO 2025-07-06 22:40:22,744 progressive_transcription 68659 6252457984 Added chunk 70 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 65)
+INFO 2025-07-06 22:40:22,744 audio_chunking 68659 6252457984 Added chunk 70 to transcription queue
+INFO 2025-07-06 22:40:27,806 audio_chunking 68659 6252457984 Saved chunk: 4047.0s-4107.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_071_4047.0s-4107.0s.wav
+INFO 2025-07-06 22:40:27,811 audio_chunking 68659 6252457984 Created chunk 71: 4047.0s-4107.0s
+INFO 2025-07-06 22:40:27,811 progressive_transcription 68659 6252457984 Added chunk 71 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 66)
+INFO 2025-07-06 22:40:27,811 audio_chunking 68659 6252457984 Added chunk 71 to transcription queue
+INFO 2025-07-06 22:40:32,835 audio_chunking 68659 6252457984 Saved chunk: 4104.0s-4164.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_072_4104.0s-4164.0s.wav
+INFO 2025-07-06 22:40:32,841 audio_chunking 68659 6252457984 Created chunk 72: 4104.0s-4164.0s
+INFO 2025-07-06 22:40:32,841 progressive_transcription 68659 6252457984 Added chunk 72 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 67)
+INFO 2025-07-06 22:40:32,841 audio_chunking 68659 6252457984 Added chunk 72 to transcription queue
+INFO 2025-07-06 22:40:38,362 audio_chunking 68659 6252457984 Saved chunk: 4161.0s-4221.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_073_4161.0s-4221.0s.wav
+INFO 2025-07-06 22:40:38,368 audio_chunking 68659 6252457984 Created chunk 73: 4161.0s-4221.0s
+INFO 2025-07-06 22:40:38,369 progressive_transcription 68659 6252457984 Added chunk 73 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 68)
+INFO 2025-07-06 22:40:38,369 audio_chunking 68659 6252457984 Added chunk 73 to transcription queue
+INFO 2025-07-06 22:40:43,886 audio_chunking 68659 6252457984 Saved chunk: 4218.0s-4278.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_074_4218.0s-4278.0s.wav
+INFO 2025-07-06 22:40:43,899 audio_chunking 68659 6252457984 Created chunk 74: 4218.0s-4278.0s
+INFO 2025-07-06 22:40:43,900 progressive_transcription 68659 6252457984 Added chunk 74 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 69)
+INFO 2025-07-06 22:40:43,900 audio_chunking 68659 6252457984 Added chunk 74 to transcription queue
+INFO 2025-07-06 22:40:49,026 audio_chunking 68659 6252457984 Saved chunk: 4275.0s-4335.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_075_4275.0s-4335.0s.wav
+INFO 2025-07-06 22:40:49,033 audio_chunking 68659 6252457984 Created chunk 75: 4275.0s-4335.0s
+INFO 2025-07-06 22:40:49,033 progressive_transcription 68659 6252457984 Added chunk 75 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 70)
+INFO 2025-07-06 22:40:49,033 audio_chunking 68659 6252457984 Added chunk 75 to transcription queue
+INFO 2025-07-06 22:40:54,250 audio_chunking 68659 6252457984 Saved chunk: 4332.0s-4392.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_076_4332.0s-4392.0s.wav
+INFO 2025-07-06 22:40:54,256 audio_chunking 68659 6252457984 Created chunk 76: 4332.0s-4392.0s
+INFO 2025-07-06 22:40:54,256 progressive_transcription 68659 6252457984 Added chunk 76 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 71)
+INFO 2025-07-06 22:40:54,256 audio_chunking 68659 6252457984 Added chunk 76 to transcription queue
+INFO 2025-07-06 22:40:59,531 audio_chunking 68659 6252457984 Saved chunk: 4389.0s-4449.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_077_4389.0s-4449.0s.wav
+INFO 2025-07-06 22:40:59,537 audio_chunking 68659 6252457984 Created chunk 77: 4389.0s-4449.0s
+INFO 2025-07-06 22:40:59,537 progressive_transcription 68659 6252457984 Added chunk 77 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 72)
+INFO 2025-07-06 22:40:59,537 audio_chunking 68659 6252457984 Added chunk 77 to transcription queue
+INFO 2025-07-06 22:41:04,170 audio_chunking 68659 6252457984 Saved chunk: 4446.0s-4506.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_078_4446.0s-4506.0s.wav
+INFO 2025-07-06 22:41:04,177 audio_chunking 68659 6252457984 Created chunk 78: 4446.0s-4506.0s
+INFO 2025-07-06 22:41:04,178 progressive_transcription 68659 6252457984 Added chunk 78 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 73)
+INFO 2025-07-06 22:41:04,178 audio_chunking 68659 6252457984 Added chunk 78 to transcription queue
+INFO 2025-07-06 22:41:09,197 audio_chunking 68659 6252457984 Saved chunk: 4503.0s-4563.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_079_4503.0s-4563.0s.wav
+INFO 2025-07-06 22:41:09,201 audio_chunking 68659 6252457984 Created chunk 79: 4503.0s-4563.0s
+INFO 2025-07-06 22:41:09,202 progressive_transcription 68659 6252457984 Added chunk 79 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 74)
+INFO 2025-07-06 22:41:09,202 audio_chunking 68659 6252457984 Added chunk 79 to transcription queue
+INFO 2025-07-06 22:41:14,255 audio_chunking 68659 6252457984 Saved chunk: 4560.0s-4620.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_080_4560.0s-4620.0s.wav
+INFO 2025-07-06 22:41:14,259 audio_chunking 68659 6252457984 Created chunk 80: 4560.0s-4620.0s
+INFO 2025-07-06 22:41:14,259 progressive_transcription 68659 6252457984 Added chunk 80 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 75)
+INFO 2025-07-06 22:41:14,259 audio_chunking 68659 6252457984 Added chunk 80 to transcription queue
+INFO 2025-07-06 22:41:19,446 audio_chunking 68659 6252457984 Saved chunk: 4617.0s-4677.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_081_4617.0s-4677.0s.wav
+INFO 2025-07-06 22:41:19,452 audio_chunking 68659 6252457984 Created chunk 81: 4617.0s-4677.0s
+INFO 2025-07-06 22:41:19,452 progressive_transcription 68659 6252457984 Added chunk 81 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 76)
+INFO 2025-07-06 22:41:19,452 audio_chunking 68659 6252457984 Added chunk 81 to transcription queue
+INFO 2025-07-06 22:41:24,846 audio_chunking 68659 6252457984 Saved chunk: 4674.0s-4734.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_082_4674.0s-4734.0s.wav
+INFO 2025-07-06 22:41:24,854 audio_chunking 68659 6252457984 Created chunk 82: 4674.0s-4734.0s
+INFO 2025-07-06 22:41:24,854 progressive_transcription 68659 6252457984 Added chunk 82 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 77)
+INFO 2025-07-06 22:41:24,854 audio_chunking 68659 6252457984 Added chunk 82 to transcription queue
+INFO 2025-07-06 22:41:30,508 audio_chunking 68659 6252457984 Saved chunk: 4731.0s-4791.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_083_4731.0s-4791.0s.wav
+INFO 2025-07-06 22:41:30,516 audio_chunking 68659 6252457984 Created chunk 83: 4731.0s-4791.0s
+INFO 2025-07-06 22:41:30,516 progressive_transcription 68659 6252457984 Added chunk 83 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 78)
+INFO 2025-07-06 22:41:30,516 audio_chunking 68659 6252457984 Added chunk 83 to transcription queue
+INFO 2025-07-06 22:41:35,497 audio_chunking 68659 6252457984 Saved chunk: 4788.0s-4848.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_084_4788.0s-4848.0s.wav
+INFO 2025-07-06 22:41:35,502 audio_chunking 68659 6252457984 Created chunk 84: 4788.0s-4848.0s
+INFO 2025-07-06 22:41:35,502 progressive_transcription 68659 6252457984 Added chunk 84 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 79)
+INFO 2025-07-06 22:41:35,502 audio_chunking 68659 6252457984 Added chunk 84 to transcription queue
+INFO 2025-07-06 22:41:40,067 audio_chunking 68659 6252457984 Saved chunk: 4845.0s-4905.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_085_4845.0s-4905.0s.wav
+INFO 2025-07-06 22:41:40,072 audio_chunking 68659 6252457984 Created chunk 85: 4845.0s-4905.0s
+INFO 2025-07-06 22:41:40,072 progressive_transcription 68659 6252457984 Added chunk 85 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 80)
+INFO 2025-07-06 22:41:40,072 audio_chunking 68659 6252457984 Added chunk 85 to transcription queue
+INFO 2025-07-06 22:41:44,690 audio_chunking 68659 6252457984 Saved chunk: 4902.0s-4962.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_086_4902.0s-4962.0s.wav
+INFO 2025-07-06 22:41:44,699 audio_chunking 68659 6252457984 Created chunk 86: 4902.0s-4962.0s
+INFO 2025-07-06 22:41:44,699 progressive_transcription 68659 6252457984 Added chunk 86 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 81)
+INFO 2025-07-06 22:41:44,699 audio_chunking 68659 6252457984 Added chunk 86 to transcription queue
+INFO 2025-07-06 22:41:49,264 audio_chunking 68659 6252457984 Saved chunk: 4959.0s-5019.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_087_4959.0s-5019.0s.wav
+INFO 2025-07-06 22:41:49,279 audio_chunking 68659 6252457984 Created chunk 87: 4959.0s-5019.0s
+INFO 2025-07-06 22:41:49,279 progressive_transcription 68659 6252457984 Added chunk 87 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 82)
+INFO 2025-07-06 22:41:49,279 audio_chunking 68659 6252457984 Added chunk 87 to transcription queue
+INFO 2025-07-06 22:41:54,665 audio_chunking 68659 6252457984 Saved chunk: 5016.0s-5076.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_088_5016.0s-5076.0s.wav
+INFO 2025-07-06 22:41:54,670 audio_chunking 68659 6252457984 Created chunk 88: 5016.0s-5076.0s
+INFO 2025-07-06 22:41:54,670 progressive_transcription 68659 6252457984 Added chunk 88 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 83)
+INFO 2025-07-06 22:41:54,670 audio_chunking 68659 6252457984 Added chunk 88 to transcription queue
+INFO 2025-07-06 22:41:59,871 audio_chunking 68659 6252457984 Saved chunk: 5073.0s-5133.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_089_5073.0s-5133.0s.wav
+INFO 2025-07-06 22:41:59,875 audio_chunking 68659 6252457984 Created chunk 89: 5073.0s-5133.0s
+INFO 2025-07-06 22:41:59,875 progressive_transcription 68659 6252457984 Added chunk 89 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 84)
+INFO 2025-07-06 22:41:59,876 audio_chunking 68659 6252457984 Added chunk 89 to transcription queue
+INFO 2025-07-06 22:42:05,470 audio_chunking 68659 6252457984 Saved chunk: 5130.0s-5190.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_090_5130.0s-5190.0s.wav
+INFO 2025-07-06 22:42:05,475 audio_chunking 68659 6252457984 Created chunk 90: 5130.0s-5190.0s
+INFO 2025-07-06 22:42:05,475 progressive_transcription 68659 6252457984 Added chunk 90 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 85)
+INFO 2025-07-06 22:42:05,475 audio_chunking 68659 6252457984 Added chunk 90 to transcription queue
+INFO 2025-07-06 22:42:08,863 utils 68659 6286110720 Thai text enhancement completed
+INFO 2025-07-06 22:42:08,864 utils 68659 6286110720 Performance: 0.2x real-time (373.78s for 60.0s audio)
+INFO 2025-07-06 22:42:08,864 utils 68659 6286110720 Transcription complete: 3 segments, 443 words
+INFO 2025-07-06 22:42:08,864 utils 68659 6286110720 Detected language: th (confidence: 0.97)
+INFO 2025-07-06 22:42:08,865 utils 68659 6286110720 Total processing time: 373.79s
+INFO 2025-07-06 22:42:08,865 chunk_transcription 68659 6286110720 Completed transcription for chunk 3
+INFO 2025-07-06 22:42:08,867 progressive_transcription 68659 6286110720 Completed transcription for chunk 3 (4/91 chunks done)
+INFO 2025-07-06 22:42:08,875 progressive_transcription 68659 6286110720 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 1940 chars from 4 chunks, status: processing, progress: 4%
+INFO 2025-07-06 22:42:09,283 progressive_transcription 68659 6269284352 Processing chunk 6 from queue (queue remaining: 84)
+INFO 2025-07-06 22:42:09,284 progressive_transcription 68659 6286110720 Starting transcription for chunk 6 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:42:09,286 chunk_transcription 68659 6286110720 Starting transcription for chunk 6 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:42:09,286 utils 68659 6286110720 Processing audio file: 1.8MB
+INFO 2025-07-06 22:42:09,288 utils 68659 6286110720 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:42:09,288 utils 68659 6286110720 Model load time: 0.00s
+INFO 2025-07-06 22:42:09,289 utils 68659 6286110720 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:42:09,289 utils 68659 6286110720 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:42:09,289 utils 68659 6286110720 Word timestamps enabled
+INFO 2025-07-06 22:42:09,289 utils 68659 6286110720 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:42:09,289 utils 68659 6286110720 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:42:09,289 utils 68659 6286110720 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:42:10,828 audio_chunking 68659 6252457984 Saved chunk: 5187.0s-5247.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_091_5187.0s-5247.0s.wav
+INFO 2025-07-06 22:42:10,838 audio_chunking 68659 6252457984 Created chunk 91: 5187.0s-5247.0s
+INFO 2025-07-06 22:42:10,839 progressive_transcription 68659 6252457984 Added chunk 91 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 85)
+INFO 2025-07-06 22:42:10,839 audio_chunking 68659 6252457984 Added chunk 91 to transcription queue
+INFO 2025-07-06 22:42:16,255 audio_chunking 68659 6252457984 Saved chunk: 5244.0s-5304.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_092_5244.0s-5304.0s.wav
+INFO 2025-07-06 22:42:16,262 audio_chunking 68659 6252457984 Created chunk 92: 5244.0s-5304.0s
+INFO 2025-07-06 22:42:16,262 progressive_transcription 68659 6252457984 Added chunk 92 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 86)
+INFO 2025-07-06 22:42:16,263 audio_chunking 68659 6252457984 Added chunk 92 to transcription queue
+INFO 2025-07-06 22:42:21,992 audio_chunking 68659 6252457984 Saved chunk: 5301.0s-5361.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_093_5301.0s-5361.0s.wav
+INFO 2025-07-06 22:42:21,998 audio_chunking 68659 6252457984 Created chunk 93: 5301.0s-5361.0s
+INFO 2025-07-06 22:42:21,999 progressive_transcription 68659 6252457984 Added chunk 93 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 87)
+INFO 2025-07-06 22:42:21,999 audio_chunking 68659 6252457984 Added chunk 93 to transcription queue
+INFO 2025-07-06 22:42:26,524 audio_chunking 68659 6252457984 Saved chunk: 5358.0s-5418.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_094_5358.0s-5418.0s.wav
+INFO 2025-07-06 22:42:26,531 audio_chunking 68659 6252457984 Created chunk 94: 5358.0s-5418.0s
+INFO 2025-07-06 22:42:26,532 progressive_transcription 68659 6252457984 Added chunk 94 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 88)
+INFO 2025-07-06 22:42:26,532 audio_chunking 68659 6252457984 Added chunk 94 to transcription queue
+INFO 2025-07-06 22:42:31,403 audio_chunking 68659 6252457984 Saved chunk: 5415.0s-5475.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_095_5415.0s-5475.0s.wav
+INFO 2025-07-06 22:42:31,408 audio_chunking 68659 6252457984 Created chunk 95: 5415.0s-5475.0s
+INFO 2025-07-06 22:42:31,408 progressive_transcription 68659 6252457984 Added chunk 95 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 89)
+INFO 2025-07-06 22:42:31,408 audio_chunking 68659 6252457984 Added chunk 95 to transcription queue
+INFO 2025-07-06 22:42:36,469 audio_chunking 68659 6252457984 Saved chunk: 5472.0s-5532.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_096_5472.0s-5532.0s.wav
+INFO 2025-07-06 22:42:36,476 audio_chunking 68659 6252457984 Created chunk 96: 5472.0s-5532.0s
+INFO 2025-07-06 22:42:36,476 progressive_transcription 68659 6252457984 Added chunk 96 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 90)
+INFO 2025-07-06 22:42:36,476 audio_chunking 68659 6252457984 Added chunk 96 to transcription queue
+INFO 2025-07-06 22:42:41,247 audio_chunking 68659 6252457984 Saved chunk: 5529.0s-5589.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_097_5529.0s-5589.0s.wav
+INFO 2025-07-06 22:42:41,253 audio_chunking 68659 6252457984 Created chunk 97: 5529.0s-5589.0s
+INFO 2025-07-06 22:42:41,253 progressive_transcription 68659 6252457984 Added chunk 97 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 91)
+INFO 2025-07-06 22:42:41,253 audio_chunking 68659 6252457984 Added chunk 97 to transcription queue
+INFO 2025-07-06 22:42:46,493 audio_chunking 68659 6252457984 Saved chunk: 5586.0s-5646.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_098_5586.0s-5646.0s.wav
+INFO 2025-07-06 22:42:46,500 audio_chunking 68659 6252457984 Created chunk 98: 5586.0s-5646.0s
+INFO 2025-07-06 22:42:46,501 progressive_transcription 68659 6252457984 Added chunk 98 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 92)
+INFO 2025-07-06 22:42:46,501 audio_chunking 68659 6252457984 Added chunk 98 to transcription queue
+INFO 2025-07-06 22:42:51,207 audio_chunking 68659 6252457984 Saved chunk: 5643.0s-5703.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_099_5643.0s-5703.0s.wav
+INFO 2025-07-06 22:42:51,214 audio_chunking 68659 6252457984 Created chunk 99: 5643.0s-5703.0s
+INFO 2025-07-06 22:42:51,214 progressive_transcription 68659 6252457984 Added chunk 99 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 93)
+INFO 2025-07-06 22:42:51,214 audio_chunking 68659 6252457984 Added chunk 99 to transcription queue
+INFO 2025-07-06 22:42:55,898 audio_chunking 68659 6252457984 Saved chunk: 5700.0s-5760.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_100_5700.0s-5760.0s.wav
+INFO 2025-07-06 22:42:55,905 audio_chunking 68659 6252457984 Created chunk 100: 5700.0s-5760.0s
+INFO 2025-07-06 22:42:55,905 progressive_transcription 68659 6252457984 Added chunk 100 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 94)
+INFO 2025-07-06 22:42:55,905 audio_chunking 68659 6252457984 Added chunk 100 to transcription queue
+INFO 2025-07-06 22:43:00,738 audio_chunking 68659 6252457984 Saved chunk: 5757.0s-5817.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_101_5757.0s-5817.0s.wav
+INFO 2025-07-06 22:43:00,744 audio_chunking 68659 6252457984 Created chunk 101: 5757.0s-5817.0s
+INFO 2025-07-06 22:43:00,744 progressive_transcription 68659 6252457984 Added chunk 101 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 95)
+INFO 2025-07-06 22:43:00,744 audio_chunking 68659 6252457984 Added chunk 101 to transcription queue
+INFO 2025-07-06 22:43:05,880 audio_chunking 68659 6252457984 Saved chunk: 5814.0s-5874.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_102_5814.0s-5874.0s.wav
+INFO 2025-07-06 22:43:05,887 audio_chunking 68659 6252457984 Created chunk 102: 5814.0s-5874.0s
+INFO 2025-07-06 22:43:05,887 progressive_transcription 68659 6252457984 Added chunk 102 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 96)
+INFO 2025-07-06 22:43:05,887 audio_chunking 68659 6252457984 Added chunk 102 to transcription queue
+INFO 2025-07-06 22:43:11,428 audio_chunking 68659 6252457984 Saved chunk: 5871.0s-5931.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_103_5871.0s-5931.0s.wav
+INFO 2025-07-06 22:43:11,436 audio_chunking 68659 6252457984 Created chunk 103: 5871.0s-5931.0s
+INFO 2025-07-06 22:43:11,436 progressive_transcription 68659 6252457984 Added chunk 103 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 97)
+INFO 2025-07-06 22:43:11,436 audio_chunking 68659 6252457984 Added chunk 103 to transcription queue
+INFO 2025-07-06 22:43:16,327 audio_chunking 68659 6252457984 Saved chunk: 5928.0s-5988.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_104_5928.0s-5988.0s.wav
+INFO 2025-07-06 22:43:16,336 audio_chunking 68659 6252457984 Created chunk 104: 5928.0s-5988.0s
+INFO 2025-07-06 22:43:16,337 progressive_transcription 68659 6252457984 Added chunk 104 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 98)
+INFO 2025-07-06 22:43:16,337 audio_chunking 68659 6252457984 Added chunk 104 to transcription queue
+INFO 2025-07-06 22:43:20,695 audio_chunking 68659 6252457984 Saved chunk: 5985.0s-6045.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_105_5985.0s-6045.0s.wav
+INFO 2025-07-06 22:43:20,700 audio_chunking 68659 6252457984 Created chunk 105: 5985.0s-6045.0s
+INFO 2025-07-06 22:43:20,700 progressive_transcription 68659 6252457984 Added chunk 105 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 99)
+INFO 2025-07-06 22:43:20,700 audio_chunking 68659 6252457984 Added chunk 105 to transcription queue
+INFO 2025-07-06 22:43:25,432 audio_chunking 68659 6252457984 Saved chunk: 6042.0s-6102.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_106_6042.0s-6102.0s.wav
+INFO 2025-07-06 22:43:25,437 audio_chunking 68659 6252457984 Created chunk 106: 6042.0s-6102.0s
+INFO 2025-07-06 22:43:25,437 progressive_transcription 68659 6252457984 Added chunk 106 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 100)
+INFO 2025-07-06 22:43:25,437 audio_chunking 68659 6252457984 Added chunk 106 to transcription queue
+INFO 2025-07-06 22:43:30,357 audio_chunking 68659 6252457984 Saved chunk: 6099.0s-6159.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_107_6099.0s-6159.0s.wav
+INFO 2025-07-06 22:43:30,362 audio_chunking 68659 6252457984 Created chunk 107: 6099.0s-6159.0s
+INFO 2025-07-06 22:43:30,362 progressive_transcription 68659 6252457984 Added chunk 107 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 101)
+INFO 2025-07-06 22:43:30,362 audio_chunking 68659 6252457984 Added chunk 107 to transcription queue
+INFO 2025-07-06 22:43:35,642 audio_chunking 68659 6252457984 Saved chunk: 6156.0s-6216.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_108_6156.0s-6216.0s.wav
+INFO 2025-07-06 22:43:35,647 audio_chunking 68659 6252457984 Created chunk 108: 6156.0s-6216.0s
+INFO 2025-07-06 22:43:35,647 progressive_transcription 68659 6252457984 Added chunk 108 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 102)
+INFO 2025-07-06 22:43:35,647 audio_chunking 68659 6252457984 Added chunk 108 to transcription queue
+INFO 2025-07-06 22:43:41,199 audio_chunking 68659 6252457984 Saved chunk: 6213.0s-6273.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_109_6213.0s-6273.0s.wav
+INFO 2025-07-06 22:43:41,205 audio_chunking 68659 6252457984 Created chunk 109: 6213.0s-6273.0s
+INFO 2025-07-06 22:43:41,205 progressive_transcription 68659 6252457984 Added chunk 109 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 103)
+INFO 2025-07-06 22:43:41,205 audio_chunking 68659 6252457984 Added chunk 109 to transcription queue
+INFO 2025-07-06 22:43:46,345 audio_chunking 68659 6252457984 Saved chunk: 6270.0s-6330.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_110_6270.0s-6330.0s.wav
+INFO 2025-07-06 22:43:46,353 audio_chunking 68659 6252457984 Created chunk 110: 6270.0s-6330.0s
+INFO 2025-07-06 22:43:46,353 progressive_transcription 68659 6252457984 Added chunk 110 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 104)
+INFO 2025-07-06 22:43:46,353 audio_chunking 68659 6252457984 Added chunk 110 to transcription queue
+INFO 2025-07-06 22:43:51,293 audio_chunking 68659 6252457984 Saved chunk: 6327.0s-6387.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_111_6327.0s-6387.0s.wav
+INFO 2025-07-06 22:43:51,303 audio_chunking 68659 6252457984 Created chunk 111: 6327.0s-6387.0s
+INFO 2025-07-06 22:43:51,303 progressive_transcription 68659 6252457984 Added chunk 111 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 105)
+INFO 2025-07-06 22:43:51,303 audio_chunking 68659 6252457984 Added chunk 111 to transcription queue
+INFO 2025-07-06 22:43:56,130 audio_chunking 68659 6252457984 Saved chunk: 6384.0s-6444.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_112_6384.0s-6444.0s.wav
+INFO 2025-07-06 22:43:56,144 audio_chunking 68659 6252457984 Created chunk 112: 6384.0s-6444.0s
+INFO 2025-07-06 22:43:56,145 progressive_transcription 68659 6252457984 Added chunk 112 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 106)
+INFO 2025-07-06 22:43:56,145 audio_chunking 68659 6252457984 Added chunk 112 to transcription queue
+INFO 2025-07-06 22:44:02,186 audio_chunking 68659 6252457984 Saved chunk: 6441.0s-6501.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_113_6441.0s-6501.0s.wav
+INFO 2025-07-06 22:44:02,192 audio_chunking 68659 6252457984 Created chunk 113: 6441.0s-6501.0s
+INFO 2025-07-06 22:44:02,192 progressive_transcription 68659 6252457984 Added chunk 113 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 107)
+INFO 2025-07-06 22:44:02,193 audio_chunking 68659 6252457984 Added chunk 113 to transcription queue
+INFO 2025-07-06 22:44:07,348 audio_chunking 68659 6252457984 Saved chunk: 6498.0s-6558.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_114_6498.0s-6558.0s.wav
+INFO 2025-07-06 22:44:07,353 audio_chunking 68659 6252457984 Created chunk 114: 6498.0s-6558.0s
+INFO 2025-07-06 22:44:07,354 progressive_transcription 68659 6252457984 Added chunk 114 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 108)
+INFO 2025-07-06 22:44:07,354 audio_chunking 68659 6252457984 Added chunk 114 to transcription queue
+INFO 2025-07-06 22:44:11,991 audio_chunking 68659 6252457984 Saved chunk: 6555.0s-6615.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_115_6555.0s-6615.0s.wav
+INFO 2025-07-06 22:44:11,997 audio_chunking 68659 6252457984 Created chunk 115: 6555.0s-6615.0s
+INFO 2025-07-06 22:44:11,997 progressive_transcription 68659 6252457984 Added chunk 115 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 109)
+INFO 2025-07-06 22:44:11,998 audio_chunking 68659 6252457984 Added chunk 115 to transcription queue
+INFO 2025-07-06 22:44:16,947 audio_chunking 68659 6252457984 Saved chunk: 6612.0s-6672.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_116_6612.0s-6672.0s.wav
+INFO 2025-07-06 22:44:16,957 audio_chunking 68659 6252457984 Created chunk 116: 6612.0s-6672.0s
+INFO 2025-07-06 22:44:16,957 progressive_transcription 68659 6252457984 Added chunk 116 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 110)
+INFO 2025-07-06 22:44:16,957 audio_chunking 68659 6252457984 Added chunk 116 to transcription queue
+INFO 2025-07-06 22:44:21,674 audio_chunking 68659 6252457984 Saved chunk: 6669.0s-6729.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_117_6669.0s-6729.0s.wav
+INFO 2025-07-06 22:44:21,679 audio_chunking 68659 6252457984 Created chunk 117: 6669.0s-6729.0s
+INFO 2025-07-06 22:44:21,679 progressive_transcription 68659 6252457984 Added chunk 117 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 111)
+INFO 2025-07-06 22:44:21,679 audio_chunking 68659 6252457984 Added chunk 117 to transcription queue
+INFO 2025-07-06 22:44:26,303 audio_chunking 68659 6252457984 Saved chunk: 6726.0s-6786.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_118_6726.0s-6786.0s.wav
+INFO 2025-07-06 22:44:26,308 audio_chunking 68659 6252457984 Created chunk 118: 6726.0s-6786.0s
+INFO 2025-07-06 22:44:26,308 progressive_transcription 68659 6252457984 Added chunk 118 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 112)
+INFO 2025-07-06 22:44:26,308 audio_chunking 68659 6252457984 Added chunk 118 to transcription queue
+INFO 2025-07-06 22:44:30,483 audio_chunking 68659 6252457984 Saved chunk: 6783.0s-6843.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_119_6783.0s-6843.0s.wav
+INFO 2025-07-06 22:44:30,488 audio_chunking 68659 6252457984 Created chunk 119: 6783.0s-6843.0s
+INFO 2025-07-06 22:44:30,488 progressive_transcription 68659 6252457984 Added chunk 119 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 113)
+INFO 2025-07-06 22:44:30,488 audio_chunking 68659 6252457984 Added chunk 119 to transcription queue
+INFO 2025-07-06 22:44:36,001 audio_chunking 68659 6252457984 Saved chunk: 6840.0s-6900.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_120_6840.0s-6900.0s.wav
+INFO 2025-07-06 22:44:36,012 audio_chunking 68659 6252457984 Created chunk 120: 6840.0s-6900.0s
+INFO 2025-07-06 22:44:36,012 progressive_transcription 68659 6252457984 Added chunk 120 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 114)
+INFO 2025-07-06 22:44:36,012 audio_chunking 68659 6252457984 Added chunk 120 to transcription queue
+INFO 2025-07-06 22:44:41,020 audio_chunking 68659 6252457984 Saved chunk: 6897.0s-6957.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_121_6897.0s-6957.0s.wav
+INFO 2025-07-06 22:44:41,027 audio_chunking 68659 6252457984 Created chunk 121: 6897.0s-6957.0s
+INFO 2025-07-06 22:44:41,027 progressive_transcription 68659 6252457984 Added chunk 121 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 115)
+INFO 2025-07-06 22:44:41,027 audio_chunking 68659 6252457984 Added chunk 121 to transcription queue
+INFO 2025-07-06 22:44:45,737 audio_chunking 68659 6252457984 Saved chunk: 6954.0s-7014.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_122_6954.0s-7014.0s.wav
+INFO 2025-07-06 22:44:45,744 audio_chunking 68659 6252457984 Created chunk 122: 6954.0s-7014.0s
+INFO 2025-07-06 22:44:45,744 progressive_transcription 68659 6252457984 Added chunk 122 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 116)
+INFO 2025-07-06 22:44:45,744 audio_chunking 68659 6252457984 Added chunk 122 to transcription queue
+INFO 2025-07-06 22:44:50,778 audio_chunking 68659 6252457984 Saved chunk: 7011.0s-7071.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_123_7011.0s-7071.0s.wav
+INFO 2025-07-06 22:44:50,783 audio_chunking 68659 6252457984 Created chunk 123: 7011.0s-7071.0s
+INFO 2025-07-06 22:44:50,784 progressive_transcription 68659 6252457984 Added chunk 123 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 117)
+INFO 2025-07-06 22:44:50,784 audio_chunking 68659 6252457984 Added chunk 123 to transcription queue
+INFO 2025-07-06 22:44:55,821 audio_chunking 68659 6252457984 Saved chunk: 7068.0s-7128.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_124_7068.0s-7128.0s.wav
+INFO 2025-07-06 22:44:55,827 audio_chunking 68659 6252457984 Created chunk 124: 7068.0s-7128.0s
+INFO 2025-07-06 22:44:55,827 progressive_transcription 68659 6252457984 Added chunk 124 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 118)
+INFO 2025-07-06 22:44:55,827 audio_chunking 68659 6252457984 Added chunk 124 to transcription queue
+INFO 2025-07-06 22:45:00,883 audio_chunking 68659 6252457984 Saved chunk: 7125.0s-7185.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_125_7125.0s-7185.0s.wav
+INFO 2025-07-06 22:45:00,892 audio_chunking 68659 6252457984 Created chunk 125: 7125.0s-7185.0s
+INFO 2025-07-06 22:45:00,892 progressive_transcription 68659 6252457984 Added chunk 125 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 119)
+INFO 2025-07-06 22:45:00,892 audio_chunking 68659 6252457984 Added chunk 125 to transcription queue
+INFO 2025-07-06 22:45:06,204 audio_chunking 68659 6252457984 Saved chunk: 7182.0s-7242.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_126_7182.0s-7242.0s.wav
+INFO 2025-07-06 22:45:06,211 audio_chunking 68659 6252457984 Created chunk 126: 7182.0s-7242.0s
+INFO 2025-07-06 22:45:06,211 progressive_transcription 68659 6252457984 Added chunk 126 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 120)
+INFO 2025-07-06 22:45:06,211 audio_chunking 68659 6252457984 Added chunk 126 to transcription queue
+INFO 2025-07-06 22:45:10,975 audio_chunking 68659 6252457984 Saved chunk: 7239.0s-7299.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_127_7239.0s-7299.0s.wav
+INFO 2025-07-06 22:45:10,983 audio_chunking 68659 6252457984 Created chunk 127: 7239.0s-7299.0s
+INFO 2025-07-06 22:45:10,983 progressive_transcription 68659 6252457984 Added chunk 127 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 121)
+INFO 2025-07-06 22:45:10,983 audio_chunking 68659 6252457984 Added chunk 127 to transcription queue
+INFO 2025-07-06 22:45:15,542 audio_chunking 68659 6252457984 Saved chunk: 7296.0s-7327.3s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/2d450c08-1e2a-4f37-b0ad-9ad26e912b86/chunks/chunk_128_7296.0s-7327.3s.wav
+INFO 2025-07-06 22:45:15,549 audio_chunking 68659 6252457984 Created chunk 128: 7296.0s-7327.3s
+INFO 2025-07-06 22:45:15,549 progressive_transcription 68659 6252457984 Added chunk 128 to transcription queue for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86 (queue size: 122)
+INFO 2025-07-06 22:45:15,549 audio_chunking 68659 6252457984 Added chunk 128 to transcription queue
+INFO 2025-07-06 22:45:15,549 audio_chunking 68659 6252457984 Successfully created 129 chunks for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:45:15,550 progressive_transcription 68659 6252457984 Chunking complete for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86: expected=129, actual=129
+INFO 2025-07-06 22:45:15,550 views 68659 6252457984 Successfully created chunks for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, transcription started
+INFO 2025-07-06 22:45:21,874 utils 68659 13522464768 Thai text enhancement completed
+INFO 2025-07-06 22:45:21,876 utils 68659 13522464768 Performance: 0.2x real-time (342.55s for 60.0s audio)
+INFO 2025-07-06 22:45:21,876 utils 68659 13522464768 Transcription complete: 3 segments, 386 words
+INFO 2025-07-06 22:45:21,876 utils 68659 13522464768 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:45:21,876 utils 68659 13522464768 Total processing time: 342.56s
+INFO 2025-07-06 22:45:21,876 chunk_transcription 68659 13522464768 Completed transcription for chunk 4
+INFO 2025-07-06 22:45:21,877 progressive_transcription 68659 13522464768 Completed transcription for chunk 4 (5/129 chunks done)
+INFO 2025-07-06 22:45:21,886 progressive_transcription 68659 13522464768 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 2457 chars from 5 chunks, status: processing, progress: 3%
+INFO 2025-07-06 22:45:22,072 progressive_transcription 68659 6269284352 Processing chunk 7 from queue (queue remaining: 121)
+INFO 2025-07-06 22:45:22,078 progressive_transcription 68659 6252457984 Starting transcription for chunk 7 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:45:22,080 chunk_transcription 68659 6252457984 Starting transcription for chunk 7 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:45:22,080 utils 68659 6252457984 Processing audio file: 1.8MB
+INFO 2025-07-06 22:45:22,081 utils 68659 6252457984 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:45:22,081 utils 68659 6252457984 Model load time: 0.00s
+INFO 2025-07-06 22:45:22,082 utils 68659 6252457984 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:45:22,082 utils 68659 6252457984 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:45:22,082 utils 68659 6252457984 Word timestamps enabled
+INFO 2025-07-06 22:45:22,082 utils 68659 6252457984 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:45:22,082 utils 68659 6252457984 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:45:22,082 utils 68659 6252457984 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:45:25,291 utils 68659 13638610944 Thai text enhancement completed
+INFO 2025-07-06 22:45:25,292 utils 68659 13638610944 Performance: 0.2x real-time (339.92s for 60.0s audio)
+INFO 2025-07-06 22:45:25,292 utils 68659 13638610944 Transcription complete: 2 segments, 231 words
+INFO 2025-07-06 22:45:25,292 utils 68659 13638610944 Detected language: th (confidence: 0.99)
+INFO 2025-07-06 22:45:25,292 utils 68659 13638610944 Total processing time: 339.92s
+INFO 2025-07-06 22:45:25,292 chunk_transcription 68659 13638610944 Completed transcription for chunk 5
+INFO 2025-07-06 22:45:25,294 progressive_transcription 68659 13638610944 Completed transcription for chunk 5 (6/129 chunks done)
+INFO 2025-07-06 22:45:25,302 progressive_transcription 68659 13638610944 Updated progressive transcript for meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86, length: 2784 chars from 6 chunks, status: processing, progress: 4%
+INFO 2025-07-06 22:45:25,604 progressive_transcription 68659 6269284352 Processing chunk 8 from queue (queue remaining: 120)
+INFO 2025-07-06 22:45:25,604 progressive_transcription 68659 13522464768 Starting transcription for chunk 8 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:45:25,607 chunk_transcription 68659 13522464768 Starting transcription for chunk 8 of meeting 2d450c08-1e2a-4f37-b0ad-9ad26e912b86
+INFO 2025-07-06 22:45:25,607 utils 68659 13522464768 Processing audio file: 1.8MB
+INFO 2025-07-06 22:45:25,608 utils 68659 13522464768 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-06 22:45:25,608 utils 68659 13522464768 Model load time: 0.00s
+INFO 2025-07-06 22:45:25,609 utils 68659 13522464768 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-06 22:45:25,609 utils 68659 13522464768 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-06 22:45:25,609 utils 68659 13522464768 Word timestamps enabled
+INFO 2025-07-06 22:45:25,609 utils 68659 13522464768 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-06 22:45:25,609 utils 68659 13522464768 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+ERROR 2025-07-06 22:45:25,609 utils 68659 13522464768 Language detection failed: 'str' object has no attribute 'dtype'
+INFO 2025-07-06 22:46:39,244 autoreload 58960 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:46:39,254 autoreload 58959 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:46:39,766 autoreload 71175 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:46:40,695 utils 71175 6146486272 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:46:50,074 autoreload 71175 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:46:50,341 autoreload 71218 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:46:51,123 utils 71218 6118682624 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-06 22:47:02,526 autoreload 71218 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-06 22:47:02,776 autoreload 71259 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-06 22:47:03,582 utils 71259 6181122048 BatchedInferencePipeline available - advanced features enabled

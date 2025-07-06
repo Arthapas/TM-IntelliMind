@@ -44,8 +44,10 @@ class ProgressiveTranscriber:
         self.max_concurrent = max_concurrent_transcriptions
         self.transcription_queue = Queue()
         self.active_threads = {}
+        self.thread_start_times = {}  # Track when each thread started
         self.completed_chunks = {}
         self.failed_chunks = set()
+        self.retry_counts = {}  # Track retry attempts per chunk
         self.is_running = False
         self.should_stop = False
         self.chunk_transcriber = ChunkTranscriber()
@@ -57,6 +59,11 @@ class ProgressiveTranscriber:
         # Get transcription settings from meeting
         self.whisper_model = meeting.transcription_model
         self.language = None  # Could be added to meeting model later
+        
+        # Watchdog settings
+        self.thread_timeout = 600  # 10 minutes max per chunk
+        self.max_retries = 2  # Maximum retry attempts per chunk
+        self.last_watchdog_check = time.time()
         
         logger.info(f"Initialized ProgressiveTranscriber for meeting {meeting.id} with model {self.whisper_model}")
     
@@ -146,6 +153,9 @@ class ProgressiveTranscriber:
         
         while not self.should_stop:
             try:
+                # Run watchdog to check for stuck threads
+                self._check_stuck_threads()
+                
                 # Check if we can start more transcriptions
                 if len(self.active_threads) >= self.max_concurrent:
                     time.sleep(0.5)
@@ -172,6 +182,70 @@ class ProgressiveTranscriber:
                 time.sleep(1.0)
         
         logger.info(f"Queue processor finished for meeting {self.meeting.id}")
+    
+    def _check_stuck_threads(self):
+        """
+        Watchdog function to check for and clean up stuck transcription threads
+        """
+        current_time = time.time()
+        
+        # Check every 60 seconds
+        if current_time - self.last_watchdog_check < 60:
+            return
+        
+        self.last_watchdog_check = current_time
+        stuck_chunks = []
+        
+        for chunk_index, start_time in self.thread_start_times.items():
+            if current_time - start_time > self.thread_timeout:
+                stuck_chunks.append(chunk_index)
+        
+        for chunk_index in stuck_chunks:
+            logger.error(f"Detected stuck transcription for chunk {chunk_index} "
+                        f"(running for {current_time - self.thread_start_times[chunk_index]:.1f}s)")
+            
+            # Clean up stuck thread
+            if chunk_index in self.active_threads:
+                thread = self.active_threads[chunk_index]
+                logger.warning(f"Abandoning stuck thread for chunk {chunk_index}")
+                # Note: We can't force kill the thread, but we can remove it from tracking
+                del self.active_threads[chunk_index]
+            
+            if chunk_index in self.thread_start_times:
+                del self.thread_start_times[chunk_index]
+            
+            # Check if we should retry this chunk
+            retry_count = self.retry_counts.get(chunk_index, 0)
+            if retry_count < self.max_retries:
+                # Retry the chunk
+                self.retry_counts[chunk_index] = retry_count + 1
+                logger.info(f"Retrying chunk {chunk_index} (attempt {retry_count + 1}/{self.max_retries})")
+                
+                try:
+                    chunk = self.meeting.chunks.get(chunk_index=chunk_index)
+                    chunk.status = 'pending'
+                    chunk.error_message = f"Retry {retry_count + 1} after timeout"
+                    chunk.save()
+                    
+                    # Re-queue the chunk for transcription
+                    self.transcription_queue.put(chunk)
+                    logger.info(f"Re-queued chunk {chunk_index} for retry")
+                except Exception as e:
+                    logger.error(f"Failed to retry chunk {chunk_index}: {e}")
+                    self.failed_chunks.add(chunk_index)
+            else:
+                # Max retries reached, mark as permanently failed
+                self.failed_chunks.add(chunk_index)
+                
+                # Update chunk status in database
+                try:
+                    chunk = self.meeting.chunks.get(chunk_index=chunk_index)
+                    chunk.status = 'failed'
+                    chunk.error_message = f"Transcription timeout after {self.thread_timeout}s (max retries exceeded)"
+                    chunk.save()
+                    logger.info(f"Marked chunk {chunk_index} as permanently failed after {retry_count} retries")
+                except Exception as e:
+                    logger.error(f"Failed to update chunk {chunk_index} status: {e}")
     
     def _start_chunk_transcription(self, chunk: AudioChunk):
         """
@@ -210,9 +284,11 @@ class ProgressiveTranscriber:
                 self.failed_chunks.add(chunk.chunk_index)
             
             finally:
-                # Remove from active threads
+                # Remove from active threads and timing tracking
                 if chunk.chunk_index in self.active_threads:
                     del self.active_threads[chunk.chunk_index]
+                if chunk.chunk_index in self.thread_start_times:
+                    del self.thread_start_times[chunk.chunk_index]
                 
                 # Mark queue task as done
                 self.transcription_queue.task_done()
@@ -220,6 +296,7 @@ class ProgressiveTranscriber:
         # Start the transcription thread
         thread = threading.Thread(target=transcribe_chunk, daemon=True)
         self.active_threads[chunk.chunk_index] = thread
+        self.thread_start_times[chunk.chunk_index] = time.time()
         thread.start()
     
     def _update_progressive_transcript(self):

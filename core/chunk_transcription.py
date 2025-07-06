@@ -7,12 +7,55 @@ the results into a complete transcript.
 
 import logging
 import threading
+import time
 from typing import List, Optional
 from django.utils import timezone
 from .models import Meeting, AudioChunk, Transcript
 from .utils import transcribe_audio
 
 logger = logging.getLogger(__name__)
+
+
+def transcribe_audio_with_timeout(audio_path, whisper_model, chunk, language, timeout=300):
+    """
+    Transcribe audio with timeout to prevent hanging threads
+    
+    Args:
+        audio_path: Path to audio file
+        whisper_model: Whisper model to use
+        chunk: AudioChunk object for progress tracking
+        language: Language code or None for auto-detection
+        timeout: Timeout in seconds (default: 5 minutes)
+        
+    Returns:
+        str or None: Transcribed text or None if timeout/error
+    """
+    result = [None]
+    exception = [None]
+    
+    def transcribe_worker():
+        try:
+            text = transcribe_audio(audio_path, whisper_model, chunk, language)
+            result[0] = text
+        except Exception as e:
+            exception[0] = e
+    
+    # Start transcription in a separate thread
+    thread = threading.Thread(target=transcribe_worker, daemon=True)
+    thread.start()
+    
+    # Wait for completion or timeout
+    thread.join(timeout=timeout)
+    
+    if thread.is_alive():
+        logger.error(f"Transcription timed out after {timeout}s for chunk {chunk.chunk_index}")
+        return None
+    
+    if exception[0]:
+        logger.error(f"Transcription failed for chunk {chunk.chunk_index}: {exception[0]}")
+        return None
+    
+    return result[0]
 
 
 class ChunkTranscriber:
@@ -42,8 +85,8 @@ class ChunkTranscriber:
             
             logger.info(f"Starting transcription for chunk {chunk.chunk_index} of meeting {chunk.meeting.id}")
             
-            # Transcribe the chunk file
-            text = transcribe_audio(chunk.file_path, whisper_model, chunk, language)
+            # Transcribe the chunk file with timeout protection
+            text = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=300)
             
             if text:
                 chunk.transcript_text = text
