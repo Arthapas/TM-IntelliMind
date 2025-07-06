@@ -41,6 +41,7 @@ class AudioChunker:
         self.overlap_duration = overlap_duration or getattr(settings, 'AUDIO_OVERLAP_DURATION', 5.0)
         self.max_chunk_duration = max_chunk_duration or getattr(settings, 'AUDIO_MAX_CHUNK_DURATION', 60.0)
         self.min_chunk_duration = min_chunk_duration or getattr(settings, 'AUDIO_MIN_CHUNK_DURATION', 10.0)
+        self.max_chunks = getattr(settings, 'AUDIO_MAX_CHUNKS', 100)  # Safety limit
         
         logger.debug(f"AudioChunker configured - Duration: {self.chunk_duration}s, "
                     f"Overlap: {self.overlap_duration}s, "
@@ -208,6 +209,11 @@ class AudioChunker:
             current_chunk_duration = 0.0
             
             for start, end in speech_segments:
+                # Check if we've reached chunk limit
+                if len(chunks) >= self.max_chunks:
+                    logger.warning(f"Reached maximum chunk limit of {self.max_chunks} during VAD chunking")
+                    break
+                
                 segment_duration = end - start if end else self.chunk_duration
                 
                 # If adding this segment would exceed chunk duration, finalize current chunk
@@ -256,7 +262,7 @@ class AudioChunker:
             chunks = []
             current_start = 0.0
             
-            while current_start < audio_duration:
+            while current_start < audio_duration and len(chunks) < self.max_chunks:
                 chunk_end = min(current_start + self.chunk_duration, audio_duration)
                 chunks.append((current_start, chunk_end))
                 
@@ -269,6 +275,10 @@ class AudioChunker:
                     if chunks:
                         chunks[-1] = (chunks[-1][0], audio_duration)
                     break
+            
+            if len(chunks) >= self.max_chunks:
+                logger.warning(f"Reached maximum chunk limit of {self.max_chunks}. "
+                              f"Remaining audio duration: {audio_duration - current_start:.1f}s")
             
             logger.info(f"Time-based chunking created {len(chunks)} chunks")
             return chunks

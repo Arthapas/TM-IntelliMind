@@ -28,7 +28,7 @@ def transcribe_audio_with_timeout(audio_path, whisper_model, chunk, language, ti
         timeout: Timeout in seconds (default: 5 minutes)
         
     Returns:
-        str or None: Transcribed text or None if timeout/error
+        tuple: (success: bool, text: str or None, timed_out: bool)
     """
     result = [None]
     exception = [None]
@@ -49,13 +49,14 @@ def transcribe_audio_with_timeout(audio_path, whisper_model, chunk, language, ti
     
     if thread.is_alive():
         logger.error(f"Transcription timed out after {timeout}s for chunk {chunk.chunk_index}")
-        return None
+        # Thread is still running, mark as timeout
+        return (False, None, True)
     
     if exception[0]:
         logger.error(f"Transcription failed for chunk {chunk.chunk_index}: {exception[0]}")
-        return None
+        return (False, None, False)
     
-    return result[0]
+    return (True, result[0], False)
 
 
 class ChunkTranscriber:
@@ -86,16 +87,20 @@ class ChunkTranscriber:
             logger.info(f"Starting transcription for chunk {chunk.chunk_index} of meeting {chunk.meeting.id}")
             
             # Transcribe the chunk file with timeout protection
-            text = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=180)
+            success, text, timed_out = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=180)
             
-            if text:
+            if success and text:
                 chunk.transcript_text = text
                 chunk.status = 'completed'
                 chunk.progress = 100
                 logger.info(f"Completed transcription for chunk {chunk.chunk_index}")
+            elif timed_out:
+                chunk.status = 'failed'
+                chunk.error_message = f"Transcription timed out after 180 seconds"
+                logger.error(f"Transcription timeout for chunk {chunk.chunk_index}")
             else:
                 chunk.status = 'failed'
-                chunk.error_message = "No transcription text generated"
+                chunk.error_message = "No transcription text generated or error occurred"
                 logger.warning(f"No text generated for chunk {chunk.chunk_index}")
             
             chunk.save()

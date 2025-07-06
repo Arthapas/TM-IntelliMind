@@ -61,9 +61,10 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 300  # 5 minutes max per chunk
+        self.thread_timeout = 240  # 4 minutes max per chunk (should be longer than chunk timeout of 180s)
         self.max_retries = 2  # Maximum retry attempts per chunk
         self.last_watchdog_check = time.time()
+        self.watchdog_interval = 15  # Check every 15 seconds for faster detection
         
         logger.info(f"Initialized ProgressiveTranscriber for meeting {meeting.id} with model {self.whisper_model}")
     
@@ -189,12 +190,16 @@ class ProgressiveTranscriber:
         """
         current_time = time.time()
         
-        # Check every 30 seconds for faster detection
-        if current_time - self.last_watchdog_check < 30:
+        # Check at specified interval for faster detection
+        if current_time - self.last_watchdog_check < self.watchdog_interval:
             return
         
         self.last_watchdog_check = current_time
         stuck_chunks = []
+        
+        # Log watchdog check details
+        if self.thread_start_times:
+            logger.debug(f"Watchdog checking {len(self.thread_start_times)} active threads for meeting {self.meeting.id}")
         
         for chunk_index, start_time in self.thread_start_times.items():
             if current_time - start_time > self.thread_timeout:
@@ -332,7 +337,8 @@ class ProgressiveTranscriber:
                 
                 # Update status and progress if all chunks are completed
                 total_chunks = self.meeting.chunks.count()
-                completed_chunks = len(self.completed_chunks)
+                # Use database state for consistency with get_progress_info()
+                completed_chunks = self.meeting.chunks.filter(status='completed').count()
                 
                 if completed_chunks >= total_chunks and self.chunking_complete:
                     # All chunks are completed - mark transcript as completed
@@ -370,7 +376,10 @@ class ProgressiveTranscriber:
         
         # Check if all chunks are either completed or failed
         total_chunks = self.meeting.chunks.count()
-        processed_chunks = len(self.completed_chunks) + len(self.failed_chunks)
+        # Use database state for consistency
+        completed_chunks = self.meeting.chunks.filter(status='completed').count()
+        failed_chunks = self.meeting.chunks.filter(status='failed').count()
+        processed_chunks = completed_chunks + failed_chunks
         
         # Additional validation: check expected vs actual chunk count
         # But only wait if chunking is not marked as complete
@@ -425,8 +434,9 @@ class ProgressiveTranscriber:
             Dictionary with progress information
         """
         total_chunks = self.meeting.chunks.count()
-        completed_count = len(self.completed_chunks)
-        failed_count = len(self.failed_chunks)
+        # Use database state instead of in-memory tracking to avoid decreasing progress
+        completed_count = self.meeting.chunks.filter(status='completed').count()
+        failed_count = self.meeting.chunks.filter(status='failed').count()
         active_count = len(self.active_threads)
         
         return {
