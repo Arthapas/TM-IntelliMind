@@ -65,7 +65,7 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 100  # 1.67 minutes max per chunk (should be > chunk timeout of 90s)
+        self.thread_timeout = 140  # 2.33 minutes max per chunk (should be > chunk timeout of 120s)
         self.max_retries = 1  # Reduced retry attempts for faster recovery
         self.last_watchdog_check = time.time()
         self.watchdog_interval = 5  # Check every 5 seconds for faster detection
@@ -308,7 +308,7 @@ class ProgressiveTranscriber:
                     
                     # Check performance and adjust if needed
                     chunk_duration = time.time() - self.thread_start_times.get(chunk_id, time.time())
-                    if chunk_duration > 30:  # Chunk took longer than 30 seconds
+                    if chunk_duration > 90:  # Chunk took longer than 90 seconds (3x real-time for 30s chunks)
                         self.slow_chunk_count += 1
                         logger.warning(f"Slow chunk detected: {chunk_id} took {chunk_duration:.1f}s")
                         

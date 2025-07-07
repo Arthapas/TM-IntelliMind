@@ -10956,3 +10956,259 @@ INFO 2025-07-07 07:27:25,432 progressive_transcription 85659 8433114880 Added ch
 INFO 2025-07-07 07:27:25,433 progressive_transcription 85659 8433114880 Added chunk 84 to transcription queue for meeting 4882b1e8-8a23-4a55-994d-813bc2d74c15 (queue size: 3)
 INFO 2025-07-07 07:31:05,646 autoreload 86055 8433114880 Watching for file changes with StatReloader
 INFO 2025-07-07 07:31:06,399 utils 86055 6177468416 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 07:41:44,638 autoreload 87133 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 07:41:45,457 utils 87133 6176583680 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 07:42:09,345 utils 87206 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 07:42:35,519 autoreload 87133 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/audio_chunking.py changed, reloading.
+INFO 2025-07-07 07:42:35,782 autoreload 87282 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 07:42:36,520 utils 87282 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 07:42:42,298 utils 87305 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 07:44:49,204 autoreload 87487 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 07:44:49,973 utils 87487 6139473920 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:01:10,066 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-07 09:01:10,067 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_001_57.0s-117.0s.wav
+INFO 2025-07-07 09:01:10,067 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_002_114.0s-174.0s.wav
+INFO 2025-07-07 09:01:10,068 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_003_171.0s-231.0s.wav
+INFO 2025-07-07 09:01:10,068 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_004_228.0s-288.0s.wav
+INFO 2025-07-07 09:01:10,068 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_005_285.0s-345.0s.wav
+INFO 2025-07-07 09:01:10,069 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_006_342.0s-402.0s.wav
+INFO 2025-07-07 09:01:10,070 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_007_399.0s-459.0s.wav
+INFO 2025-07-07 09:01:10,070 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_008_456.0s-516.0s.wav
+INFO 2025-07-07 09:01:10,071 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_009_513.0s-573.0s.wav
+INFO 2025-07-07 09:01:10,071 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_010_570.0s-630.0s.wav
+INFO 2025-07-07 09:01:10,071 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_011_627.0s-687.0s.wav
+INFO 2025-07-07 09:01:10,071 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_012_684.0s-744.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_013_741.0s-801.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_014_798.0s-858.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_015_855.0s-915.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_016_912.0s-972.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_017_969.0s-1029.0s.wav
+INFO 2025-07-07 09:01:10,072 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_018_1026.0s-1086.0s.wav
+INFO 2025-07-07 09:01:10,073 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_019_1083.0s-1143.0s.wav
+INFO 2025-07-07 09:01:10,073 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_020_1140.0s-1200.0s.wav
+INFO 2025-07-07 09:01:10,073 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_021_1197.0s-1257.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_022_1254.0s-1314.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_023_1311.0s-1371.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_024_1368.0s-1428.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_025_1425.0s-1485.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_026_1482.0s-1542.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_027_1539.0s-1599.0s.wav
+INFO 2025-07-07 09:01:10,074 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_028_1596.0s-1656.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_029_1653.0s-1713.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_030_1710.0s-1770.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_031_1767.0s-1827.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_032_1824.0s-1884.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_033_1881.0s-1941.0s.wav
+INFO 2025-07-07 09:01:10,075 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_034_1938.0s-1998.0s.wav
+INFO 2025-07-07 09:01:10,076 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_035_1995.0s-2055.0s.wav
+INFO 2025-07-07 09:01:10,076 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_036_2052.0s-2112.0s.wav
+INFO 2025-07-07 09:01:10,076 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_037_2109.0s-2169.0s.wav
+INFO 2025-07-07 09:01:10,076 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_038_2166.0s-2226.0s.wav
+INFO 2025-07-07 09:01:10,076 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_039_2223.0s-2283.0s.wav
+INFO 2025-07-07 09:01:10,077 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_040_2280.0s-2340.0s.wav
+INFO 2025-07-07 09:01:10,077 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_041_2337.0s-2397.0s.wav
+INFO 2025-07-07 09:01:10,077 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_042_2394.0s-2454.0s.wav
+INFO 2025-07-07 09:01:10,077 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_043_2451.0s-2511.0s.wav
+INFO 2025-07-07 09:01:10,077 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_044_2508.0s-2568.0s.wav
+INFO 2025-07-07 09:01:10,078 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_045_2565.0s-2625.0s.wav
+INFO 2025-07-07 09:01:10,078 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_046_2622.0s-2682.0s.wav
+INFO 2025-07-07 09:01:10,078 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_047_2679.0s-2739.0s.wav
+INFO 2025-07-07 09:01:10,078 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_048_2736.0s-2796.0s.wav
+INFO 2025-07-07 09:01:10,078 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_049_2793.0s-2853.0s.wav
+INFO 2025-07-07 09:01:10,079 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_050_2850.0s-2910.0s.wav
+INFO 2025-07-07 09:01:10,079 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_051_2907.0s-2967.0s.wav
+INFO 2025-07-07 09:01:10,079 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_052_2964.0s-3024.0s.wav
+INFO 2025-07-07 09:01:10,079 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_053_3021.0s-3081.0s.wav
+INFO 2025-07-07 09:01:10,079 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_054_3078.0s-3138.0s.wav
+INFO 2025-07-07 09:01:10,080 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_055_3135.0s-3195.0s.wav
+INFO 2025-07-07 09:01:10,080 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_056_3192.0s-3252.0s.wav
+INFO 2025-07-07 09:01:10,080 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_057_3249.0s-3309.0s.wav
+INFO 2025-07-07 09:01:10,080 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_058_3306.0s-3366.0s.wav
+INFO 2025-07-07 09:01:10,081 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_059_3363.0s-3423.0s.wav
+INFO 2025-07-07 09:01:10,081 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_060_3420.0s-3480.0s.wav
+INFO 2025-07-07 09:01:10,081 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_061_3477.0s-3537.0s.wav
+INFO 2025-07-07 09:01:10,081 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_062_3534.0s-3594.0s.wav
+INFO 2025-07-07 09:01:10,081 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_063_3591.0s-3651.0s.wav
+INFO 2025-07-07 09:01:10,082 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_064_3648.0s-3708.0s.wav
+INFO 2025-07-07 09:01:10,082 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_065_3705.0s-3765.0s.wav
+INFO 2025-07-07 09:01:10,082 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_066_3762.0s-3822.0s.wav
+INFO 2025-07-07 09:01:10,082 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_067_3819.0s-3879.0s.wav
+INFO 2025-07-07 09:01:10,082 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_068_3876.0s-3936.0s.wav
+INFO 2025-07-07 09:01:10,083 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_069_3933.0s-3993.0s.wav
+INFO 2025-07-07 09:01:10,083 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_070_3990.0s-4050.0s.wav
+INFO 2025-07-07 09:01:10,083 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_071_4047.0s-4107.0s.wav
+INFO 2025-07-07 09:01:10,083 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_072_4104.0s-4164.0s.wav
+INFO 2025-07-07 09:01:10,083 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_073_4161.0s-4221.0s.wav
+INFO 2025-07-07 09:01:10,084 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_074_4218.0s-4278.0s.wav
+INFO 2025-07-07 09:01:10,084 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_075_4275.0s-4335.0s.wav
+INFO 2025-07-07 09:01:10,084 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_076_4332.0s-4392.0s.wav
+INFO 2025-07-07 09:01:10,084 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_077_4389.0s-4449.0s.wav
+INFO 2025-07-07 09:01:10,085 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_078_4446.0s-4506.0s.wav
+INFO 2025-07-07 09:01:10,085 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_079_4503.0s-4563.0s.wav
+INFO 2025-07-07 09:01:10,085 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_080_4560.0s-4620.0s.wav
+INFO 2025-07-07 09:01:10,085 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_081_4617.0s-4677.0s.wav
+INFO 2025-07-07 09:01:10,085 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_082_4674.0s-4734.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_083_4731.0s-4791.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_084_4788.0s-4848.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_085_4845.0s-4905.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_086_4902.0s-4962.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_087_4959.0s-5019.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_088_5016.0s-5076.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_089_5073.0s-5133.0s.wav
+INFO 2025-07-07 09:01:10,086 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_090_5130.0s-5190.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_091_5187.0s-5247.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_092_5244.0s-5304.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_093_5301.0s-5361.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_094_5358.0s-5418.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_095_5415.0s-5475.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_096_5472.0s-5532.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_097_5529.0s-5589.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_098_5586.0s-5646.0s.wav
+INFO 2025-07-07 09:01:10,087 audio_chunking 87282 6192263168 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks/chunk_099_5643.0s-5703.0s.wav
+INFO 2025-07-07 09:01:10,088 audio_chunking 87282 6192263168 Removed empty chunk directory: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/4882b1e8-8a23-4a55-994d-813bc2d74c15/chunks
+INFO 2025-07-07 09:01:10,089 audio_chunking 87282 6192263168 Cleaned up chunks for meeting 4882b1e8-8a23-4a55-994d-813bc2d74c15
+INFO 2025-07-07 09:01:46,240 views 87282 6192263168 Upload request: file=Commute-from-home.wav, size=3137836, provider=local, model=medium
+INFO 2025-07-07 09:01:46,246 audio_chunking 87282 6192263168 Format-aware estimation for .wav: 2.99MB ÷ 10.0MB/min = 0.30min = 17.95s
+INFO 2025-07-07 09:01:46,246 views 87282 6192263168 Upload estimates - File: 2.99MB .wav, Duration: 0.30min, Chunks: 1
+INFO 2025-07-07 09:01:46,248 progressive_transcription 87282 6225915904 Initialized ProgressiveTranscriber for meeting a4517b52-107e-4ff0-aab3-d885288b019b with model medium
+INFO 2025-07-07 09:01:46,248 progressive_transcription 87282 6242742272 Started queue processor for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,248 progressive_transcription 87282 6225915904 Started progressive transcription for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,248 views 87282 6225915904 Started progressive transcription for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,249 audio_chunking 87282 6225915904 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-07 09:01:46,251 views 87282 6225915904 Set meeting duration: 98.06s
+INFO 2025-07-07 09:01:46,252 audio_chunking 87282 6225915904 Starting chunking for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,252 audio_chunking 87282 6225915904 Attempting VAD-aware chunking
+INFO 2025-07-07 09:01:46,252 audio_chunking 87282 6225915904 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-07 09:01:46,253 audio_chunking 87282 6225915904 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-07 09:01:46,253 audio_chunking 87282 6225915904 Time-based chunking created 2 chunks
+INFO 2025-07-07 09:01:46,257 audio_chunking 87282 6225915904 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/a4517b52-107e-4ff0-aab3-d885288b019b/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-07 09:01:46,258 audio_chunking 87282 6225915904 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-07 09:01:46,258 progressive_transcription 87282 6225915904 Added chunk 0 to transcription queue for meeting a4517b52-107e-4ff0-aab3-d885288b019b (queue size: 1)
+INFO 2025-07-07 09:01:46,258 progressive_transcription 87282 6242742272 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-07 09:01:46,258 audio_chunking 87282 6225915904 Added chunk 0 to transcription queue
+INFO 2025-07-07 09:01:46,258 progressive_transcription 87282 6259568640 Starting transcription for chunk 0 of meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,260 audio_chunking 87282 6225915904 Saved chunk: 57.0s-98.1s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/a4517b52-107e-4ff0-aab3-d885288b019b/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-07 09:01:46,261 chunk_transcription 87282 6259568640 Starting transcription for chunk 0 of meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,261 utils 87282 6276395008 Processing audio file: 1.8MB
+INFO 2025-07-07 09:01:46,262 audio_chunking 87282 6225915904 Created chunk 1: 57.0s-98.1s
+INFO 2025-07-07 09:01:46,262 progressive_transcription 87282 6225915904 Added chunk 1 to transcription queue for meeting a4517b52-107e-4ff0-aab3-d885288b019b (queue size: 1)
+INFO 2025-07-07 09:01:46,262 progressive_transcription 87282 6242742272 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-07 09:01:46,262 audio_chunking 87282 6225915904 Added chunk 1 to transcription queue
+INFO 2025-07-07 09:01:46,262 progressive_transcription 87282 6293221376 Starting transcription for chunk 1 of meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,262 audio_chunking 87282 6225915904 Successfully created 2 chunks for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,264 progressive_transcription 87282 6225915904 Chunking complete for meeting a4517b52-107e-4ff0-aab3-d885288b019b: expected=2, actual=2
+INFO 2025-07-07 09:01:46,264 views 87282 6225915904 Successfully created chunks for meeting a4517b52-107e-4ff0-aab3-d885288b019b, transcription started
+INFO 2025-07-07 09:01:46,265 utils 87282 6276395008 Creating enhanced batched inference pipeline for model: medium
+INFO 2025-07-07 09:01:46,265 utils 87282 6276395008 Loading Whisper model: medium
+INFO 2025-07-07 09:01:46,274 chunk_transcription 87282 6293221376 Starting transcription for chunk 1 of meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:01:46,275 utils 87282 6225915904 Processing audio file: 1.3MB
+INFO 2025-07-07 09:01:46,278 utils 87282 6225915904 Creating enhanced batched inference pipeline for model: medium
+INFO 2025-07-07 09:01:46,278 utils 87282 6276395008 Apple Silicon detected: Apple M4
+INFO 2025-07-07 09:01:46,278 utils 87282 6225915904 Loading Whisper model: medium
+INFO 2025-07-07 09:01:46,278 utils 87282 6276395008 Available memory: 7.5GB
+INFO 2025-07-07 09:01:46,278 utils 87282 6276395008 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-07 09:01:46,286 utils 87282 6225915904 Apple Silicon detected: Apple M4
+INFO 2025-07-07 09:01:46,286 utils 87282 6225915904 Available memory: 7.5GB
+INFO 2025-07-07 09:01:46,286 utils 87282 6225915904 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+WARNING 2025-07-07 09:01:49,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:49,258 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:01:49,571 utils 87282 6225915904 Whisper model medium loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-07 09:01:49,571 utils 87282 6276395008 Whisper model medium loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-07 09:01:49,571 utils 87282 6276395008 M4 optimization: 6.4GB available, batch_size=8
+INFO 2025-07-07 09:01:49,571 utils 87282 6276395008 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-07 09:01:49,571 utils 87282 6276395008 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-07 09:01:49,571 utils 87282 6276395008 Model load time: 3.31s
+INFO 2025-07-07 09:01:49,572 utils 87282 6276395008 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-07 09:01:49,572 utils 87282 6276395008 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-07 09:01:49,572 utils 87282 6276395008 Word timestamps enabled
+INFO 2025-07-07 09:01:49,572 utils 87282 6276395008 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-07 09:01:49,572 utils 87282 6276395008 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+INFO 2025-07-07 09:01:49,615 utils 87282 6225915904 M4 optimization: 6.4GB available, batch_size=8
+INFO 2025-07-07 09:01:49,616 utils 87282 6225915904 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-07 09:01:49,616 utils 87282 6225915904 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-07 09:01:49,616 utils 87282 6225915904 Model load time: 3.34s
+INFO 2025-07-07 09:01:49,617 utils 87282 6225915904 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-07 09:01:49,617 utils 87282 6225915904 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-07 09:01:49,617 utils 87282 6225915904 Word timestamps enabled
+INFO 2025-07-07 09:01:49,617 utils 87282 6225915904 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-07 09:01:49,617 utils 87282 6225915904 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+WARNING 2025-07-07 09:01:51,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:51,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:01:53,258 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:53,258 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:01:55,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:55,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:01:57,268 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:57,268 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:01:59,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:01:59,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:01:59,299 utils 87282 6276395008 Auto-detected Thai language with confidence 1.00
+WARNING 2025-07-07 09:02:01,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:01,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:03,260 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:03,261 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:05,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:05,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:07,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:07,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:09,258 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:09,258 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:11,254 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:11,254 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:13,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:13,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:15,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:15,256 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:17,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:17,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:19,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:19,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:21,254 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:21,254 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:23,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:23,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:25,254 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:25,255 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+WARNING 2025-07-07 09:02:27,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b has transcript record but no text content
+INFO 2025-07-07 09:02:27,257 views 87282 6192263168 Meeting a4517b52-107e-4ff0-aab3-d885288b019b: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:02:56,484 utils 87282 6225915904 Auto-detected Thai language with confidence 0.98
+INFO 2025-07-07 09:02:57,837 utils 87282 6276395008 Thai text enhancement completed
+INFO 2025-07-07 09:02:57,838 utils 87282 6276395008 Performance: 1.0x real-time (58.54s for 60.0s audio)
+INFO 2025-07-07 09:02:57,838 utils 87282 6276395008 Transcription complete: 2 segments, 303 words
+INFO 2025-07-07 09:02:57,838 utils 87282 6276395008 Detected language: th (confidence: 1.00)
+INFO 2025-07-07 09:02:57,838 utils 87282 6276395008 Total processing time: 71.58s
+INFO 2025-07-07 09:02:57,838 chunk_transcription 87282 6259568640 Completed transcription for chunk 0
+INFO 2025-07-07 09:02:57,839 progressive_transcription 87282 6259568640 Completed transcription for chunk 0 (1/2 chunks done)
+WARNING 2025-07-07 09:02:57,839 progressive_transcription 87282 6259568640 Slow chunk detected: 0 took 71.6s
+INFO 2025-07-07 09:02:57,841 progressive_transcription 87282 6259568640 Updated progressive transcript for meeting a4517b52-107e-4ff0-aab3-d885288b019b, length: 400 chars from 1 chunks, status: processing, progress: 50%
+ERROR 2025-07-07 09:03:16,275 chunk_transcription 87282 6293221376 Transcription timed out after 90s for chunk 1
+ERROR 2025-07-07 09:03:16,276 chunk_transcription 87282 6293221376 Transcription timeout for chunk 1
+ERROR 2025-07-07 09:03:16,277 progressive_transcription 87282 6293221376 Failed transcription for chunk 1 (1 total failures)
+INFO 2025-07-07 09:03:17,071 progressive_transcription 87282 6242742272 Meeting a4517b52-107e-4ff0-aab3-d885288b019b ready to finish: pending=0, active=0, processed=2/2
+INFO 2025-07-07 09:03:17,071 progressive_transcription 87282 6242742272 Queue processor finished for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:03:19,070 utils 87282 6225915904 Thai text enhancement completed
+INFO 2025-07-07 09:03:19,071 utils 87282 6225915904 Performance: 1.8x real-time (22.59s for 41.1s audio)
+INFO 2025-07-07 09:03:19,071 utils 87282 6225915904 Transcription complete: 2 segments, 116 words
+INFO 2025-07-07 09:03:19,071 utils 87282 6225915904 Detected language: th (confidence: 1.00)
+INFO 2025-07-07 09:03:19,071 utils 87282 6225915904 Total processing time: 92.80s
+INFO 2025-07-07 09:04:19,983 autoreload 87282 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:04:20,373 autoreload 87487 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:04:20,506 autoreload 88431 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:04:20,680 autoreload 88432 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:04:21,524 utils 88431 6149320704 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:04:21,524 utils 88432 6173798400 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:04:25,862 autoreload 88432 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:04:25,865 autoreload 88431 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:04:26,170 autoreload 88448 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:04:26,170 autoreload 88449 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:04:26,992 utils 88449 6140850176 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:04:27,015 utils 88448 6175895552 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:04:34,380 autoreload 88449 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/progressive_transcription.py changed, reloading.
+INFO 2025-07-07 09:04:34,659 autoreload 88470 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:04:35,412 utils 88470 6116306944 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:05:38,888 autoreload 88448 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-07 09:05:39,076 autoreload 88470 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-07 09:05:39,202 autoreload 88642 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:05:39,336 autoreload 88643 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:05:40,008 utils 88642 6141702144 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:05:40,125 utils 88643 6152024064 BatchedInferencePipeline available - advanced features enabled

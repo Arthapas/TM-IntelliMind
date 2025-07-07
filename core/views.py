@@ -484,7 +484,7 @@ def chunking_progress(request):
                         transcription_data['progressive_transcript'] = transcript_text
                         logger.debug(f"Retrieved transcript for meeting {meeting.id}: {len(transcript_text)} chars")
                     else:
-                        logger.warning(f"Meeting {meeting.id} has transcript record but no text content")
+                        logger.debug(f"Meeting {meeting.id} has transcript record but no text content (transcription in progress)")
         except Exception as e:
             logger.warning(f"Could not get transcription progress: {e}")
             # Fallback: assume chunking is complete if we have chunks and no active transcriber
