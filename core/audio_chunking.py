@@ -256,6 +256,12 @@ class AudioChunker:
         try:
             audio_duration = self.get_audio_duration(audio_path)
             
+            # Check duration limits before processing
+            if audio_duration > self.max_duration:
+                logger.warning(f"Audio duration {audio_duration:.1f}s exceeds maximum {self.max_duration}s. "
+                              f"Processing only first {self.max_duration}s")
+                audio_duration = min(audio_duration, self.max_duration)
+            
             if audio_duration <= self.chunk_duration:
                 return [(0.0, audio_duration)]
             
@@ -276,16 +282,10 @@ class AudioChunker:
                         chunks[-1] = (chunks[-1][0], audio_duration)
                     break
             
+            # Log warning if we hit chunk limit
             if len(chunks) >= self.max_chunks:
                 logger.warning(f"Reached maximum chunk limit of {self.max_chunks}. "
                               f"Remaining audio duration: {audio_duration - current_start:.1f}s")
-                break
-                
-            if audio_duration > self.max_duration:
-                logger.warning(f"Audio duration {audio_duration:.1f}s exceeds maximum {self.max_duration}s. "
-                              f"Processing only first {self.max_duration}s")
-                # Adjust audio duration to maximum allowed
-                audio_duration = min(audio_duration, self.max_duration)
             
             logger.info(f"Time-based chunking created {len(chunks)} chunks")
             return chunks
