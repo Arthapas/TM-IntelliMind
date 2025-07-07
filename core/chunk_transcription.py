@@ -86,8 +86,8 @@ class ChunkTranscriber:
             
             logger.info(f"Starting transcription for chunk {chunk.chunk_index} of meeting {chunk.meeting.id}")
             
-            # Transcribe the chunk file with timeout protection
-            success, text, timed_out = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=180)
+            # Transcribe the chunk file with timeout protection (reduced timeout for faster detection)
+            success, text, timed_out = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=90)
             
             if success and text:
                 chunk.transcript_text = text

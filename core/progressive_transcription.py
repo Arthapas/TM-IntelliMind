@@ -32,7 +32,7 @@ class ProgressiveTranscriber:
     _active_transcribers = {}
     _lock = threading.Lock()
     
-    def __init__(self, meeting: Meeting, max_concurrent_transcriptions: int = 3):
+    def __init__(self, meeting: Meeting, max_concurrent_transcriptions: int = 2):
         """
         Initialize progressive transcriber for a meeting
         
@@ -52,6 +52,10 @@ class ProgressiveTranscriber:
         self.should_stop = False
         self.chunk_transcriber = ChunkTranscriber()
         
+        # Performance monitoring
+        self.slow_chunk_count = 0  # Track chunks that take >30s
+        self.performance_degraded = False
+        
         # Track chunk creation status to prevent premature completion
         self.chunking_complete = False
         self.expected_chunk_count = None  # Will be set when chunking is done
@@ -61,10 +65,10 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 120  # 2 minutes max per chunk (reduced for faster detection)
-        self.max_retries = 2  # Maximum retry attempts per chunk
+        self.thread_timeout = 100  # 1.67 minutes max per chunk (should be > chunk timeout of 90s)
+        self.max_retries = 1  # Reduced retry attempts for faster recovery
         self.last_watchdog_check = time.time()
-        self.watchdog_interval = 10  # Check every 10 seconds for faster detection
+        self.watchdog_interval = 5  # Check every 5 seconds for faster detection
         
         logger.info(f"Initialized ProgressiveTranscriber for meeting {meeting.id} with model {self.whisper_model}")
     
@@ -157,8 +161,14 @@ class ProgressiveTranscriber:
                 # Run watchdog to check for stuck threads
                 self._check_stuck_threads()
                 
+                # Adjust concurrency based on performance
+                max_concurrent = self.max_concurrent
+                if self.performance_degraded:
+                    max_concurrent = 1  # Reduce to single-threaded when performance is poor
+                    logger.warning(f"Performance degraded, reducing to single-threaded processing")
+                
                 # Check if we can start more transcriptions
-                if len(self.active_threads) >= self.max_concurrent:
+                if len(self.active_threads) >= max_concurrent:
                     time.sleep(0.5)
                     continue
                 
@@ -295,6 +305,17 @@ class ProgressiveTranscriber:
                     total_chunks = self.meeting.chunks.count()
                     logger.info(f"Completed transcription for chunk {chunk_id} "
                                f"({completed_count}/{total_chunks} chunks done)")
+                    
+                    # Check performance and adjust if needed
+                    chunk_duration = time.time() - self.thread_start_times.get(chunk_id, time.time())
+                    if chunk_duration > 30:  # Chunk took longer than 30 seconds
+                        self.slow_chunk_count += 1
+                        logger.warning(f"Slow chunk detected: {chunk_id} took {chunk_duration:.1f}s")
+                        
+                        # Degrade performance if too many slow chunks
+                        if self.slow_chunk_count >= 3:
+                            self.performance_degraded = True
+                            logger.warning("Performance degraded: reducing concurrency")
                     
                     # Try to update the meeting transcript progressively
                     self._update_progressive_transcript()

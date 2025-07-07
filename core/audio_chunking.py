@@ -41,7 +41,8 @@ class AudioChunker:
         self.overlap_duration = overlap_duration or getattr(settings, 'AUDIO_OVERLAP_DURATION', 5.0)
         self.max_chunk_duration = max_chunk_duration or getattr(settings, 'AUDIO_MAX_CHUNK_DURATION', 60.0)
         self.min_chunk_duration = min_chunk_duration or getattr(settings, 'AUDIO_MIN_CHUNK_DURATION', 10.0)
-        self.max_chunks = getattr(settings, 'AUDIO_MAX_CHUNKS', 100)  # Safety limit
+        self.max_chunks = getattr(settings, 'AUDIO_MAX_CHUNKS', 150)  # Increased safety limit
+        self.max_duration = getattr(settings, 'AUDIO_MAX_DURATION', 7200)  # 2 hours max
         
         logger.debug(f"AudioChunker configured - Duration: {self.chunk_duration}s, "
                     f"Overlap: {self.overlap_duration}s, "
@@ -278,6 +279,13 @@ class AudioChunker:
             if len(chunks) >= self.max_chunks:
                 logger.warning(f"Reached maximum chunk limit of {self.max_chunks}. "
                               f"Remaining audio duration: {audio_duration - current_start:.1f}s")
+                break
+                
+            if audio_duration > self.max_duration:
+                logger.warning(f"Audio duration {audio_duration:.1f}s exceeds maximum {self.max_duration}s. "
+                              f"Processing only first {self.max_duration}s")
+                # Adjust audio duration to maximum allowed
+                audio_duration = min(audio_duration, self.max_duration)
             
             logger.info(f"Time-based chunking created {len(chunks)} chunks")
             return chunks
