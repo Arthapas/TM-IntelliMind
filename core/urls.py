@@ -15,4 +15,5 @@ urlpatterns = [
     path('generate-insights/', views.generate_insights, name='generate_insights'),
     path('insights-progress/', views.insights_progress, name='insights_progress'),
     path('save-analysis/', views.save_analysis, name='save_analysis'),
+    path('stop-transcription/', views.stop_transcription, name='stop_transcription'),
 ]

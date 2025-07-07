@@ -11212,3 +11212,17 @@ INFO 2025-07-07 09:05:39,202 autoreload 88642 8433114880 Watching for file chang
 INFO 2025-07-07 09:05:39,336 autoreload 88643 8433114880 Watching for file changes with StatReloader
 INFO 2025-07-07 09:05:40,008 utils 88642 6141702144 BatchedInferencePipeline available - advanced features enabled
 INFO 2025-07-07 09:05:40,125 utils 88643 6152024064 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:09:35,657 autoreload 89123 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:09:36,554 utils 89123 6119452672 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:14:19,171 autoreload 88642 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/urls.py changed, reloading.
+INFO 2025-07-07 09:14:19,177 autoreload 89123 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/urls.py changed, reloading.
+INFO 2025-07-07 09:14:19,497 autoreload 89736 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:14:19,498 autoreload 89737 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:14:20,464 utils 89737 6176780288 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:14:20,464 utils 89736 6154235904 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:14:51,450 autoreload 89737 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-07 09:14:51,456 autoreload 89736 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/views.py changed, reloading.
+INFO 2025-07-07 09:14:51,758 autoreload 89805 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:14:51,758 autoreload 89806 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:14:52,601 utils 89806 6150647808 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:14:52,601 utils 89805 6138769408 BatchedInferencePipeline available - advanced features enabled

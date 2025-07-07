@@ -908,3 +908,56 @@ def delete_meeting(request, meeting_id):
             'success': False, 
             'error': f'Failed to delete meeting: {str(e)}'
         }, status=500)
+
+
+@require_http_methods(["POST"])
+def stop_transcription(request):
+    """
+    Stop ongoing transcription for a meeting
+    """
+    try:
+        data = json.loads(request.body)
+        meeting_id = data.get('meeting_id')
+        
+        if not meeting_id:
+            return JsonResponse({'success': False, 'error': 'Meeting ID is required'})
+        
+        meeting = get_object_or_404(Meeting, id=meeting_id)
+        
+        # Stop progressive transcription if active
+        from .progressive_transcription import ProgressiveTranscriber
+        try:
+            ProgressiveTranscriber.cleanup_transcriber(meeting)
+            logger.info(f"Stopped progressive transcription for meeting {meeting_id}")
+        except Exception as e:
+            logger.warning(f"Error stopping progressive transcription for meeting {meeting_id}: {e}")
+        
+        # Update transcript status to indicate it was stopped
+        if hasattr(meeting, 'transcript') and meeting.transcript:
+            transcript = meeting.transcript
+            if transcript.status in ['processing', 'pending']:
+                transcript.status = 'failed'
+                transcript.error_message = 'Transcription stopped by user'
+                transcript.save()
+                logger.info(f"Updated transcript status to stopped for meeting {meeting_id}")
+        
+        # Mark any processing chunks as failed
+        processing_chunks = meeting.chunks.filter(status='processing')
+        if processing_chunks.exists():
+            processing_chunks.update(
+                status='failed',
+                error_message='Transcription stopped by user'
+            )
+            logger.info(f"Marked {processing_chunks.count()} processing chunks as stopped for meeting {meeting_id}")
+        
+        return JsonResponse({
+            'success': True,
+            'message': 'Transcription stopped successfully'
+        })
+        
+    except Exception as e:
+        logger.error(f"Error stopping transcription: {e}")
+        return JsonResponse({
+            'success': False,
+            'error': f'Failed to stop transcription: {str(e)}'
+        }, status=500)

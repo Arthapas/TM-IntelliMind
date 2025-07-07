@@ -134,6 +134,10 @@
                                             <i class="fas fa-play me-1" aria-hidden="true"></i>
                                             Start Transcription
                                         </button>
+                                        <button type="button" class="btn btn-danger btn-sm" id="stop-reset-button" style="display: none;">
+                                            <i class="fas fa-stop me-1" aria-hidden="true"></i>
+                                            Stop & Reset
+                                        </button>
                                         <button type="button" class="btn btn-outline-secondary btn-sm" id="reset-upload" style="display: none;">
                                             <i class="fas fa-redo me-1" aria-hidden="true"></i>
                                             Upload New File
@@ -836,6 +840,11 @@ function resetUIToFreshState() {
         resetButton.style.display = 'none';
     }
     
+    const stopResetButton = document.getElementById('stop-reset-button');
+    if (stopResetButton) {
+        stopResetButton.style.display = 'none';
+    }
+    
     const retranscribeButton = document.getElementById('retranscribe');
     if (retranscribeButton) {
         retranscribeButton.style.display = 'none';
@@ -1264,6 +1273,12 @@ document.getElementById('start-transcription').addEventListener('click', functio
     updateSidebarProgress('transcription', 0, true);
     showSidebarCancel(true, cancelTranscription);
     
+    // Show the stop & reset button during transcription
+    const stopResetBtn = document.getElementById('stop-reset-button');
+    if (stopResetBtn) {
+        stopResetBtn.style.display = 'inline-block';
+    }
+    
     fetch('{% url "core:start_transcription" %}', {
         method: 'POST',
         headers: {
@@ -1604,6 +1619,12 @@ function pollTranscriptionProgress(retryCount = 0) {
 // Poll chunking and transcription progress for large files (unified)
 function pollChunkingProgress() {
     if (!currentMeetingId) return;
+    
+    // Show the stop & reset button when transcription starts
+    const stopResetBtn = document.getElementById('stop-reset-button');
+    if (stopResetBtn) {
+        stopResetBtn.style.display = 'inline-block';
+    }
     
     let pollCount = 0;
     let chunkingStuckCount = 0;
@@ -2101,6 +2122,122 @@ if (resetUploadBtn) {
             updateSidebarStatus('Ready to start new transcription', 'info');
         }
     });
+}
+
+// Stop & Reset button - comprehensive reset with transcription stopping
+const stopResetBtn = document.getElementById('stop-reset-button');
+if (stopResetBtn) {
+    stopResetBtn.addEventListener('click', function() {
+        if (confirm('Stop current transcription and reset everything? All progress will be lost.')) {
+            // Stop all ongoing processes
+            stopAllProcesses();
+            
+            // Clear session data
+            SessionState.clear();
+            
+            // Reset UI to fresh state
+            resetUIToFreshState();
+            
+            // Reset sidebar
+            resetSidebar();
+            
+            // Update status
+            updateSidebarStatus('Transcription stopped - Ready for new file', 'warning');
+            
+            // Hide the stop button itself
+            stopResetBtn.style.display = 'none';
+            
+            console.log('Stop & Reset: All processes stopped and UI reset');
+        }
+    });
+}
+
+// Function to stop all ongoing processes
+function stopAllProcesses() {
+    // Stop polling intervals
+    if (window.chunkingProgressInterval) {
+        clearInterval(window.chunkingProgressInterval);
+        window.chunkingProgressInterval = null;
+        console.log('Stopped chunking progress polling');
+    }
+    
+    if (window.transcriptionProgressInterval) {
+        clearInterval(window.transcriptionProgressInterval);
+        window.transcriptionProgressInterval = null;
+        console.log('Stopped transcription progress polling');
+    }
+    
+    if (window.insightsProgressInterval) {
+        clearInterval(window.insightsProgressInterval);
+        window.insightsProgressInterval = null;
+        console.log('Stopped insights progress polling');
+    }
+    
+    // Clear any timeouts
+    if (window.transcriptionTimeout) {
+        clearTimeout(window.transcriptionTimeout);
+        window.transcriptionTimeout = null;
+    }
+    
+    // Call API to stop server-side transcription
+    if (currentMeetingId) {
+        fetch('{% url "core:stop_transcription" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCSRFToken()
+            },
+            body: JSON.stringify({
+                meeting_id: currentMeetingId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Server-side transcription stopped successfully');
+            } else {
+                console.warn('Failed to stop server-side transcription:', data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error stopping server-side transcription:', error);
+        });
+    }
+}
+
+// Function to reset sidebar to clean state
+function resetSidebar() {
+    // Hide all progress items
+    const progressItems = document.querySelectorAll('.progress-item');
+    progressItems.forEach(item => {
+        item.style.display = 'none';
+    });
+    
+    // Reset progress bars
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.setAttribute('aria-valuenow', '0');
+        bar.textContent = '0%';
+    });
+    
+    // Clear chunk grid
+    const chunkGrid = document.getElementById('chunk-status-grid');
+    if (chunkGrid) {
+        chunkGrid.innerHTML = '';
+    }
+    
+    // Clear timing details
+    const timingDetails = document.getElementById('timing-details-content');
+    if (timingDetails) {
+        timingDetails.innerHTML = '';
+    }
+    
+    // Reset phase progress
+    const phaseProgressBars = document.getElementById('phase-progress-bars');
+    if (phaseProgressBars) {
+        phaseProgressBars.innerHTML = '';
+    }
 }
 
 const retranscribeBtn = document.getElementById('retranscribe');
