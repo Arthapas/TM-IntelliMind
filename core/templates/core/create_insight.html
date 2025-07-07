@@ -27,9 +27,37 @@
                                     </h5>
                                 </div>
                                 <div class="card-body" id="model-selection" role="region" aria-labelledby="model-selection-title">
-                                    <div class="mb-3">
+                                    <!-- Transcription Provider Selection -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Transcription Provider <span class="text-danger">*</span></label>
+                                        <div class="row g-2">
+                                            <div class="col-sm-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="transcription_provider" id="provider-local" value="local" checked>
+                                                    <label class="form-check-label" for="provider-local">
+                                                        <i class="fas fa-server me-1"></i>
+                                                        <strong>Local Models</strong><br>
+                                                        <small class="text-muted">Private, no API costs</small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="transcription_provider" id="provider-api" value="api">
+                                                    <label class="form-check-label" for="provider-api">
+                                                        <i class="fas fa-cloud me-1"></i>
+                                                        <strong>External API</strong><br>
+                                                        <small class="text-muted">Latest models, usage costs</small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Local Models Configuration -->
+                                    <div id="local-models-config" class="mb-3">
                                         <label for="whisper-model" class="form-label">Whisper Model <span class="text-danger">*</span></label>
-                                        <select class="form-select" id="whisper-model" name="whisper_model" aria-describedby="model-help" required>
+                                        <select class="form-select" id="whisper-model" name="whisper_model" aria-describedby="local-model-help" required>
                                             <option value="">Choose a transcription model...</option>
                                             <option value="tiny">Tiny - Fastest (1-2 min)</option>
                                             <option value="base">Base - Good balance (2-3 min)</option>
@@ -37,10 +65,61 @@
                                             <option value="medium">Medium - High accuracy (5-8 min) ⭐ Thai</option>
                                             <option value="large">Large - Highest accuracy (8-15 min) ⭐ Thai</option>
                                         </select>
-                                        <div id="model-help" class="form-text">
-                                            <strong>Required:</strong> Select a model before uploading audio<br>
+                                        <div id="local-model-help" class="form-text">
                                             <strong>Thai:</strong> Medium or Large recommended<br>
                                             <strong>English:</strong> Small or Medium sufficient
+                                        </div>
+                                    </div>
+
+                                    <!-- External API Configuration -->
+                                    <div id="api-config" class="mb-3" style="display: none;">
+                                        <div class="mb-3">
+                                            <label for="api-provider" class="form-label">API Provider <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="api-provider" name="api_provider" aria-describedby="api-provider-help">
+                                                <option value="">Choose an API provider...</option>
+                                                <option value="openai">OpenAI Whisper API</option>
+                                                <option value="assemblyai">AssemblyAI</option>
+                                                <option value="deepgram">Deepgram</option>
+                                                <option value="custom">Custom API Endpoint</option>
+                                            </select>
+                                            <div id="api-provider-help" class="form-text">
+                                                Select your preferred transcription API provider.
+                                            </div>
+                                        </div>
+
+                                        <!-- API Model Selection -->
+                                        <div class="mb-3" id="api-model-section" style="display: none;">
+                                            <label for="api-model" class="form-label">Model</label>
+                                            <select class="form-select" id="api-model" name="api_model">
+                                                <!-- Options will be populated based on provider selection -->
+                                            </select>
+                                        </div>
+
+                                        <!-- Custom API Endpoint -->
+                                        <div class="mb-3" id="custom-endpoint-section" style="display: none;">
+                                            <label for="custom-endpoint" class="form-label">API Endpoint URL <span class="text-danger">*</span></label>
+                                            <input type="url" class="form-control" id="custom-endpoint" name="custom_endpoint" 
+                                                   placeholder="https://api.example.com/v1/transcribe" aria-describedby="custom-endpoint-help">
+                                            <div id="custom-endpoint-help" class="form-text">
+                                                Enter the full URL for your custom transcription API endpoint.
+                                            </div>
+                                        </div>
+
+                                        <!-- API Key -->
+                                        <div class="mb-3" id="api-key-section" style="display: none;">
+                                            <label for="api-key" class="form-label">API Key <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" id="api-key" name="api_key" 
+                                                   placeholder="Enter your API key" aria-describedby="api-key-help">
+                                            <div id="api-key-help" class="form-text">
+                                                Your API key will be encrypted and stored securely. <a href="#" id="show-api-key">Show</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- API Provider Info -->
+                                        <div class="alert alert-info" role="alert" id="api-provider-info" style="display: none;">
+                                            <div id="provider-info-content">
+                                                <!-- Content will be populated based on provider selection -->
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -1008,17 +1087,53 @@ function showSidebarCancel(show = true, action = null) {
 
 // Upload file function with sidebar integration
 function uploadFile(file) {
-    // Get selected transcription model
-    const selectedModel = document.getElementById('whisper-model').value;
-    if (!selectedModel) {
-        updateSidebarStatus('Please select a transcription model first', 'warning');
-        return;
-    }
-    
+    // Get transcription configuration
+    const provider = document.querySelector('input[name="transcription_provider"]:checked').value;
     const formData = new FormData();
     formData.append('audio_file', file);
-    formData.append('transcription_model', selectedModel);
+    formData.append('transcription_provider', provider);
     formData.append('csrfmiddlewaretoken', getCSRFToken());
+
+    if (provider === 'local') {
+        const selectedModel = document.getElementById('whisper-model').value;
+        if (!selectedModel) {
+            updateSidebarStatus('Please select a transcription model first', 'warning');
+            return;
+        }
+        formData.append('transcription_model', selectedModel);
+    } else if (provider === 'api') {
+        const apiProvider = document.getElementById('api-provider').value;
+        const apiKey = document.getElementById('api-key').value.trim();
+        
+        if (!apiProvider) {
+            updateSidebarStatus('Please select an API provider first', 'warning');
+            return;
+        }
+        
+        if (!apiKey) {
+            updateSidebarStatus('Please enter your API key', 'warning');
+            return;
+        }
+        
+        formData.append('api_provider', apiProvider);
+        formData.append('api_key', apiKey);
+        
+        if (apiProvider === 'custom') {
+            const customEndpoint = document.getElementById('custom-endpoint').value.trim();
+            if (!customEndpoint) {
+                updateSidebarStatus('Please enter the custom API endpoint URL', 'warning');
+                return;
+            }
+            formData.append('custom_endpoint', customEndpoint);
+        } else {
+            const apiModel = document.getElementById('api-model').value;
+            if (!apiModel) {
+                updateSidebarStatus('Please select an API model', 'warning');
+                return;
+            }
+            formData.append('api_model', apiModel);
+        }
+    }
 
     // Update sidebar status
     updateWorkflowStep(1, 'active');
@@ -2140,6 +2255,207 @@ document.addEventListener('DOMContentLoaded', function() {
             
             SessionState.save();
         });
+    }
+
+    // Provider selection handling
+    const providerRadios = document.querySelectorAll('input[name="transcription_provider"]');
+    const localConfig = document.getElementById('local-models-config');
+    const apiConfig = document.getElementById('api-config');
+    const apiProviderSelect = document.getElementById('api-provider');
+    const apiModelSection = document.getElementById('api-model-section');
+    const apiModelSelect = document.getElementById('api-model');
+    const customEndpointSection = document.getElementById('custom-endpoint-section');
+    const apiKeySection = document.getElementById('api-key-section');
+    const apiProviderInfo = document.getElementById('api-provider-info');
+    const providerInfoContent = document.getElementById('provider-info-content');
+
+    // API provider model configurations
+    const apiModels = {
+        openai: [
+            { value: 'whisper-1', text: 'Whisper-1 (Latest)' }
+        ],
+        assemblyai: [
+            { value: 'best', text: 'Best (Highest accuracy)' },
+            { value: 'nano', text: 'Nano (Fastest)' }
+        ],
+        deepgram: [
+            { value: 'nova-2', text: 'Nova-2 (Latest)' },
+            { value: 'nova', text: 'Nova (Standard)' },
+            { value: 'enhanced', text: 'Enhanced (Legacy)' }
+        ],
+        custom: []
+    };
+
+    // API provider information
+    const apiProviderInfos = {
+        openai: {
+            text: '💰 <strong>Pricing:</strong> $0.006 per minute<br>📏 <strong>File limit:</strong> 25MB per file<br>🌐 <strong>Languages:</strong> 99+ languages supported',
+            class: 'alert-info'
+        },
+        assemblyai: {
+            text: '💰 <strong>Pricing:</strong> ~$0.65 per hour<br>📏 <strong>File limit:</strong> 5GB per file<br>🎯 <strong>Features:</strong> Sentiment analysis, PII detection',
+            class: 'alert-success'
+        },
+        deepgram: {
+            text: '💰 <strong>Pricing:</strong> Competitive rates<br>🚀 <strong>Performance:</strong> Claims 40% more accurate, 5x faster<br>🏥 <strong>Specialized:</strong> Medical, finance, custom models',
+            class: 'alert-primary'
+        },
+        custom: {
+            text: '🔧 <strong>Custom Integration:</strong> Use your own API endpoint<br>🔒 <strong>Security:</strong> Full control over data and processing<br>⚙️ <strong>Requirements:</strong> Compatible API format required',
+            class: 'alert-warning'
+        }
+    };
+
+    // Provider selection change handler
+    providerRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.value === 'local') {
+                localConfig.style.display = 'block';
+                apiConfig.style.display = 'none';
+                // Reset API form
+                apiProviderSelect.value = '';
+                apiModelSelect.innerHTML = '';
+                apiModelSection.style.display = 'none';
+                customEndpointSection.style.display = 'none';
+                apiKeySection.style.display = 'none';
+                apiProviderInfo.style.display = 'none';
+            } else {
+                localConfig.style.display = 'none';
+                apiConfig.style.display = 'block';
+                // Reset local form
+                document.getElementById('whisper-model').value = '';
+            }
+            // Trigger model validation update
+            validateModelSelection();
+        });
+    });
+
+    // API provider selection handler
+    if (apiProviderSelect) {
+        apiProviderSelect.addEventListener('change', function() {
+            const provider = this.value;
+            
+            // Show/hide sections based on provider
+            if (provider) {
+                if (provider === 'custom') {
+                    customEndpointSection.style.display = 'block';
+                    apiModelSection.style.display = 'none';
+                } else {
+                    customEndpointSection.style.display = 'none';
+                    apiModelSection.style.display = 'block';
+                    
+                    // Populate models for this provider
+                    apiModelSelect.innerHTML = '<option value="">Choose a model...</option>';
+                    if (apiModels[provider]) {
+                        apiModels[provider].forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model.value;
+                            option.textContent = model.text;
+                            apiModelSelect.appendChild(option);
+                        });
+                    }
+                }
+                
+                apiKeySection.style.display = 'block';
+                
+                // Show provider info
+                if (apiProviderInfos[provider]) {
+                    const info = apiProviderInfos[provider];
+                    providerInfoContent.innerHTML = info.text;
+                    apiProviderInfo.className = `alert ${info.class}`;
+                    apiProviderInfo.style.display = 'block';
+                }
+            } else {
+                apiModelSection.style.display = 'none';
+                customEndpointSection.style.display = 'none';
+                apiKeySection.style.display = 'none';
+                apiProviderInfo.style.display = 'none';
+            }
+            
+            // Trigger model validation update
+            validateModelSelection();
+        });
+    }
+
+    // API key show/hide toggle
+    const showApiKeyLink = document.getElementById('show-api-key');
+    const apiKeyInput = document.getElementById('api-key');
+    if (showApiKeyLink && apiKeyInput) {
+        showApiKeyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (apiKeyInput.type === 'password') {
+                apiKeyInput.type = 'text';
+                this.textContent = 'Hide';
+            } else {
+                apiKeyInput.type = 'password';
+                this.textContent = 'Show';
+            }
+        });
+    }
+
+    // Enhanced model validation function
+    function validateModelSelection() {
+        const provider = document.querySelector('input[name="transcription_provider"]:checked').value;
+        let isValid = false;
+        
+        if (provider === 'local') {
+            const selectedModel = document.getElementById('whisper-model').value;
+            isValid = selectedModel !== '';
+        } else if (provider === 'api') {
+            const apiProvider = apiProviderSelect.value;
+            const apiKey = document.getElementById('api-key').value.trim();
+            
+            if (apiProvider === 'custom') {
+                const customEndpoint = document.getElementById('custom-endpoint').value.trim();
+                isValid = apiProvider !== '' && customEndpoint !== '' && apiKey !== '';
+            } else if (apiProvider) {
+                const apiModel = apiModelSelect.value;
+                isValid = apiProvider !== '' && apiModel !== '' && apiKey !== '';
+            }
+        }
+        
+        // Update upload area based on validation
+        const uploadArea = document.getElementById('upload-area');
+        const audioFileInput = document.getElementById('audio-file');
+        const uploadInstructions = document.getElementById('upload-instructions');
+        
+        if (isValid) {
+            uploadArea.classList.remove('disabled');
+            uploadArea.setAttribute('tabindex', '0');
+            uploadArea.setAttribute('aria-label', 'Upload audio file');
+            audioFileInput.disabled = false;
+            uploadInstructions.textContent = 'Drag & drop or click to browse';
+            
+            // Update workflow step
+            updateWorkflowStep(1, 'completed');
+            updateWorkflowStep(2, 'active');
+            updateSidebarStatus('Configuration complete - upload your audio file', 'success');
+        } else {
+            uploadArea.classList.add('disabled');
+            uploadArea.setAttribute('tabindex', '-1');
+            uploadArea.setAttribute('aria-label', 'Upload audio file - complete configuration first');
+            audioFileInput.disabled = true;
+            
+            if (provider === 'local') {
+                uploadInstructions.textContent = 'Select a transcription model first';
+            } else {
+                uploadInstructions.textContent = 'Complete API configuration first';
+            }
+            
+            updateWorkflowStep(1, 'active');
+            updateWorkflowStep(2, 'pending');
+            updateSidebarStatus('Complete transcription configuration to continue', 'info');
+        }
+    }
+
+    // Add validation triggers for API fields
+    if (apiProviderSelect) apiProviderSelect.addEventListener('change', validateModelSelection);
+    if (apiModelSelect) apiModelSelect.addEventListener('change', validateModelSelection);
+    if (document.getElementById('custom-endpoint')) {
+        document.getElementById('custom-endpoint').addEventListener('input', validateModelSelection);
+    }
+    if (document.getElementById('api-key')) {
+        document.getElementById('api-key').addEventListener('input', validateModelSelection);
     }
     
     // Initialize workflow step

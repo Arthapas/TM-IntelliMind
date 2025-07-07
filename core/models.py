@@ -19,6 +19,14 @@ class Meeting(models.Model):
         ('large-v3', 'Large V3'),
     ]
     
+    TRANSCRIPTION_PROVIDER_CHOICES = [
+        ('local', 'Local Whisper Models'),
+        ('openai', 'OpenAI Whisper API'),
+        ('assemblyai', 'AssemblyAI'),
+        ('deepgram', 'Deepgram'),
+        ('custom', 'Custom API Endpoint'),
+    ]
+    
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
@@ -26,7 +34,15 @@ class Meeting(models.Model):
     original_filename = models.CharField(max_length=255, blank=True)
     file_size = models.BigIntegerField(blank=True, null=True)
     duration = models.FloatField(blank=True, null=True, help_text="Duration in seconds")
-    transcription_model = models.CharField(max_length=20, choices=WHISPER_MODEL_CHOICES, default='medium')
+    
+    # Transcription configuration
+    transcription_provider = models.CharField(max_length=20, choices=TRANSCRIPTION_PROVIDER_CHOICES, default='local')
+    transcription_model = models.CharField(max_length=50, choices=WHISPER_MODEL_CHOICES, default='medium', 
+                                         help_text="For local provider: Whisper model. For APIs: provider-specific model")
+    api_endpoint = models.URLField(blank=True, null=True, help_text="Custom API endpoint URL")
+    api_model = models.CharField(max_length=50, blank=True, help_text="API-specific model name")
+    api_credentials = models.TextField(blank=True, help_text="Encrypted API credentials")
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)

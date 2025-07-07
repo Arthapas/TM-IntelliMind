@@ -163,18 +163,19 @@ headers: {
 
 **Progressive Transcription System** (`core/progressive_transcription.py`):
 - Real-time transcription of large files through chunking (>100MB files)
-- Queue-based processing with up to 3 concurrent transcriptions
+- Queue-based processing with up to 2 concurrent transcriptions (optimized for M4)
 - Sequential chunk reassembly with overlap removal
 - Status tracking: pending → processing → completed/failed per chunk
-- Enhanced watchdog system with 2-minute timeout and database checks
-- Automatic recovery from stuck transcriptions with retry mechanisms
+- Enhanced watchdog system with 100-second timeout and 5-second database checks
+- Automatic recovery from stuck transcriptions with single retry
+- Performance monitoring with auto-degradation to single-threaded when slow chunks detected
 
 **Audio Chunking Engine** (`core/audio_chunking.py`):
 - Automatic file segmentation based on size thresholds (default: 30-second chunks)
 - VAD-aware chunking to preserve speech boundaries
 - Format-aware duration estimation for different audio codecs
 - Concurrent chunk creation with progress tracking
-- Safety limits: Maximum 100 chunks per file to prevent system overload
+- Safety limits: Maximum 150 chunks per file (up to 2 hours duration) to prevent system overload
 
 **VAD Batching with M4 Optimization**:
 - 12.5x performance improvement through BatchedInferencePipeline
@@ -302,9 +303,12 @@ curl http://localhost:1234/v1/models
 ### Performance Benchmarks
 
 **Expected Performance**:
-- 12.5x real-time transcription (1 minute audio in ~5 seconds)
+- 12.5x real-time transcription (1 minute audio in ~5 seconds) under normal conditions
+- Performance monitoring: Auto-degrade when chunks take >30 seconds
 - <2GB memory usage for large-v2 model on M4
 - Thai language accuracy: 15-20% improvement over base models
+- Optimized for files up to 2 hours (150 chunks maximum)
+- Chunk timeout: 90 seconds (reduced from 180s for faster detection)
 
 ## Development Guidelines
 
@@ -494,10 +498,17 @@ All financial components use Thai Baht (฿) as the default currency, as the sys
 - **Features**: Time-based auto-restore (10 minutes), UI reset functionality, localStorage cleanup
 
 **Transcription Stability Issues**:
-- **Problem**: Chunks getting stuck in "processing" state indefinitely
-- **Solution**: Enhanced watchdog with database checks every 10 seconds
-- **Features**: 2-minute timeout, automatic retry, chunk limit of 100 per file
+- **Problem**: Chunks getting stuck in "processing" state indefinitely, especially on long files (90+ minutes)
+- **Solution**: Enhanced watchdog with database checks every 5 seconds
+- **Features**: 100-second timeout, single retry, chunk limit of 150 per file, performance monitoring
+- **Auto-Optimization**: Reduces concurrency from 2→1 threads when slow chunks (>30s) detected
 - **Recovery**: Manual chunk reset via Django shell if needed
+
+**Performance Optimization**:
+- **Problem**: Long audio files (90+ minutes) causing system freeze due to resource contention
+- **Solution**: Reduced chunk timeout from 180s to 90s, concurrent threads from 3 to 2
+- **Monitoring**: Tracks chunks taking >30 seconds and auto-degrades performance
+- **Limits**: Maximum 150 chunks (2 hours) with automatic duration capping
 
 ## Troubleshooting
 
