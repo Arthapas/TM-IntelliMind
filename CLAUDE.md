@@ -166,12 +166,15 @@ headers: {
 - Queue-based processing with up to 3 concurrent transcriptions
 - Sequential chunk reassembly with overlap removal
 - Status tracking: pending → processing → completed/failed per chunk
+- Enhanced watchdog system with 2-minute timeout and database checks
+- Automatic recovery from stuck transcriptions with retry mechanisms
 
 **Audio Chunking Engine** (`core/audio_chunking.py`):
 - Automatic file segmentation based on size thresholds (default: 30-second chunks)
 - VAD-aware chunking to preserve speech boundaries
 - Format-aware duration estimation for different audio codecs
 - Concurrent chunk creation with progress tracking
+- Safety limits: Maximum 100 chunks per file to prevent system overload
 
 **VAD Batching with M4 Optimization**:
 - 12.5x performance improvement through BatchedInferencePipeline
@@ -182,7 +185,8 @@ headers: {
 - Business vocabulary integration (32+ insurance terms)
 - Enhanced beam search (size 10) with confidence scoring
 - Large-v2 model default for 15-20% accuracy improvement
-- Automatic language detection with fallback handling
+- Automatic language detection with transcription-based fallback
+- Warning suppression for faster-whisper math operations to reduce log noise
 
 ### Security & Error Handling
 
@@ -197,6 +201,8 @@ headers: {
 - JSON parsing error boundaries in frontend
 - Memory leak prevention in progress polling
 - Graceful fallbacks for all external dependencies
+- Enhanced timeout detection with automatic chunk recovery
+- Proper NULL constraint handling for API credentials fields
 
 ## Frontend Architecture
 
@@ -319,6 +325,12 @@ curl http://localhost:1234/v1/models
 
 **Purpose**: Maintain project continuity across chat sessions and serve as reference for future development work.
 
+**Examples of Recent Working Logs**:
+- `2025-07-06_stuck-transcription-bug-fix.md`: Comprehensive fix for hanging transcriptions
+- `2025-07-06_transcription-error-fixes.md`: Language detection and warning suppression
+- `2025-07-06_progressive-transcription-implementation.md`: Initial progressive system
+- `2025-07-06_wide-screen-implementation.md`: Responsive design enhancements
+
 **Git Integration**: After writing the working log, ALWAYS commit and push changes to maintain repository synchronization:
 ```bash
 git add .
@@ -423,6 +435,26 @@ return JsonResponse({
 })
 ```
 
+## Recent Stability Improvements
+
+### Transcription System Reliability (2025-07-06)
+
+**Stuck Transcription Bug Fixes**:
+- Enhanced watchdog system with dual monitoring (thread + database checks)
+- Reduced timeout from 5 minutes to 2 minutes for faster detection
+- Automatic chunk recovery and retry mechanisms
+- Safety limit of 100 chunks per file to prevent system overload
+
+**Language Detection Fixes**:
+- Fixed `'str' object has no attribute 'dtype'` error in language detection
+- Switched from direct `detect_language()` to transcription-based detection
+- Added warning suppression for faster-whisper math operations
+
+**Error Handling Improvements**:
+- Enhanced timeout handling with proper chunk status updates
+- Fixed NULL constraint errors for API credentials fields
+- Improved duration estimation logging for transparency
+
 ## Currency Configuration
 
 All financial components use Thai Baht (฿) as the default currency, as the system is designed for Thailand's non-life insurance sector.
@@ -460,3 +492,66 @@ All financial components use Thai Baht (฿) as the default currency, as the sys
 - **Problem**: Old transcripts persist across browser sessions causing confusion
 - **Solution**: Smart session restoration with user confirmation dialogs
 - **Features**: Time-based auto-restore (10 minutes), UI reset functionality, localStorage cleanup
+
+**Transcription Stability Issues**:
+- **Problem**: Chunks getting stuck in "processing" state indefinitely
+- **Solution**: Enhanced watchdog with database checks every 10 seconds
+- **Features**: 2-minute timeout, automatic retry, chunk limit of 100 per file
+- **Recovery**: Manual chunk reset via Django shell if needed
+
+## Troubleshooting
+
+### Stuck Transcription Recovery
+
+If transcription appears frozen, use these debugging commands:
+
+```bash
+# Check meeting status
+python3 manage.py shell -c "
+from core.models import Meeting, AudioChunk
+meeting = Meeting.objects.get(id='<meeting-id>')
+chunks = AudioChunk.objects.filter(meeting=meeting)
+print(f'Total: {chunks.count()}, Processing: {chunks.filter(status=\"processing\").count()}')
+"
+
+# Reset stuck chunks
+python3 manage.py shell -c "
+from core.models import AudioChunk
+stuck = AudioChunk.objects.filter(meeting_id='<meeting-id>', status='processing')
+stuck.update(status='pending', error_message='Reset from stuck state')
+print(f'Reset {stuck.count()} chunks')
+"
+
+# Re-queue pending chunks
+python3 manage.py shell -c "
+from core.models import AudioChunk
+from core.progressive_transcription import add_chunk_to_transcription_queue
+pending = AudioChunk.objects.filter(meeting_id='<meeting-id>', status='pending')
+for chunk in pending:
+    add_chunk_to_transcription_queue(chunk)
+print(f'Queued {pending.count()} chunks')
+"
+```
+
+### Database Issues
+
+```bash
+# Check for orphaned chunks
+python3 manage.py shell -c "
+from core.models import Meeting, AudioChunk
+orphaned = AudioChunk.objects.filter(meeting__isnull=True)
+print(f'Orphaned chunks: {orphaned.count()}')
+"
+
+# Clean up incomplete meetings
+python3 manage.py shell -c "
+from core.models import Meeting
+from django.utils import timezone
+import datetime
+old_meetings = Meeting.objects.filter(
+    created_at__lt=timezone.now() - datetime.timedelta(hours=24),
+    transcript__isnull=True
+)
+print(f'Found {old_meetings.count()} incomplete meetings older than 24h')
+"
+```
