@@ -1,0 +1,53 @@
+{
+  "timestamp": "2025-07-07T20:07:32.839012",
+  "models": {
+    "medium": {
+      "synthetic": true,
+      "aggregate": {
+        "avg_real_time_factor": 0.08,
+        "avg_memory_mb": 1400,
+        "wer_thai": 12.5,
+        "success_rate": 100
+      }
+    },
+    "large-v2": {
+      "synthetic": true,
+      "aggregate": {
+        "avg_real_time_factor": 0.15,
+        "avg_memory_mb": 2900,
+        "wer_thai": 10.8,
+        "success_rate": 100
+      }
+    },
+    "thonburian-medium": {
+      "synthetic": true,
+      "aggregate": {
+        "avg_real_time_factor": 0.09,
+        "avg_memory_mb": 1450,
+        "wer_thai": 7.4,
+        "success_rate": 100
+      }
+    },
+    "thonburian-large": {
+      "synthetic": true,
+      "aggregate": {
+        "avg_real_time_factor": 0.16,
+        "avg_memory_mb": 2950,
+        "wer_thai": 6.6,
+        "success_rate": 100
+      }
+    }
+  },
+  "comparisons": {
+    "medium_vs_thonburian_medium": {
+      "speed_difference": 12.499999999999993,
+      "memory_difference_mb": 50,
+      "wer_improvement": 40.8
+    },
+    "large_vs_thonburian_large": {
+      "speed_difference": 6.666666666666673,
+      "memory_difference_mb": 50,
+      "wer_improvement": 38.88888888888889
+    }
+  }
+}
