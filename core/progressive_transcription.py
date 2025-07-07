@@ -32,7 +32,7 @@ class ProgressiveTranscriber:
     _active_transcribers = {}
     _lock = threading.Lock()
     
-    def __init__(self, meeting: Meeting, max_concurrent_transcriptions: int = 2):
+    def __init__(self, meeting: Meeting, max_concurrent_transcriptions: int = 1):
         """
         Initialize progressive transcriber for a meeting
         
@@ -65,7 +65,7 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 140  # 2.33 minutes max per chunk (should be > chunk timeout of 120s)
+        self.thread_timeout = 320  # 5.33 minutes max per chunk (should be > chunk timeout of 300s)
         self.max_retries = 1  # Reduced retry attempts for faster recovery
         self.last_watchdog_check = time.time()
         self.watchdog_interval = 5  # Check every 5 seconds for faster detection

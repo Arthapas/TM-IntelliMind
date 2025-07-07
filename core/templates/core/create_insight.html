@@ -1628,7 +1628,7 @@ function pollChunkingProgress() {
     
     let pollCount = 0;
     let chunkingStuckCount = 0;
-    const maxPolls = 1800; // 1 hour max (1800 * 2 seconds)
+    const maxPolls = 900; // 30 minutes max (900 * 2 seconds)  
     const maxChunkingStuck = 15; // 30 seconds stuck on chunking (15 * 2 seconds)
     let lastChunkingStatus = null;
     
@@ -1841,7 +1841,7 @@ function pollChunkingProgress() {
             console.error('Progress polling error:', error);
             // Don't stop polling on transient errors, but show warning in console
         });
-    }, 2000); // Poll every 2 seconds
+    }, 3000); // Poll every 3 seconds
 }
 
 // Poll progressive transcription progress for large files

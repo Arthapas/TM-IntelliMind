@@ -86,8 +86,8 @@ class ChunkTranscriber:
             
             logger.info(f"Starting transcription for chunk {chunk.chunk_index} of meeting {chunk.meeting.id}")
             
-            # Transcribe the chunk file with timeout protection (balanced for reliability)
-            success, text, timed_out = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=120)
+            # Transcribe the chunk file with timeout protection (generous for complex audio)
+            success, text, timed_out = transcribe_audio_with_timeout(chunk.file_path, whisper_model, chunk, language, timeout=300)
             
             if success and text:
                 chunk.transcript_text = text
@@ -96,7 +96,7 @@ class ChunkTranscriber:
                 logger.info(f"Completed transcription for chunk {chunk.chunk_index}")
             elif timed_out:
                 chunk.status = 'failed'
-                chunk.error_message = f"Transcription timed out after 120 seconds"
+                chunk.error_message = f"Transcription timed out after 300 seconds"
                 logger.error(f"Transcription timeout for chunk {chunk.chunk_index}")
             else:
                 chunk.status = 'failed'

@@ -11226,3 +11226,120 @@ INFO 2025-07-07 09:14:51,758 autoreload 89805 8433114880 Watching for file chang
 INFO 2025-07-07 09:14:51,758 autoreload 89806 8433114880 Watching for file changes with StatReloader
 INFO 2025-07-07 09:14:52,601 utils 89806 6150647808 BatchedInferencePipeline available - advanced features enabled
 INFO 2025-07-07 09:14:52,601 utils 89805 6138769408 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:15:53,228 autoreload 89959 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:15:54,089 utils 89959 6110261248 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:16:03,341 audio_chunking 89959 6127087616 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/a4517b52-107e-4ff0-aab3-d885288b019b/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-07 09:16:03,342 audio_chunking 89959 6127087616 Removed chunk file: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/a4517b52-107e-4ff0-aab3-d885288b019b/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-07 09:16:03,342 audio_chunking 89959 6127087616 Removed empty chunk directory: /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/a4517b52-107e-4ff0-aab3-d885288b019b/chunks
+INFO 2025-07-07 09:16:03,345 audio_chunking 89959 6127087616 Cleaned up chunks for meeting a4517b52-107e-4ff0-aab3-d885288b019b
+INFO 2025-07-07 09:16:14,612 views 89959 6127087616 Upload request: file=Commute-from-home.wav, size=3137836, provider=local, model=large
+INFO 2025-07-07 09:16:14,620 audio_chunking 89959 6127087616 Format-aware estimation for .wav: 2.99MB ÷ 10.0MB/min = 0.30min = 17.95s
+INFO 2025-07-07 09:16:14,620 views 89959 6127087616 Upload estimates - File: 2.99MB .wav, Duration: 0.30min, Chunks: 1
+INFO 2025-07-07 09:16:14,622 progressive_transcription 89959 6160740352 Initialized ProgressiveTranscriber for meeting 7478415d-8a59-4624-9575-7c3c55813c55 with model large
+INFO 2025-07-07 09:16:14,623 progressive_transcription 89959 13304360960 Started queue processor for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,623 progressive_transcription 89959 6160740352 Started progressive transcription for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,623 views 89959 6160740352 Started progressive transcription for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,624 audio_chunking 89959 6160740352 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-07 09:16:14,626 views 89959 6160740352 Set meeting duration: 98.06s
+INFO 2025-07-07 09:16:14,627 audio_chunking 89959 6160740352 Starting chunking for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,627 audio_chunking 89959 6160740352 Attempting VAD-aware chunking
+INFO 2025-07-07 09:16:14,627 audio_chunking 89959 6160740352 VAD detection failed or found single segment, falling back to time-based
+INFO 2025-07-07 09:16:14,627 audio_chunking 89959 6160740352 Audio duration detected via torchaudio: 98.06 seconds
+INFO 2025-07-07 09:16:14,627 audio_chunking 89959 6160740352 Time-based chunking created 2 chunks
+INFO 2025-07-07 09:16:14,629 audio_chunking 89959 6160740352 Saved chunk: 0.0s-60.0s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/7478415d-8a59-4624-9575-7c3c55813c55/chunks/chunk_000_0.0s-60.0s.wav
+INFO 2025-07-07 09:16:14,630 audio_chunking 89959 6160740352 Created chunk 0: 0.0s-60.0s
+INFO 2025-07-07 09:16:14,630 progressive_transcription 89959 6160740352 Added chunk 0 to transcription queue for meeting 7478415d-8a59-4624-9575-7c3c55813c55 (queue size: 1)
+INFO 2025-07-07 09:16:14,630 progressive_transcription 89959 13304360960 Processing chunk 0 from queue (queue remaining: 0)
+INFO 2025-07-07 09:16:14,630 audio_chunking 89959 6160740352 Added chunk 0 to transcription queue
+INFO 2025-07-07 09:16:14,631 progressive_transcription 89959 13321187328 Starting transcription for chunk 0 of meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,632 audio_chunking 89959 6160740352 Saved chunk: 57.0s-98.1s to /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/media/audio/7478415d-8a59-4624-9575-7c3c55813c55/chunks/chunk_001_57.0s-98.1s.wav
+INFO 2025-07-07 09:16:14,633 chunk_transcription 89959 13321187328 Starting transcription for chunk 0 of meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,633 utils 89959 13338013696 Processing audio file: 1.8MB
+INFO 2025-07-07 09:16:14,636 utils 89959 13338013696 Creating enhanced batched inference pipeline for model: large
+INFO 2025-07-07 09:16:14,636 utils 89959 13338013696 Loading Whisper model: large
+INFO 2025-07-07 09:16:14,644 audio_chunking 89959 6160740352 Created chunk 1: 57.0s-98.1s
+INFO 2025-07-07 09:16:14,644 progressive_transcription 89959 6160740352 Added chunk 1 to transcription queue for meeting 7478415d-8a59-4624-9575-7c3c55813c55 (queue size: 1)
+INFO 2025-07-07 09:16:14,644 progressive_transcription 89959 13304360960 Processing chunk 1 from queue (queue remaining: 0)
+INFO 2025-07-07 09:16:14,644 audio_chunking 89959 6160740352 Added chunk 1 to transcription queue
+INFO 2025-07-07 09:16:14,645 audio_chunking 89959 6160740352 Successfully created 2 chunks for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,645 progressive_transcription 89959 13354840064 Starting transcription for chunk 1 of meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,647 utils 89959 13338013696 Apple Silicon detected: Apple M4
+INFO 2025-07-07 09:16:14,647 progressive_transcription 89959 6160740352 Chunking complete for meeting 7478415d-8a59-4624-9575-7c3c55813c55: expected=2, actual=2
+INFO 2025-07-07 09:16:14,648 utils 89959 13338013696 Available memory: 7.2GB
+INFO 2025-07-07 09:16:14,648 views 89959 6160740352 Successfully created chunks for meeting 7478415d-8a59-4624-9575-7c3c55813c55, transcription started
+INFO 2025-07-07 09:16:14,648 utils 89959 13338013696 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-07 09:16:14,648 chunk_transcription 89959 13354840064 Starting transcription for chunk 1 of meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:16:14,648 utils 89959 6160740352 Processing audio file: 1.3MB
+INFO 2025-07-07 09:16:14,649 utils 89959 6160740352 Creating enhanced batched inference pipeline for model: large
+INFO 2025-07-07 09:16:14,650 utils 89959 6160740352 Loading Whisper model: large
+INFO 2025-07-07 09:16:14,657 utils 89959 6160740352 Apple Silicon detected: Apple M4
+INFO 2025-07-07 09:16:14,657 utils 89959 6160740352 Available memory: 7.2GB
+INFO 2025-07-07 09:16:14,657 utils 89959 6160740352 Apple Silicon detected - using optimized CPU + Neural Engine configuration
+INFO 2025-07-07 09:16:17,631 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:19,626 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:21,625 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:22,394 utils 89959 6160740352 Whisper model large loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-07 09:16:22,394 utils 89959 13338013696 Whisper model large loaded and validated successfully on cpu with compute_type int8
+INFO 2025-07-07 09:16:22,394 utils 89959 13338013696 M4 optimization: 8.0GB available, batch_size=8
+INFO 2025-07-07 09:16:22,394 utils 89959 13338013696 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-07 09:16:22,394 utils 89959 13338013696 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-07 09:16:22,394 utils 89959 13338013696 Model load time: 7.76s
+INFO 2025-07-07 09:16:22,395 utils 89959 13338013696 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-07 09:16:22,395 utils 89959 13338013696 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-07 09:16:22,395 utils 89959 13338013696 Word timestamps enabled
+INFO 2025-07-07 09:16:22,395 utils 89959 13338013696 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-07 09:16:22,395 utils 89959 13338013696 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+INFO 2025-07-07 09:16:22,437 utils 89959 6160740352 M4 optimization: 8.0GB available, batch_size=8
+INFO 2025-07-07 09:16:22,438 utils 89959 6160740352 Basic batched model created (batch_size configuration not supported)
+INFO 2025-07-07 09:16:22,438 utils 89959 6160740352 Using enhanced batched inference pipeline with VAD
+INFO 2025-07-07 09:16:22,438 utils 89959 6160740352 Model load time: 7.79s
+INFO 2025-07-07 09:16:22,438 utils 89959 6160740352 Advanced parameters enabled for faster-whisper v1.1+
+INFO 2025-07-07 09:16:22,439 utils 89959 6160740352 faster-whisper version: 1.1.1, supported params: 20
+INFO 2025-07-07 09:16:22,439 utils 89959 6160740352 Word timestamps enabled
+INFO 2025-07-07 09:16:22,439 utils 89959 6160740352 Using batched inference pipeline with pre-configured VAD and batching
+INFO 2025-07-07 09:16:22,439 utils 89959 6160740352 Enhanced transcription parameters (10): ['language', 'task', 'beam_size', 'temperature', 'condition_on_previous_text', 'patience', 'suppress_blank', 'word_timestamps', 'compression_ratio_threshold', 'no_speech_threshold']
+INFO 2025-07-07 09:16:23,629 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:25,625 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:27,624 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:29,625 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:31,624 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:33,623 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:35,622 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:37,622 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:38,309 utils 89959 13338013696 Auto-detected Thai language with confidence 0.99
+INFO 2025-07-07 09:16:39,352 utils 89959 6160740352 Auto-detected Thai language with confidence 0.97
+INFO 2025-07-07 09:16:39,626 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:41,623 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:43,624 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:45,624 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+INFO 2025-07-07 09:16:47,622 views 89959 6127087616 Meeting 7478415d-8a59-4624-9575-7c3c55813c55: Created 2 chunks (estimated 3)
+ERROR 2025-07-07 09:18:14,629 chunk_transcription 89959 13321187328 Transcription timed out after 120s for chunk 0
+ERROR 2025-07-07 09:18:14,630 chunk_transcription 89959 13321187328 Transcription timeout for chunk 0
+ERROR 2025-07-07 09:18:14,631 progressive_transcription 89959 13321187328 Failed transcription for chunk 0 (1 total failures)
+ERROR 2025-07-07 09:18:14,644 chunk_transcription 89959 13354840064 Transcription timed out after 120s for chunk 1
+ERROR 2025-07-07 09:18:14,644 chunk_transcription 89959 13354840064 Transcription timeout for chunk 1
+ERROR 2025-07-07 09:18:14,645 progressive_transcription 89959 13354840064 Failed transcription for chunk 1 (2 total failures)
+INFO 2025-07-07 09:18:15,709 progressive_transcription 89959 13304360960 Meeting 7478415d-8a59-4624-9575-7c3c55813c55 ready to finish: pending=0, active=0, processed=2/2
+INFO 2025-07-07 09:18:15,709 progressive_transcription 89959 13304360960 Queue processor finished for meeting 7478415d-8a59-4624-9575-7c3c55813c55
+INFO 2025-07-07 09:19:27,393 utils 89959 13338013696 Thai text enhancement completed
+INFO 2025-07-07 09:19:27,394 utils 89959 13338013696 Performance: 0.4x real-time (169.08s for 60.0s audio)
+INFO 2025-07-07 09:19:27,394 utils 89959 13338013696 Transcription complete: 2 segments, 295 words
+INFO 2025-07-07 09:19:27,395 utils 89959 13338013696 Detected language: th (confidence: 1.00)
+INFO 2025-07-07 09:19:27,395 utils 89959 13338013696 Total processing time: 192.76s
+INFO 2025-07-07 09:19:29,686 utils 89959 6160740352 Thai text enhancement completed
+INFO 2025-07-07 09:19:29,687 utils 89959 6160740352 Performance: 0.2x real-time (170.33s for 41.1s audio)
+INFO 2025-07-07 09:19:29,687 utils 89959 6160740352 Transcription complete: 2 segments, 250 words
+INFO 2025-07-07 09:19:29,687 utils 89959 6160740352 Detected language: th (confidence: 1.00)
+INFO 2025-07-07 09:19:29,687 utils 89959 6160740352 Total processing time: 195.04s
+INFO 2025-07-07 09:24:02,273 autoreload 89959 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:24:02,721 autoreload 89805 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:24:02,848 autoreload 90740 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:24:03,033 autoreload 90741 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:24:03,798 utils 90740 8433114880 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:24:03,836 utils 90741 6176157696 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:24:09,158 autoreload 90741 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:24:09,161 autoreload 90740 8433114880 /Users/artdebmac/Desktop/2025-TMVault/00 Art/Personal Projects/TM IntelliMind/core/chunk_transcription.py changed, reloading.
+INFO 2025-07-07 09:24:09,480 autoreload 90778 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:24:09,484 autoreload 90779 8433114880 Watching for file changes with StatReloader
+INFO 2025-07-07 09:24:10,296 utils 90778 6177714176 BatchedInferencePipeline available - advanced features enabled
+INFO 2025-07-07 09:24:10,302 utils 90779 6119354368 BatchedInferencePipeline available - advanced features enabled
