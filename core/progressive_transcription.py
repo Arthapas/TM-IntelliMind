@@ -61,10 +61,10 @@ class ProgressiveTranscriber:
         self.language = None  # Could be added to meeting model later
         
         # Watchdog settings
-        self.thread_timeout = 240  # 4 minutes max per chunk (should be longer than chunk timeout of 180s)
+        self.thread_timeout = 120  # 2 minutes max per chunk (reduced for faster detection)
         self.max_retries = 2  # Maximum retry attempts per chunk
         self.last_watchdog_check = time.time()
-        self.watchdog_interval = 15  # Check every 15 seconds for faster detection
+        self.watchdog_interval = 10  # Check every 10 seconds for faster detection
         
         logger.info(f"Initialized ProgressiveTranscriber for meeting {meeting.id} with model {self.whisper_model}")
     
@@ -201,13 +201,33 @@ class ProgressiveTranscriber:
         if self.thread_start_times:
             logger.debug(f"Watchdog checking {len(self.thread_start_times)} active threads for meeting {self.meeting.id}")
         
+        # Check thread-based timeouts
         for chunk_index, start_time in self.thread_start_times.items():
             if current_time - start_time > self.thread_timeout:
                 stuck_chunks.append(chunk_index)
         
+        # Also check database for chunks stuck in processing state
+        from django.utils import timezone
+        stuck_db_chunks = self.meeting.chunks.filter(
+            status='processing',
+            updated_at__lt=timezone.now() - timezone.timedelta(seconds=self.thread_timeout)
+        )
+        
+        for chunk in stuck_db_chunks:
+            if chunk.chunk_index not in stuck_chunks:
+                stuck_chunks.append(chunk.chunk_index)
+                logger.warning(f"Found database chunk {chunk.chunk_index} stuck in processing "
+                             f"for {(timezone.now() - chunk.updated_at).total_seconds():.0f}s")
+        
         for chunk_index in stuck_chunks:
-            logger.error(f"Detected stuck transcription for chunk {chunk_index} "
-                        f"(running for {current_time - self.thread_start_times[chunk_index]:.1f}s)")
+            # Get runtime from either thread tracking or database 
+            if chunk_index in self.thread_start_times:
+                runtime = current_time - self.thread_start_times[chunk_index]
+                logger.error(f"Detected stuck transcription for chunk {chunk_index} "
+                           f"(thread running for {runtime:.1f}s)")
+            else:
+                logger.error(f"Detected stuck transcription for chunk {chunk_index} "
+                           f"(found in database processing state)")
             
             # Clean up stuck thread
             if chunk_index in self.active_threads:
